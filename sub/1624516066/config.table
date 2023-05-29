@@ -1,0 +1,274 @@
+{
+  ["view_attribute"]	= {
+      ["顶栏高度"]	= "56dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["顶栏标题"]	= "Title" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      } ;
+  ["fltBtn"]	= {
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["显示"]	= false ;
+      ["图标"]	= "" ;
+      } ;
+  ["colors"]	= {
+      ["进度条"]	= "#00000000" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["顶栏"]	= "#ff2c2e43" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      } ;
+  ["sidebar"]	= {
+      ["启用"]	= true ;
+      ["items"]	= {
+          } ;
+      ["启用顶部图片"]	= false ;
+      } ;
+  ["events"]	= {
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["程序启动"]	= "\
+Http.get(\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1625025019588172\",nil,nil,nil,function(code,content)\
+  if code==200 then--判断网络链接状态\
+    content=content:gsub(\"amp;\",\"\") or content;\
+    --状态\
+    广播=content:match(\"【广播】(.-)【广播】\")\
+    常见问题=content:match(\"【常见问题】(.-)【常见问题】\")\
+\
+    全屏框架=\
+    {\
+      LinearLayout,--线性布局\
+      orientation='vertical',--方向\
+      layout_width='fill',--宽度\
+      layout_height='wrap',--高度\
+      background='#00FFFFFF',--背景颜色或图片路径\
+      id='B';\
+      {\
+        LinearLayout,--线性布局\
+        layout_marginTop='60dp';--顶距\
+        orientation='vertical',--方向\
+        layout_width='fill',--宽度\
+        layout_height='wrap',--高度\
+        background='#00FFFFFF',--背景颜色或图片路径\
+        {\
+          ScrollView,--纵向滑动\
+          layout_width='wrap';--宽度\
+          layout_height='wrap';--高度\
+          VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+          --布局写这\
+          {\
+            CardView;--卡片控件\
+            layout_marginTop='10dp';--顶距\
+            layout_margin='8dp';--边距\
+            layout_gravity='left|center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='5dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='40%w';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            id=\"top\";\
+            radius='20dp';--圆角\
+            {\
+              TextView;--文本控件\
+              gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              layout_width='400dp';--宽度\
+              layout_height='40dp';--高度\
+              textColor='#eb000000';--文字颜色\
+              text='次元空间常见问题';--显示文字\
+              textSize='26dp';--文字大小\
+              id=\"toptext\";\
+              textIsSelectable=true--长按复制\
+            };\
+          };\
+        };\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='fill';--宽度\
+          layout_height='170%w';--高度\
+          CardBackgroundColor='#ffffffff';--颜色\
+          id=\"main\";\
+          radius='18dp';--圆角\
+          {\
+            TextView;--文本控件\
+            gravity='top|left';--重力\
+            layout_marginTop='10dp';--顶距\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            textColor='#eb000000';--文字颜色\
+            text=常见问题;--显示文字\
+            textSize='20dp';--文字大小\
+            id=\"fankui\";\
+            textIsSelectable=true--长按复制\
+          };\
+        };\
+        {\
+          LinearLayout,--线性布局\
+          orientation='horizontal',--方向\
+          layout_width='fill',--宽度\
+          layout_height='wrap',--高度\
+          background='#00FFFFFF',--背景颜色或图片路径\
+          {\
+            CardView;--卡片控件\
+            layout_margin='10dp';--边距\
+            layout_marginLeft='26dp';--左距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='5dp';--阴影\
+            layout_width='40%w';--宽度\
+            layout_height='10%w';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            id='fk';\
+            radius='18dp';--圆角\
+            {\
+              TextView;--文本控件\
+              gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              layout_width='fill';--宽度\
+              layout_height='fill';--高度\
+              textColor='#ffff6e19';--文字颜色\
+              text='立即反馈BUG';--显示文字\
+              textSize='18dp';--文字大小\
+              id='ljfk';\
+              textIsSelectable=false--长按复制\
+            };\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='10dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='5dp';--阴影\
+            layout_width='40%w';--宽度\
+            layout_height='10%w';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            id='QQ群';\
+            radius='18dp';--圆角\
+            {\
+              TextView;--文本控件\
+              gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              layout_width='fill';--宽度\
+              layout_height='fill';--高度\
+              textColor='#ffff6e19';--文字颜色\
+              text='加入QQ群';--显示文字\
+              textSize='18dp';--文字大小\
+              id='JRQQ';\
+              textIsSelectable=false--长按复制\
+            };\
+          };\
+        };\
+\
+\
+      };\
+\
+    };\
+\
+    activity.setContentView(loadlayout(全屏框架))\
+\
+    ljfk.onClick=function()--点击事件\
+      发送邮件(\"moshouzuichu@gmail.com\")\
+    end;\
+    JRQQ.onClick=function()--点击事件\
+      import \"android.net.Uri\"\
+      import \"android.content.Intent\"\
+      --加群\
+      url=\"mqqapi://card/show_pslcard?src_type=internal&version=1&uin=902800414&card_type=group&source=qrcode\"\
+      activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))\
+\
+    end;\
+\
+    --设置动画的属性\
+\
+    import \"android.view.animation.TranslateAnimation\"\
+    import \"android.view.animation.ScaleAnimation\"\
+    import \"android.view.animation.Animation\"\
+    平移动画=TranslateAnimation(0, 0, 800, 0)\
+    平移动画.setDuration(600)--设置动画时间\
+    平移动画.setFillAfter(true)--设置动画后停留位置\
+    平移动画.setRepeatCount(0)--设置无限循环\
+    top.startAnimation(平移动画)\
+    main.startAnimation(平移动画)\
+    缩放动画=ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,0.5,Animation.RELATIVE_TO_SELF,0.5)\
+    缩放动画.setDuration(1100)--设置动画时间\
+    缩放动画.setFillAfter(true)--设置动画后停留位置\
+    缩放动画.setRepeatCount(0)--设置无限循环\
+    toptext.startAnimation(缩放动画)\
+    fk.startAnimation(缩放动画)\
+    QQ群.startAnimation(缩放动画)\
+\
+    function 三色渐变(控件,左色,中色,右色,圆角)\
+      import \"android.graphics.drawable.GradientDrawable\"\
+      drawable = GradientDrawable(GradientDrawable.Orientation.TR_BL,{左色,中色,右色});\
+      drawable.setCornerRadii({圆角,圆角,圆角,圆角,圆角,圆角,圆角,圆角});\
+      控件.setBackgroundDrawable(drawable)\
+    end\
+    --调用方法\
+    三色渐变(B,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+\
+\
+   else\
+    弹出消息(\"错误，网络链接失败！\")--链接失败事件\
+  end--判断网络链接结束\
+end)--网页截取结束\
+\
+\
+\
+" ;
+      } ;
+  ["toolbar"]	= {
+      ["menus"]	= {
+          [1]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["name"]	= "退出" ;
+              } ;
+          } ;
+      ["启用搜索功能"]	= false ;
+      ["输入栏模式"]	= true ;
+      ["搜索URL"]	= "" ;
+      ["icon_btns"]	= {
+          } ;
+      ["搜索框提示"]	= "" ;
+      } ;
+  ["switch"]	= {
+      ["支持滑动页面"]	= false ;
+      ["横屏"]	= false ;
+      ["显示状态栏"]	= true ;
+      ["启用启动图"]	= false ;
+      } ;
+  ["web"]	= {
+      ["网页沉浸"]	= false ;
+      ["启用进度条"]	= true ;
+      ["启用长按菜单"]	= true ;
+      ["启动网页"]	= "" ;
+      ["支持打开外部应用"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      } ;
+  ["web_control"]	= {
+      } ;
+  } ;

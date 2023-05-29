@@ -1,0 +1,137 @@
+{
+  ["sidebar"]	= {
+      ["items"]	= {
+          [1]	= {
+              ["icon"]	= "drawable/format_list_numbers.png" ;
+              ["onClick"]	= "加载网页(\"https://www.tgys.tv/label/rank.html\")" ;
+              ["name"]	= "影视排行" ;
+              } ;
+          [2]	= {
+              ["icon"]	= "drawable/alarm.png" ;
+              ["onClick"]	= "加载网页(\"https://www.tgys.tv/map.html\")" ;
+              ["name"]	= "最近更新" ;
+              } ;
+          [3]	= {
+              ["icon"]	= "drawable/account_circle.png" ;
+              ["onClick"]	= "加载网页(\"https://www.tgys.tv/index.php/user/login.html\")" ;
+              ["name"]	= "登录/注册" ;
+              } ;
+          } ;
+      ["启用"]	= true ;
+      ["启用顶部图片"]	= false ;
+      } ;
+  ["global_js"]	= "" ;
+  ["bottomBar"]	= {
+      [1]	= {
+          ["icon"]	= "drawable/home.png" ;
+          ["text"]	= "首页" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.tgys.tv/" ;
+          } ;
+      [2]	= {
+          ["icon"]	= "drawable/movie.png" ;
+          ["text"]	= "电影" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.tgys.tv/vodtype/1.html" ;
+          } ;
+      [3]	= {
+          ["icon"]	= "drawable/monitor_multiple.png" ;
+          ["text"]	= "电视剧" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.tgys.tv/vodtype/2.html" ;
+          } ;
+      [4]	= {
+          ["icon"]	= "drawable/monitor.png" ;
+          ["text"]	= "综艺" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.tgys.tv/vodtype/3.html" ;
+          } ;
+      [5]	= {
+          ["icon"]	= "drawable/book.png" ;
+          ["text"]	= "动漫" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.tgys.tv/vodtype/4.html" ;
+          } ;
+      } ;
+  ["switch"]	= {
+      ["横屏"]	= false ;
+      ["显示状态栏"]	= true ;
+      ["启用启动图"]	= false ;
+      ["支持滑动页面"]	= false ;
+      } ;
+  ["toolbar"]	= {
+      ["搜索框提示"]	= "" ;
+      ["搜索功能"]	= false ;
+      ["icon_btns"]	= {
+          } ;
+      ["menus"]	= {
+          [1]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["name"]	= "退出" ;
+              } ;
+          } ;
+      ["搜索URL"]	= "" ;
+      ["启用搜索功能"]	= false ;
+      ["输入栏模式"]	= false ;
+      } ;
+  ["web_control"]	= {
+      [1]	= {
+          ["url"]	= "www.tgys.tv" ;
+          ["js"]	= "" ;
+          ["remove_element"]	= "logo,r cf,navtop,tag cl,cf back cor2,title-a cf box,ec_mh_foot back" ;
+          } ;
+      } ;
+  ["web"]	= {
+      ["启用进度条"]	= true ;
+      ["惰性加载"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["启用长按菜单"]	= true ;
+      ["支持打开外部应用"]	= true ;
+      ["网页沉浸"]	= true ;
+      ["默认广告标记标签"]	= "" ;
+      } ;
+  ["colors"]	= {
+      ["进度条"]	= "#ffffffff" ;
+      ["底栏图标"]	= "#ffffce00" ;
+      ["侧滑栏背景"]	= "#77ff7e17" ;
+      ["悬浮按钮图标"]	= "#FFFFFF" ;
+      ["底栏"]	= "#ffffffff" ;
+      ["底栏图标选中"]	= "#ffff2317" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["顶栏部件触摸"]	= "#22000000" ;
+      ["底栏图标触摸波纹"]	= "#24000000" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["侧滑栏列表图标"]	= "#ffff00e4" ;
+      ["导航栏"]	= "#ffffac46" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["顶栏"]	= "#ff3ca1dd" ;
+      ["侧滑栏列表文字"]	= "#ff178dff" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      } ;
+  ["view_attribute"]	= {
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["底栏高度"]	= "48dp" ;
+      ["顶栏标题"]	= "糖果影视" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["底栏图标大小"]	= "24dp" ;
+      ["顶栏高度"]	= "56dp" ;
+      } ;
+  ["events"]	= {
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+新标题=..." ;
+      ["程序启动"]	= "--程序启动时会执行的事件" ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  } ;

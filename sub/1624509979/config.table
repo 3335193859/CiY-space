@@ -1,0 +1,174 @@
+{
+  ["web"]	= {
+      ["支持打开外部应用"]	= true ;
+      ["customUa"]	= "QQBrowser " ;
+      ["网页沉浸"]	= true ;
+      ["默认广告标记标签"]	= "" ;
+      ["浏览器用户标识"]	= "自定义" ;
+      ["启用长按菜单"]	= true ;
+      ["惰性加载"]	= true ;
+      ["启用进度条"]	= true ;
+      } ;
+  ["global_js"]	= "\
+/**\
+ * 禁用动态添加脚本，防止广告加载\
+ *\
+ * @param valid bool? true(valid)|false(invalid)|other(off)\
+ * @param rule array 配置允许(valid)|不允许(invalid)的脚本规则：支持regex、string、function\
+ */\
+(function(valid, rule) {\
+    if(typeof Element === 'undefined') console.log('IE8以下浏览器无效');\
+    var origin = new RegExp('^' + location.origin),Ele = Element;\
+    each(['appendChild', 'insertBefore', 'insertAfter'], proxy);\
+\
+    function proxy(prop) {\
+        var proxy_obj = Ele.prototype[prop];\
+        Ele.prototype[prop] = function(elem) {\
+            if (!elem.children.length) {\
+                var tag = elem.tagName.toLowerCase();\
+                if (tag == 'script' && isBanScript(elem)) {\
+                    console.log('禁用脚本：' + elem.src);\
+                    var substitute = document.createElement('script');\
+                    substitute.innerHTML = '// 禁用脚本：' + elem.src;\
+                    elem = substitute;\
+                }\
+            }\
+            return proxy_obj.apply(this, arguments);\
+        };\
+    }\
+\
+    function isBanScript(script) {\
+        if (origin.test(script.src)) return false;\
+        return valid === each(rule, match);\
+\
+        function match(val) {\
+            var type = typeof val;\
+            if (type === 'string') {\
+                if (script.src == val) return true;\
+            } else if (type === 'function') {\
+                if (val(script)) return true;\
+            } else {\
+                if (val.test(script.src)) return true;\
+            }\
+            return false;\
+        }\
+    }\
+\
+    function each(arr, fn) {\
+        if (arr) {\
+            for (var i = 0, n = arr.length; i < n; i++) {\
+                if (fn.call(arr[i], arr[i], i) === true) return false;\
+            }\
+        }\
+        return true;\
+    }\
+})(true, []);\
+//表示有效的脚本规则列表\
+\
+\
+" ;
+  ["sidebar"]	= {
+      ["启用"]	= false ;
+      ["items"]	= {
+          } ;
+      ["启用顶部图片"]	= false ;
+      } ;
+  ["toolbar"]	= {
+      ["输入栏模式"]	= false ;
+      ["搜索URL"]	= "" ;
+      ["icon_btns"]	= {
+          } ;
+      ["搜索功能"]	= false ;
+      ["启用搜索功能"]	= false ;
+      ["搜索框提示"]	= "" ;
+      ["menus"]	= {
+          [1]	= {
+              ["name"]	= "退出" ;
+              ["onClick"]	= "退出页面()" ;
+              } ;
+          } ;
+      } ;
+  ["switch"]	= {
+      ["支持滑动页面"]	= true ;
+      ["横屏"]	= false ;
+      ["显示状态栏"]	= true ;
+      ["启用启动图"]	= false ;
+      } ;
+  ["events"]	= {
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+新标题=..." ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["程序启动"]	= "--程序启动时会执行的事件" ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  ["bottomBar"]	= {
+      [1]	= {
+          ["statusBarColor"]	= "" ;
+          ["icon"]	= "drawable/home.png" ;
+          ["url"]	= "http://cos.cosplayla.com/" ;
+          ["text"]	= "首页" ;
+          } ;
+      [2]	= {
+          ["statusBarColor"]	= "" ;
+          ["icon"]	= "drawable/folder_multiple_image.png" ;
+          ["url"]	= "http://cos.cosplayla.com/cosplay/list/" ;
+          ["text"]	= "cos作品" ;
+          } ;
+      [3]	= {
+          ["statusBarColor"]	= "" ;
+          ["icon"]	= "drawable/beach.png" ;
+          ["url"]	= "https://cos.cosplayla.com/manzhan/" ;
+          ["text"]	= "漫展" ;
+          } ;
+      [4]	= {
+          ["statusBarColor"]	= "" ;
+          ["icon"]	= "drawable/account.png" ;
+          ["url"]	= "http://cos.cosplayla.com/login" ;
+          ["text"]	= "登录" ;
+          } ;
+      } ;
+  ["colors"]	= {
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["底栏图标选中"]	= "#ffd55dff" ;
+      ["顶栏部件"]	= "#ffbf5dff" ;
+      ["顶栏部件触摸"]	= "#22000000" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["顶栏"]	= "#ffb9b9ff" ;
+      ["底栏图标触摸波纹"]	= "#24000000" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["底栏图标"]	= "#ffff74ac" ;
+      ["底栏"]	= "#ffffffff" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["进度条"]	= "#ffec8bff" ;
+      ["悬浮按钮图标"]	= "#FFFFFF" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      } ;
+  ["web_control"]	= {
+      [1]	= {
+          ["url"]	= "cos.cosplayla.com" ;
+          ["js"]	= "" ;
+          ["remove_element"]	= "row_mid,w row_btw,loading toping,beian,row toping top_border,toptab row toping,back" ;
+          } ;
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["底栏高度"]	= "48dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["底栏图标大小"]	= "24dp" ;
+      ["顶栏标题"]	= "LA站" ;
+      ["顶栏高度"]	= "56dp" ;
+      } ;
+  } ;

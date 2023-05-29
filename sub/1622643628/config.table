@@ -1,0 +1,311 @@
+{
+  ["web_control"]	= {
+      } ;
+  ["toolbar"]	= {
+      ["搜索框提示"]	= "" ;
+      ["menus"]	= {
+          [1]	= {
+              ["name"]	= "退出" ;
+              ["onClick"]	= "退出页面()" ;
+              } ;
+          } ;
+      ["icon_btns"]	= {
+          [1]	= {
+              ["icon"]	= "replay" ;
+              ["onClick"]	= "刷新网页()" ;
+              } ;
+          } ;
+      ["搜索URL"]	= "" ;
+      ["启用搜索功能"]	= false ;
+      ["输入栏模式"]	= false ;
+      } ;
+  ["switch"]	= {
+      ["启用启动图"]	= false ;
+      ["显示状态栏"]	= true ;
+      ["支持滑动页面"]	= false ;
+      ["横屏"]	= false ;
+      } ;
+  ["sidebar"]	= {
+      ["启用顶部图片"]	= false ;
+      ["启用"]	= false ;
+      ["items"]	= {
+          } ;
+      } ;
+  ["web"]	= {
+      ["支持打开外部应用"]	= true ;
+      ["启用长按菜单"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["启用进度条"]	= true ;
+      ["启动网页"]	= "" ;
+      ["网页沉浸"]	= true ;
+      } ;
+  ["fltBtn"]	= {
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["显示"]	= false ;
+      ["图标"]	= "" ;
+      } ;
+  ["colors"]	= {
+      ["顶栏"]	= "#c5ff3917" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["进度条"]	= "#ff2ef4ff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["顶栏标题"]	= "ATOOL在线工具" ;
+      ["顶栏高度"]	= "56dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      } ;
+  ["events"]	= {
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象,新标题=..." ;
+      ["程序启动"]	= "\
+\
+\
+全屏框架=\
+{\
+  LinearLayout,--线性布局\
+  orientation='vertical',--方向\
+  layout_width='fill',--宽度\
+  layout_height='wrap',--高度\
+  background='background1.jpg',--背景颜色或图片路径\
+\
+  {\
+    LinearLayout,--线性布局\
+    orientation=\"vertical\",--布局方向\
+    layout_width=\"fill\",--布局宽度\
+    layout_height=\"fill\",--布局高度\
+    {\
+      ScrollView,--纵向滑动控件\
+      layout_width=\"fill\",--布局宽度\
+      layout_height=\"fill\",--布局高度\
+      overScrollMode=View.OVER_SCROLL_NEVER,--隐藏圆弧阴影\
+      verticalScrollBarEnabled=false,--隐藏纵向滑条\
+      {\
+        LinearLayout;\
+        orientation='vertical';\
+        layout_width='fill';\
+        layout_height='fill';\
+        {\
+          CardView;\
+          radius=\"20dp\";--圆角\
+          layout_margin=\"10dp\";--边距   \
+          layout_width=\"fill\";--宽度\
+          layout_height=\"200dp\";--高度\
+          id=\"a\",--控件ID\
+          {\
+            ImageView,--图片框控件\
+            layout_width=\"fill\",--布局宽度\
+            layout_height=\"fill\",--布局高度\
+            src=\"tx1.jpg\",--视图路径\
+            --colorFilter=\"\",--图片颜色\
+            scaleType=\"fitXY\",--图片显示类型：centerCrop\
+          },\
+\
+        }; ------------文字\
+        {\
+          TextView;\
+          textSize=\"18sp\",--文本大小\
+          layout_margin=\"8dp\",--布局边距。。         \
+          text=\"开发者必备小工具网站！\";\
+          textColor=\"#ffff8ae8\",--文本颜色\
+          typeface=Typeface.DEFAULT_BOLD,--文本显示类型\
+        };\
+        {\
+          CardView;\
+          layout_margin='10dp';\
+          layout_width='fill';\
+          CardBackgroundColor='#00FFFFFF';\
+          layout_height='777dp';\
+          radius='20dp';\
+          id=\"Z\";\
+          {\
+            LinearLayout,--线性布局\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='fill',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--边距      \
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='5dp';--阴影\
+              layout_width='fill';--宽度\
+              layout_height='40%w';--高度\
+              CardBackgroundColor='#6846E8FF';--颜色\
+              id=\"ATOOL1\";\
+              radius='8dp';--圆角                        \
+              {\
+                TextView;--文本控件\
+                gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                textColor='#eb000000';--文字颜色\
+                text='ATOOL在线工具';--显示文字\
+                id=\"ATOOL\";\
+                textSize='24dp';--文字大小\
+                textIsSelectable=true--长按复制\
+              };\
+            };\
+\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--边距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='5dp';--阴影\
+              layout_width='fill';--宽度\
+              layout_height='40%w';--高度\
+              CardBackgroundColor='#6846E8FF';--颜色\
+              id=\"XT2\";\
+              radius='8dp';--圆\
+              {\
+                TextView;--文本控件\
+                gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                textColor='#eb000000';--文字颜色\
+                text='小涛工具箱';--显示文字\
+                id=\"XT\";\
+                textSize='24dp';--文字大小\
+                textIsSelectable=true--长按复制\
+              };\
+            };\
+            {\
+              TextView;\
+              textSize=\"18sp\",--文本大小\
+              layout_margin=\"8dp\",--布局边距。\
+              layout_gravity='center';--重力。         \
+              text=\"其他工具！\";\
+              textColor=\"#ffff8ae8\",--文本颜色\
+              typef\
+            };\
+\
+\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--边距      \
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='5dp';--阴影\
+              layout_width='fill';--宽度\
+              layout_height='40%w';--高度\
+              CardBackgroundColor='#6846E8FF';--颜色\
+              id=\"api3\";\
+              radius='8dp';--圆角\
+              {\
+                TextView;--文本控件\
+                gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                textColor='#eb000000';--文字颜色\
+                text='正在添加中……';--显示文字\
+                id=\"api\";\
+                textSize='24dp';--文字大小\
+                textIsSelectable=true--长按复制\
+              };\
+\
+            };\
+\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--边距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='5dp';--阴影\
+              layout_width='fill';--宽度\
+              layout_height='40%w';--高度\
+              CardBackgroundColor='#6846E8FF';--颜色\
+              id=\"back4\";\
+              radius='8dp';--圆\
+              {\
+                TextView;--文本控件\
+                gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                textColor='#eb000000';--文字颜色\
+                text='B A C K';--显示文字\
+                id=\"back\";\
+                textSize='24dp';--文字大小\
+                textIsSelectable=true--长按复制\
+              };\
+\
+            };\
+\
+          };\
+        };\
+      };\
+    };\
+  };\
+  --webView.addView(loadlayout(KX))\
+};\
+activity.setContentView(loadlayout(全屏框架))\
+\
+ATOOL.onClick=function()--点击事件\
+  进入子页面(\"ATOOL在线工具\")\
+  print(\"正在加载工具箱，请稍后……\")\
+end;\
+XT.onClick=function()--点击事件\
+  进入子页面(\"小涛工具箱\")\
+  print(\"正在加载工具箱，请稍后……\")\
+end;\
+api.onClick=function()--点击事件\
+\
+  print(\"正在添加，请等待后续更新……！\")\
+end;\
+back.onClick=function()--点击事件\
+  退出页面()\
+end;\
+\
+--设置动画的属性\
+import \"android.view.animation.TranslateAnimation\"\
+import \"android.view.animation.ScaleAnimation\"\
+import \"android.view.animation.Animation\"\
+缩放动画=ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,0.5,Animation.RELATIVE_TO_SELF,0.5)\
+缩放动画.setDuration(900)--设置动画时间\
+缩放动画.setFillAfter(true)--设置动画后停留位置\
+缩放动画.setRepeatCount(0)--设置无限循环\
+ATOOL1.startAnimation(缩放动画)\
+XT2.startAnimation(缩放动画)\
+api3.startAnimation(缩放动画)\
+back.startAnimation(缩放动画)\
+平移动画=TranslateAnimation(0, 0, 600, 0)\
+平移动画.setDuration(800)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+Z.startAnimation(平移动画)\
+平移动画=TranslateAnimation(-600, 1, 1, 0)\
+平移动画.setDuration(800)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+--绑定动画\
+a.startAnimation(平移动画)" ;
+      } ;
+  } ;

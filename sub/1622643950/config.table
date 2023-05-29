@@ -1,0 +1,425 @@
+{
+  ["web_control"]	= {
+      } ;
+  ["view_attribute"]	= {
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["顶栏标题"]	= "接口吧" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["顶栏高度"]	= "56dp" ;
+      } ;
+  ["fltBtn"]	= {
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["图标"]	= "" ;
+      ["显示"]	= false ;
+      } ;
+  ["events"]	= {
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象,新标题=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["程序启动"]	= "require \"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+activity.setTitle('AndroLua+')\
+activity.setTheme(android.R.style.Theme_Holo_Light)\
+\
+全屏框架=\
+{\
+  LinearLayout,--线性布局\
+  orientation='vertical',--方向\
+  layout_width='fill',--宽度\
+  layout_height='wrap',--高度\
+  background='#00FFFFFF',--背景颜色或图片路径\
+  id='B';\
+  {\
+    FrameLayout,--帧布局\
+    --orientation='vertical',--方向\
+    layout_width='fill',--宽度\
+    layout_height='100dp',--高度\
+    background='#ff1e8ae8',--背景颜色或图片路径\
+    {\
+      ScrollView,--纵向滑动\
+      layout_width='wrap';--宽度\
+      layout_height='wrap';--高度\
+      VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+      --布局写这\
+      {\
+        TextView;--文本控件\
+        gravity='center';--重力\
+        --左:left 右:right 中:center 顶:top 底:bottom\
+        layout_marginTop='50dp';--顶距\
+        layout_marginLeft='110dp';--左距\
+        layout_width='fill';--宽度\
+        layout_height='fill';--高度\
+        textColor='#eb000000';--文字颜色\
+        text='免费 API接口';--显示文字\
+        textSize='25dp';--文字大小\
+        textIsSelectable=false--长按复制\
+      };\
+    };\
+\
+  };\
+\
+  -----------顶栏结束\
+-----------第二竖列\
+------游戏布局\
+  {\
+    LinearLayout,--线性布局\
+    orientation='vertical',--方向\
+    layout_width='fill',--宽度\
+    layout_height='200dp',--高度\
+    layout_marginTop='2dp';--顶距\
+    background='#ff000000',--背景颜色或图片路径\
+    {\
+      EditText;\
+      layout_width=\"fill\";\
+      textColor='#ff00ff00';--文字颜色\
+      id=\"编辑框\";\
+      layout_height=\"fill\";\
+      background=\"#00000000\";\
+      gravity=\"top|center\";\
+    };\
+  };--------游戏布局结束\
+\
+  {\
+    LinearLayout;\
+    orientation=\"horizontal\";\
+    layout_width=\"fill\";\
+    layout_marginTop=\"-5dp\";\
+    layout_height=\"400dp\";--调节\
+    layout_margin='30dp';--边距\
+    --------界面3_左开始\
+    {\
+      LinearLayout,--线性布局\
+      orientation='vertical',--方向\
+      layout_width='50%w',--宽度\
+      layout_height='fill',--高度\
+      background='#00FFFFFF',--背景颜色或图片路径\
+      id=\"api1\";\
+      {\
+        Button;--按钮控件\
+        text='久黎api';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T1';\
+      };\
+      {\
+        Button;--按钮控件\
+        text='慕名API';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T2';\
+      };\
+      {\
+        Button;--按钮控件\
+        text='三三酱API';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T3';\
+      };\
+      {\
+        Button;--按钮控件\
+        text='菜鸟API';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T4';\
+      };\
+      {\
+        Button;--按钮控件\
+        text='星猫API';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T5';\
+      };\
+    };\
+    --------界面3_左结束\
+  --------界面3_右开始\
+    {\
+      LinearLayout,--线性布局\
+      orientation='vertical',--方向\
+      layout_width='fill',--宽度\
+      layout_height='fill',--高度\
+      background='#00FFFFFF',--背景颜色或图片路径\
+      id=\"api2\";\
+      {\
+        Button;--按钮控件\
+        text='雨瞑API';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T6';\
+      };\
+      {\
+        Button;--按钮控件\
+        text='玖云API';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T7';\
+      };\
+      {\
+        Button;--按钮控件\
+        text='糖豆子API';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T8';\
+      };\
+      {\
+        Button;--按钮控件\
+        text='华烨API';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T9';\
+      };\
+      {\
+        Button;--按钮控件\
+        text='呵呵API';--显示文字\
+        textSize='20dp';--文字大小\
+        textColor='#ff00ff5a';--文字颜色\
+        backgroundColor='#ffff8a00';--纽扣背景颜色\
+        layout_marginTop='20dp';--顶距\
+        layout_marginLeft='10dp';--左距\
+        layout_width='110dp';--宽度\
+        layout_height='50dp';--高度\
+        id='T10';\
+      };\
+    };\
+  };--------第3布局结束\
+\
+\
+\
+\
+};\
+activity.setContentView(loadlayout(全屏框架))\
+\
+--------按钮动作\
+T1.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"久黎API\",链接=\"http://jiuli.xiaoapi.cn/\"})\
+end;\
+T2.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"慕名API\",链接=\"http://xiaoapi.cn/\"})\
+end;\
+T3.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"三三酱API\",链接=\"http://lkaa.top/\"})\
+end;\
+T4.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"菜鸟API\",链接=\"http://cn.xczip.com/api3/\"})\
+end;\
+T5.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"星猫API\",链接=\"http://api.tianyi2006.xyz/\"})\
+end;\
+--------界面3_左点击事件\
+T6.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"雨瞑API\",链接=\"http://il6.cc/index1.php\"})\
+end;\
+T7.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"玖云API\",链接=\"http://23.224.230.35:88/jyapi/\"})\
+end;\
+T8.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"糖豆子API\",链接=\"http://api.tangdouz.com/\"})\
+end;\
+T9.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"华烨API\",链接=\"https://www.xy1314.xyz/\"})\
+end;\
+T10.onClick=function()--点击事件\
+  进入子页面(\"加载器\",{标题=\"呵呵API\",链接=\"http://hehe.yixuedh.com/\"})\
+end;\
+--------界面3_右点击事件\
+--------游戏布局输入事件\
+编辑框.append(\"\\n请在文字下面输入对应数字，回车出拳！\\n规则:(1.剪刀 2.石头 3.布)\\n\");\
+function 开始(a)\
+  local b=(Math.random()*3)+1;\
+  local b=(tointeger(b))\
+  local c =\"拳头\";\
+  local d =\"拳头\";\
+  if a==1 then\
+    c=\"剪刀\";\
+   elseif a==2 then\
+    c=\"石头\";\
+   elseif a==3 then\
+    c=\"布\";\
+  end\
+  if b==1 then\
+    d=\"剪刀\";\
+   elseif b==2 then\
+    d=\"石头\";\
+   elseif b== 3 then\
+    d=\"布\";\
+  end\
+  if(a==b) then\
+    编辑框.append(\"\\n (●—●)平局~\"..\"\\n你:\"..c..\"机器人\\n:\"..d);\
+   elseif(a==1 and b==2 or a==2 and b==3 or a==3 and b==1) then\
+    编辑框.append(\"\\n (ง •̀_•́)ง你输了~\"..\"\\n你:\"..c..\"\\n机器人:\"..d);\
+   else\
+    编辑框.append(\"\\n 乾杯 []~（￣▽￣）~*恭喜你，你赢了~\"..\"\\n你:\"..c..\"\\n机器人:\"..d);\
+  end\
+end\
+编辑框.setOnEditorActionListener{\
+  onEditorAction=function(v, actionId, event)\
+    n=tonumber(编辑框.getText().substring(#编辑框.getText()-1,#编辑框.getText()))\
+    if type(n)==\"number\" then\
+      if n==1 or n==2 or n==3 then\
+        开始(n)\
+       else\
+        编辑框.append(\"\\n 不合法的输入\\n\");\
+      end\
+     else\
+      编辑框.append(\"\\n只能输入数字！\\n\");\
+    end\
+    return false\
+  end}\
+编辑框.getPaint().setFakeBoldText(true)\
+function 三色渐变(控件,左色,中色,右色,圆角)\
+  import \"android.graphics.drawable.GradientDrawable\"\
+  drawable = GradientDrawable(GradientDrawable.Orientation.TR_BL,{左色,中色,右色});\
+  drawable.setCornerRadii({圆角,圆角,圆角,圆角,圆角,圆角,圆角,圆角});\
+  控件.setBackgroundDrawable(drawable)\
+end\
+--调用方法\
+三色渐变(T1,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+三色渐变(T2,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+三色渐变(T3,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+三色渐变(T4,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+三色渐变(T5,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+三色渐变(T6,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+三色渐变(T7,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+三色渐变(T8,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+三色渐变(T9,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+三色渐变(T10,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+\
+import \"android.view.animation.TranslateAnimation\"\
+平移动画=TranslateAnimation(0, 0, 1000, 0)\
+平移动画.setDuration(800)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+api1.startAnimation(平移动画)\
+平移动画=TranslateAnimation(0, 1, -1000, 0)\
+平移动画.setDuration(800)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+api2.startAnimation(平移动画)\
+\
+function 五色渐变(控件,左色,左中色,中色,中右色,右色,圆角)\
+  import \"android.graphics.drawable.GradientDrawable\"\
+  drawable = GradientDrawable(GradientDrawable.Orientation.TR_BL,{左色,左中色,中色,中右色,右色});\
+  drawable.setCornerRadii({圆角,圆角,圆角,圆角,圆角,圆角,圆角,圆角});\
+  控件.setBackgroundDrawable(drawable)\
+end\
+--调用方法\
+五色渐变(B,0xffff69e8,0xff1effe8,0xaa924cff,0xff7cff7e,0x95ffff00,0)\
+\
+\
+\
+\
+" ;
+      } ;
+  ["colors"]	= {
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["进度条"]	= "#ffffc374" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["顶栏部件"]	= "#ff00c6ff" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["顶栏"]	= "#ff2eafff" ;
+      } ;
+  ["switch"]	= {
+      ["支持滑动页面"]	= false ;
+      ["启用启动图"]	= false ;
+      ["显示状态栏"]	= true ;
+      ["横屏"]	= false ;
+      } ;
+  ["web"]	= {
+      ["启用长按菜单"]	= true ;
+      ["启动网页"]	= "" ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["网页沉浸"]	= false ;
+      ["启用进度条"]	= true ;
+      ["支持打开外部应用"]	= true ;
+      } ;
+  ["sidebar"]	= {
+      ["启用"]	= false ;
+      ["启用顶部图片"]	= false ;
+      ["items"]	= {
+          } ;
+      } ;
+  ["toolbar"]	= {
+      ["搜索URL"]	= "" ;
+      ["输入栏模式"]	= false ;
+      ["搜索框提示"]	= "" ;
+      ["启用搜索功能"]	= false ;
+      ["menus"]	= {
+          [1]	= {
+              ["name"]	= "退出" ;
+              ["onClick"]	= "退出页面()" ;
+              } ;
+          } ;
+      ["icon_btns"]	= {
+          [1]	= {
+              ["icon"]	= "replay" ;
+              ["onClick"]	= "刷新网页()" ;
+              } ;
+          } ;
+      } ;
+  } ;

@@ -1,0 +1,3273 @@
+{
+  ["web_control"]	= {
+      } ;
+  ["switch"]	= {
+      ["启用启动图"]	= false ;
+      ["显示状态栏"]	= true ;
+      ["横屏"]	= false ;
+      ["支持滑动页面"]	= false ;
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["顶栏标题"]	= "Title" ;
+      ["顶栏高度"]	= "56dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      } ;
+  ["sidebar"]	= {
+      ["启用顶部图片"]	= false ;
+      ["启用"]	= true ;
+      ["items"]	= {
+          } ;
+      } ;
+  ["web"]	= {
+      ["浏览器用户标识"]	= "默认" ;
+      ["启用长按菜单"]	= true ;
+      ["网页沉浸"]	= false ;
+      ["支持打开外部应用"]	= true ;
+      ["启动网页"]	= "" ;
+      ["启用进度条"]	= true ;
+      } ;
+  ["colors"]	= {
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["顶栏"]	= "#ff2c2e43" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["进度条"]	= "#00000000" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      } ;
+  ["toolbar"]	= {
+      ["搜索框提示"]	= "" ;
+      ["icon_btns"]	= {
+          } ;
+      ["搜索URL"]	= "" ;
+      ["menus"]	= {
+          [1]	= {
+              ["name"]	= "退出" ;
+              ["onClick"]	= "退出页面()" ;
+              } ;
+          } ;
+      ["启用搜索功能"]	= false ;
+      ["输入栏模式"]	= true ;
+      } ;
+  ["fltBtn"]	= {
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["图标"]	= "" ;
+      ["显示"]	= false ;
+      } ;
+  ["events"]	= {
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["程序启动"]	= "import \"android.text.Html\"\
+import \"android.content.Intent\"\
+Http.get(\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1625025019588172\",nil,nil,nil,function(code,content)\
+  if code==200 then--判断网络链接状态\
+    content=content:gsub(\"amp;\",\"\") or content;\
+    --状态\
+    广播=content:match(\"【广播】(.-)【广播】\")\
+\
+    全屏框架=\
+    {\
+      LinearLayout,--线性布局\
+      orientation='vertical',--方向\
+      layout_width='fill',--宽度\
+      layout_height='wrap',--高度\
+      background='#00FFFFFF',--背景颜色或图片路径\
+      id='B';\
+      {\
+        FrameLayout,--帧布局\
+        --orientation='vertical',--方向\
+        layout_width='fill',--宽度\
+        layout_height='100dp',--高度\
+        layout_marginTop='40dp';--顶距\
+        background='#00FFFFFF',--背景颜色或图片路径\
+        {\
+          Toolbar;--标题栏\
+          Title=\"Science center\"; --大标题\
+          titleTextColor=\"#fff\"; --大标题颜色\
+          subtitleTextColor=\"#ff1e8ae8\"; -- 小标题颜色\
+          subtitle=\"Welcome！\";--小标题\
+          --titleMarginStart=\"43dp\"--左边距离\
+        };\
+\
+      };--标题\
+\
+      --\
+      --\
+      ----------------轮播图--------------\
+    --------------------------------------------\
+      {\
+        PageView;--滑动视图\
+        layout_weight=\"1\";--剩余属性\
+        id=\"hd\";\
+        pages={\
+          {\
+            LinearLayout;\
+            gravity='center';--重力属性\
+            orientation='vertical';--重力属性\
+            id=\"tp0\";\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--卡片边距\
+              elevation='4dp';--阴影属性\
+              layout_width='fill';--卡片宽度\
+              CardBackgroundColor='#FFFFFF';--卡片背景颜色\
+              layout_height='200dp';--卡片高度\
+              radius='15dp';--卡片圆角\
+              {\
+                ImageView;--图片控件\
+                layout_width='fill';--图片宽度\
+                layout_height='200dp';--图片高度\
+                scaleType='fitXY';--图片显示类型\
+                src='LB0.jpg';\
+              };\
+            };\
+          };\
+          --\
+          --\
+\
+          {\
+            LinearLayout;\
+            gravity='center';--重力属性\
+            orientation='vertical';--重力属性\
+            id=\"tp1\";\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--卡片边距\
+              elevation='4dp';--阴影属性\
+              layout_width='fill';--卡片宽度\
+              CardBackgroundColor='#FFFFFF';--卡片背景颜色\
+              layout_height='200dp';--卡片高度\
+              radius='15dp';--卡片圆角\
+              {\
+                ImageView;--图片控件\
+                layout_width='fill';--图片宽度\
+                layout_height='200dp';--图片高度\
+                scaleType='fitXY';--图片显示类型\
+                src=\"LB1.jpg\";--布局背景颜色(或者图片路径)\
+              };\
+            };\
+          };\
+          --\
+          --\
+\
+          {\
+            LinearLayout;\
+            gravity='center';--重力属性\
+            orientation='vertical';--重力属性\
+            id=\"tp2\";\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--卡片边距\
+              elevation='4dp';--阴影属性\
+              layout_width='fill';--卡片宽度\
+              CardBackgroundColor='#FFFFFF';--卡片背景颜色\
+              layout_height='200dp';--卡片高度\
+              radius='15dp';--卡片圆角\
+              {\
+                ImageView;--图片控件\
+                layout_width='fill';--图片宽度\
+                layout_height='200dp';--图片高度\
+                scaleType='fitXY';--图片显示类型\
+                src=\"LB2.jpg\";--布局背景颜色(或者图片路径)\
+              };\
+            };\
+          };\
+          --\
+          {\
+            LinearLayout;\
+            gravity='center';--重力属性\
+            orientation='vertical';--重力属性\
+            id=\"tp3\";\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--卡片边距\
+              elevation='4dp';--阴影属性\
+              layout_width='fill';--卡片宽度\
+              CardBackgroundColor='#FFFFFF';--卡片背景颜色\
+              layout_height='200dp';--卡片高度\
+              radius='15dp';--卡片圆角\
+              {\
+                ImageView;--图片控件\
+                layout_width='fill';--图片宽度\
+                layout_height='200dp';--图片高度\
+                scaleType='fitXY';--图片显示类型\
+                src=\"LB3.jpg\";--布局背景颜色(或者图片路径)\
+              };\
+            };\
+          };\
+        };\
+\
+\
+      };\
+\
+\
+\
+\
+      --说明布局\
+      {\
+        LinearLayout,--线性布局\
+        orientation='vertical',--方向\
+        layout_width='fill',--宽度\
+        layout_height='wrap',--高度\
+        background='#00FFFFFF',--背景颜色或图片路径\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='fill';--宽度\
+          layout_height='10%w';--高度\
+          CardBackgroundColor='#ffffffff';--颜色\
+          radius='8dp';--圆角\
+          {\
+            TextView;--文本控件\
+            gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            textColor='#eb000000';--文字颜色\
+            text='玩机类';--显示文字\
+            id=\"txt1\";\
+            textSize='14dp';--文字大小\
+            textIsSelectable=true--长按复制\
+          };\
+\
+        };\
+\
+      };\
+      --说明布局\
+\
+      --第一排布局\
+      {\
+        LinearLayout,--线性布局\
+        orientation='horizontal',--方向\
+        layout_width='fill',--宽度\
+        layout_height='wrap',--高度\
+        background='#00FFFFFF',--背景颜色或图片路径\
+        {\
+          CardView;--卡片控件\
+          layout_margin='10dp';--边距\
+          layout_marginLeft='18dp';--左距\
+          layout_gravity='left|center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='77dp';--宽度\
+          layout_height='77dp';--高度\
+          CardBackgroundColor='#ff1e8ae8';--颜色\
+          id=\"p1\";\
+          radius='8dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='P1.jpg';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+            id='P1';\
+          };\
+\
+\
+        };\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='left|center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='77dp';--宽度\
+          layout_height='77dp';--高度\
+          CardBackgroundColor='#ff1e8ae8';--颜色\
+          id=\"p2\";\
+          radius='8dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='P2.jpg';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+            id='P2';\
+          };\
+\
+\
+        };\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='right|center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='77dp';--宽度\
+          layout_height='77dp';--高度\
+          CardBackgroundColor='#ff1e8ae8';--颜色\
+          id=\"p3\";\
+          radius='8dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='P3.jpg';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+            id='P3';\
+          };\
+\
+\
+        };\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='center|right';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='77dp';--宽度\
+          layout_height='77dp';--高度\
+          CardBackgroundColor='#ff1e8ae8';--颜色\
+          id=\"p4\";\
+          radius='8dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='P4.jpg';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+            id='P4';\
+          };\
+\
+\
+        };--第一排布局\
+      };\
+\
+      --说明布局\
+      {\
+        LinearLayout,--线性布局\
+        orientation='vertical',--方向\
+        layout_width='fill',--宽度\
+        layout_height='wrap',--高度\
+        background='#00FFFFFF',--背景颜色或图片路径\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='fill';--宽度\
+          layout_height='10%w';--高度\
+          CardBackgroundColor='#ffffffff';--颜色\
+          radius='8dp';--圆角\
+          {\
+            TextView;--文本控件\
+            gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            textColor='#eb000000';--文字颜色\
+            text='非常规类';--显示文字\
+            textSize='14dp';--文字大小\
+            id=\"txt2\";\
+            textIsSelectable=true--长按复制\
+          };\
+\
+        };\
+\
+      };\
+      --说明布局\
+\
+      --第二排布局\
+      {\
+        LinearLayout,--线性布局\
+        orientation='horizontal',--方向\
+        layout_width='fill',--宽度\
+        layout_height='wrap',--高度\
+        background='#00FFFFFF',--背景颜色或图片路径\
+        {\
+          CardView;--卡片控件\
+          layout_margin='10dp';--边距\
+          layout_marginLeft='18dp';--左距\
+          layout_gravity='left|center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='77dp';--宽度\
+          layout_height='77dp';--高度\
+          CardBackgroundColor='#ff1e8ae8';--颜色\
+          id=\"p5\";\
+          radius='8dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='P5.jpg';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+            id='P5';\
+          };\
+\
+\
+        };\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='left|center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='77dp';--宽度\
+          layout_height='77dp';--高度\
+          CardBackgroundColor='#ff1e8ae8';--颜色\
+          id=\"p6\";\
+          radius='8dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='P6.jpg';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+            id='P6';\
+          };\
+\
+\
+        };\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='right|center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='77dp';--宽度\
+          layout_height='77dp';--高度\
+          CardBackgroundColor='#ff1e8ae8';--颜色\
+          id=\"p7\";\
+          radius='8dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='P7.jpg';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+            id='P7';\
+          };\
+\
+\
+        };\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='center|right';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='77dp';--宽度\
+          layout_height='77dp';--高度\
+          CardBackgroundColor='#ff1e8ae8';--颜色\
+          id=\"p8\";\
+          radius='8dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='P8.jpg';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+            id='P8';\
+          };\
+\
+\
+        };--第二排布局\
+      };\
+      {\
+        CardView,--卡片框控件\
+        layout_width=\"fill\",--布局宽度\
+        layout_height=\"34dp\",--布局高度\
+        layout_margin=\"8dp\",--布局边距\
+        cardElevation=\"0dp\",--卡片提升\
+        cardBackgroundColor=\"#f0f0f0\",--卡片背景色\
+        radius=\"8dp\",--圆角半径\
+        {\
+          LinearLayout,--线性布局\
+          orientation=\"horizontal\",--布局方向\
+          layout_width=\"fill\",--布局宽度\
+          layout_height=\"fill\",--布局高度\
+          gravity=\"center\",--重力属性--顶:top--中:center--左:left--右:right--底:bottom\
+          {\
+            ImageView,--图片框控件\
+            layout_width=\"40dp\",--布局宽度\
+            layout_height=\"40dp\",--布局高度\
+            padding=\"8dp\",--布局填充\
+            src=\"GBT.png\",--视图路径\
+          },\
+          {\
+            TextView,--文本框控件\
+            layout_marginLeft=\"-6dp\",--布局左距\
+            layout_weight=\"1\",--权重分配\
+            text=广播;--文本内容\
+            textSize=\"15sp\",--文本大小\
+            textColor=\"#666666\",--文本颜色\
+            ellipsize=\"marquee\",--显示方式：前面显示start｜中间显示middle｜尾部显示end｜跑马灯marquee\
+            selected=true,--选中文本\
+            singleLine=true,--禁止文本换行\
+          },\
+        },--线性布局结束\
+      },--卡片框控件结束\
+    };\
+\
+    activity.setContentView(loadlayout(全屏框架))\
+    --布局结束\
+    --自动滑动轮番图\
+    tp0.onClick=function()\
+      hd.showPage(0)\
+    end\
+    tp1.onClick=function()\
+      hd.showPage(1)\
+    end\
+    tp2.onClick=function()\
+      hd.showPage(2)\
+    end\
+    tp3.onClick=function()\
+      hd.showPage(3)\
+    end\
+    --设置图片停留时间\
+    local n=0\
+    function images()\
+      task(3000,function()\
+        n=n+1 hd.showPage(n%4)\
+        images()\
+      end)\
+    end\
+    images()\
+    aer=true\
+    bt=0\
+    hd.addOnPageChangeListener{\
+      onPageSelected=function(page)\
+        bt=page\
+      end;\
+      onPageScrollStateChanged=function(state)\
+      end;\
+    }\
+\
+    --点击事件\
+\
+    P1.onClick=function()--点击事件\
+\
+      import \"android.text.Html\"\
+      --远程链接，这里用的是讯飞语记。\
+      url=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1624983285917859\"\
+      Http.get(url,nil,\"utf8\",nil,function(code,content,cookie,header)\
+        if code==200 then\
+          --过滤\
+          content=content:gsub(\"amp;\",\"\") or content;\
+          --状态\
+          开关=content:match(\"【状态】(.-)【状态】\")\
+          --太极简介\
+          太极=content:match(\"【太极】(.-)【太极】\")\
+          --太极下载链接\
+          太极下载链接=content:match(\"【太极下载链接】(.-)【太极下载链接】\")\
+          --微X简介\
+          微X=content:match(\"【微X】(.-)【微X】\")\
+          --微X下载链接\
+          微X下载链接=content:match(\"【微X下载链接】(.-)【微X下载链接】\")\
+          --QX简介\
+          QX=content:match(\"【QX】(.-)【QX】\")\
+          --QX下载链接\
+          QX下载链接=content:match(\"【QX下载链接】(.-)【QX下载链接】\")\
+          --XAutoDaily简介\
+          XA=content:match(\"【XA】(.-)【XA】\")\
+          --XA下载链接\
+          XA下载链接=content:match(\"【XA下载链接】(.-)【XA下载链接】\")\
+          --WireGuard简介\
+          WG=content:match(\"【WG】(.-)【WG】\")\
+          --WireGuard下载链接\
+          WG下载链接=content:match(\"【WG下载链接】(.-)【WG下载链接】\")\
+          --暮光免流简介\
+          暮光=content:match(\"【暮光】(.-)【暮光】\")\
+          --暮光下载链接\
+          暮光下载链接=content:match(\"【暮光下载链接】(.-)【暮光下载链接】\")\
+          --哔哩哔哩AS简介\
+          BL=content:match(\"【BL】(.-)【BL】\")\
+          --哔哩哔哩AS下载链接\
+          BL下载链接=content:match(\"【BL下载链接】(.-)【BL下载链接】\")\
+          --IDM简介\
+          IDM=content:match(\"【IDM】(.-)【IDM】\")\
+          --IDM下载链接\
+          IDM下载链接=content:match(\"【IDM下载链接】(.-)【IDM下载链接】\")\
+\
+\
+          hanwuji=--作者：寒武纪\
+          {\
+            LinearLayout,--线性布局\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='wrap',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='30%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='90%w';--宽度\
+              layout_height='110%w';--高度\
+              CardBackgroundColor='#00000000';--颜色\
+              radius='8dp';--圆角\
+\
+              {\
+                LinearLayout,--线性布局\
+                layout_marginTop='10dp';--顶距\
+                orientation='vertical',--方向\
+                layout_width='fill',--宽度\
+                layout_height='fill',--高度\
+                background='#00FFFFFF',--背景颜色或图片路径\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='10dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='30%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='30%w';--圆角\
+                  id=\"touxiang\";\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='P1.jpg';--图片路径\
+                  };\
+                };\
+\
+                {\
+                  LinearLayout,--线性布局\
+                  layout_marginTop='-15%w';--顶距\
+                  orientation='vertical',--方向\
+                  layout_width='fill',--宽度\
+                  layout_height='fill',--高度\
+                  background='#00FFFFFF',--背景颜色或图片路径\
+\
+                  {\
+                    CardView;--卡片控件\
+                    layout_gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    elevation='15dp';--阴影\
+                    layout_width='85%w';--宽度\
+                    layout_height='90%w';--高度\
+                    CardBackgroundColor='#ffffffff';--颜色\
+                    radius='8dp';--圆角\
+                    {\
+                      LinearLayout,--线性布局\
+                      orientation='vertical',--方向\
+                      layout_width='fill',--宽度\
+                      layout_height='30%w',--高度\
+                      background='gonggao.png',--背景颜色或图片路径\
+                    };\
+                    {\
+                      TextView;--文本控件\
+                      layout_marginTop='-45%w';--顶距\
+                      gravity='center';--重力\
+                      --左:left 右:right 中:center 顶:top 底:bottom\
+                      layout_width='fill';--宽度\
+                      layout_height='fill';--高度\
+                      textColor='#d4000000';--文字颜色\
+                      text='太极';\
+                      textSize='25dp';--文字大小\
+                    };\
+                    {\
+                      ScrollView,--纵向滑动\
+                      layout_width='wrap';--宽度\
+                      layout_height='wrap';--高度\
+                      VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+                      --布局写这\
+                      {\
+                        LinearLayout,--线性布局\
+                        orientation='vertical',--方向\
+                        {\
+                          TextView;--文本控件\
+                          layout_marginTop='30%w';--顶距\
+                          layout_marginLeft='10dp';--左距\
+                          --gravity='center';--重力\
+                          --左:left 右:right 中:center 顶:top 底:bottom\
+                          layout_width='fill';--宽度\
+                          layout_height='fill';--高度\
+                          textColor='#aa000000';--文字颜色\
+                          text=太极;\
+                          textSize='16dp';--文字大小\
+                        };\
+                      };\
+                    };\
+                  };\
+                };\
+              };\
+            };\
+\
+            {\
+              LinearLayout,--线性布局\
+              layout_marginTop='4dp';--顶距\
+              layout_margin='20dp';--边距\
+              orientation='horizontal',--方向\
+              layout_width='fill',--宽度\
+              layout_height='fill',--高度\
+              background='#00FFFFFF',--背景颜色或图片路径\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='Q.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"jqq\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='取消';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"qx\";\
+\
+                  };\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='xz.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"zdd\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='立即下载';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"xz\";\
+                  };\
+                };\
+              };\
+            };\
+          };\
+\
+\
+          dialog= AlertDialog.Builder(this)\
+          import \"android.text.SpannableString\"\
+          import \"android.text.style.ForegroundColorSpan\"\
+          import \"android.text.Spannable\"\
+          dialog1=dialog.show()\
+          dialog1.getWindow().setContentView(loadlayout(hanwuji));\
+          --  doalog1.setCancelable(false)\
+          dialog1.setCanceledOnTouchOutside(false)\
+          dialog1.setCancelable(false)--\
+          import \"android.graphics.drawable.ColorDrawable\"\
+          dialog1.getWindow().setBackgroundDrawable(ColorDrawable(0x00000000));\
+\
+          --设置边框圆角函数\
+          function 卡片(边框厚度,边框颜色,背景颜色,圆角度)\
+            import \"android.graphics.drawable.GradientDrawable\"\
+            drawable=GradientDrawable()\
+            drawable.setShape(GradientDrawable.RECTANGLE)\
+            drawable.setStroke(边框厚度,tonumber(边框颜色))--边框厚度和背景颜色\
+            drawable.setColor(tonumber(背景颜色))--背景颜色\
+            drawable.setCornerRadius(圆角度)--圆角\
+            return drawable\
+          end\
+\
+          --分别为:ID,边框厚度,边框颜色,背景颜色,圆角度\
+          jqq.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+          zdd.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+\
+          --头像旋转\
+          import \"android.view.animation.LinearInterpolator\"\
+          c = ObjectAnimator()\
+          c.setTarget(touxiang);\
+          c.setDuration(19000);\
+          c.setRepeatCount(ValueAnimator.INFINITE)\
+          c.setPropertyName(\"rotation\");\
+          c.setFloatValues({720,0});\
+          c.setRepeatMode(ValueAnimator.INFINITE)\
+          c.setInterpolator(LinearInterpolator() )\
+          c.start();\
+\
+          qx.onClick=function(v)\
+            dialog1.dismiss()\
+\
+          end\
+          xz.onClick=function(v)\
+            dialog1.dismiss()\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=太极下载链接;\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器下载！\")\
+            退出页面()\
+          end\
+          return true\
+        else\
+          退出程序()\
+          print(\"网络连接错误，请检查网络\")\
+        end\
+\
+      end)\
+    end\
+\
+    P2.onClick=function()--点击事件\
+\
+      import \"android.text.Html\"\
+      --远程链接，这里用的是讯飞语记。\
+      url=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1624983285917859\"\
+      Http.get(url,nil,\"utf8\",nil,function(code,content,cookie,header)\
+        if code==200 then\
+          --过滤\
+          content=content:gsub(\"amp;\",\"\") or content;\
+          --状态\
+          开关=content:match(\"【状态】(.-)【状态】\")\
+          --太极简介\
+          太极=content:match(\"【太极】(.-)【太极】\")\
+          --太极下载链接\
+          太极下载链接=content:match(\"【太极下载链接】(.-)【太极下载链接】\")\
+          --微X简介\
+          微X=content:match(\"【微X】(.-)【微X】\")\
+          --微X下载链接\
+          微X下载链接=content:match(\"【微X下载链接】(.-)【微X下载链接】\")\
+          --QX简介\
+          QX=content:match(\"【QX】(.-)【QX】\")\
+          --QX下载链接\
+          QX下载链接=content:match(\"【QX下载链接】(.-)【QX下载链接】\")\
+          --XAutoDaily简介\
+          XA=content:match(\"【XA】(.-)【XA】\")\
+          --XA下载链接\
+          XA下载链接=content:match(\"【XA下载链接】(.-)【XA下载链接】\")\
+          --WireGuard简介\
+          WG=content:match(\"【WG】(.-)【WG】\")\
+          --WireGuard下载链接\
+          WG下载链接=content:match(\"【WG下载链接】(.-)【WG下载链接】\")\
+          --暮光免流简介\
+          暮光=content:match(\"【暮光】(.-)【暮光】\")\
+          --暮光下载链接\
+          暮光下载链接=content:match(\"【暮光下载链接】(.-)【暮光下载链接】\")\
+          --哔哩哔哩AS简介\
+          BL=content:match(\"【BL】(.-)【BL】\")\
+          --哔哩哔哩AS下载链接\
+          BL下载链接=content:match(\"【BL下载链接】(.-)【BL下载链接】\")\
+          --IDM简介\
+          IDM=content:match(\"【IDM】(.-)【IDM】\")\
+          --IDM下载链接\
+          IDM下载链接=content:match(\"【IDM下载链接】(.-)【IDM下载链接】\")\
+\
+\
+          hanwuji=--作者：寒武纪\
+          {\
+            LinearLayout,--线性布局\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='wrap',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='30%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='90%w';--宽度\
+              layout_height='110%w';--高度\
+              CardBackgroundColor='#00000000';--颜色\
+              radius='8dp';--圆角\
+\
+              {\
+                LinearLayout,--线性布局\
+                layout_marginTop='10dp';--顶距\
+                orientation='vertical',--方向\
+                layout_width='fill',--宽度\
+                layout_height='fill',--高度\
+                background='#00FFFFFF',--背景颜色或图片路径\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='10dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='30%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='30%w';--圆角\
+                  id=\"touxiang\";\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='P2.jpg';--图片路径\
+                  };\
+                };\
+\
+                {\
+                  LinearLayout,--线性布局\
+                  layout_marginTop='-15%w';--顶距\
+                  orientation='vertical',--方向\
+                  layout_width='fill',--宽度\
+                  layout_height='fill',--高度\
+                  background='#00FFFFFF',--背景颜色或图片路径\
+\
+                  {\
+                    CardView;--卡片控件\
+                    layout_gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    elevation='15dp';--阴影\
+                    layout_width='85%w';--宽度\
+                    layout_height='90%w';--高度\
+                    CardBackgroundColor='#ffffffff';--颜色\
+                    radius='8dp';--圆角\
+                    {\
+                      LinearLayout,--线性布局\
+                      orientation='vertical',--方向\
+                      layout_width='fill',--宽度\
+                      layout_height='30%w',--高度\
+                      background='gonggao.png',--背景颜色或图片路径\
+                    };\
+                    {\
+                      TextView;--文本控件\
+                      layout_marginTop='-45%w';--顶距\
+                      gravity='center';--重力\
+                      --左:left 右:right 中:center 顶:top 底:bottom\
+                      layout_width='fill';--宽度\
+                      layout_height='fill';--高度\
+                      textColor='#d4000000';--文字颜色\
+                      text='微X模块';\
+                      textSize='25dp';--文字大小\
+                    };\
+                    {\
+                      ScrollView,--纵向滑动\
+                      layout_width='wrap';--宽度\
+                      layout_height='wrap';--高度\
+                      VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+                      --布局写这\
+                      {\
+                        LinearLayout,--线性布局\
+                        orientation='vertical',--方向\
+                        {\
+                          TextView;--文本控件\
+                          layout_marginTop='30%w';--顶距\
+                          layout_marginLeft='10dp';--左距\
+                          --gravity='center';--重力\
+                          --左:left 右:right 中:center 顶:top 底:bottom\
+                          layout_width='fill';--宽度\
+                          layout_height='fill';--高度\
+                          textColor='#aa000000';--文字颜色\
+                          text=微X;\
+                          textSize='16dp';--文字大小\
+                        };\
+                      };\
+                    };\
+                  };\
+                };\
+              };\
+            };\
+\
+            {\
+              LinearLayout,--线性布局\
+              layout_marginTop='4dp';--顶距\
+              layout_margin='20dp';--边距\
+              orientation='horizontal',--方向\
+              layout_width='fill',--宽度\
+              layout_height='fill',--高度\
+              background='#00FFFFFF',--背景颜色或图片路径\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='Q.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"jqq\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='取消';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"qx\";\
+\
+                  };\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='xz.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"zdd\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='立即下载';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"xz\";\
+                  };\
+                };\
+              };\
+            };\
+          };\
+\
+          dialog= AlertDialog.Builder(this)\
+          import \"android.text.SpannableString\"\
+          import \"android.text.style.ForegroundColorSpan\"\
+          import \"android.text.Spannable\"\
+          dialog1=dialog.show()\
+          dialog1.getWindow().setContentView(loadlayout(hanwuji));\
+          --  doalog1.setCancelable(false)\
+          dialog1.setCanceledOnTouchOutside(false)\
+          dialog1.setCancelable(false)--\
+          import \"android.graphics.drawable.ColorDrawable\"\
+          dialog1.getWindow().setBackgroundDrawable(ColorDrawable(0x00000000));\
+\
+          --设置边框圆角函数\
+          function 卡片(边框厚度,边框颜色,背景颜色,圆角度)\
+            import \"android.graphics.drawable.GradientDrawable\"\
+            drawable=GradientDrawable()\
+            drawable.setShape(GradientDrawable.RECTANGLE)\
+            drawable.setStroke(边框厚度,tonumber(边框颜色))--边框厚度和背景颜色\
+            drawable.setColor(tonumber(背景颜色))--背景颜色\
+            drawable.setCornerRadius(圆角度)--圆角\
+            return drawable\
+          end\
+\
+          --分别为:ID,边框厚度,边框颜色,背景颜色,圆角度\
+          jqq.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+          zdd.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+\
+          --头像旋转\
+          import \"android.view.animation.LinearInterpolator\"\
+          c = ObjectAnimator()\
+          c.setTarget(touxiang);\
+          c.setDuration(19000);\
+          c.setRepeatCount(ValueAnimator.INFINITE)\
+          c.setPropertyName(\"rotation\");\
+          c.setFloatValues({720,0});\
+          c.setRepeatMode(ValueAnimator.INFINITE)\
+          c.setInterpolator(LinearInterpolator() )\
+          c.start();\
+\
+          qx.onClick=function(v)\
+            dialog1.dismiss()\
+\
+          end\
+          xz.onClick=function(v)\
+            dialog1.dismiss()\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=微X下载链接;\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器下载！\")\
+            退出页面()\
+          end\
+          return true\
+        else\
+          退出程序()\
+          print(\"网络连接错误，请检查网络\")\
+        end\
+\
+      end)\
+    end\
+\
+    P3.onClick=function()--点击事件\
+      import \"android.text.Html\"\
+      --远程链接，这里用的是讯飞语记。\
+      url=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1624983285917859\"\
+      Http.get(url,nil,\"utf8\",nil,function(code,content,cookie,header)\
+        if code==200 then\
+          --过滤\
+          content=content:gsub(\"amp;\",\"\") or content;\
+          --状态\
+          开关=content:match(\"【状态】(.-)【状态】\")\
+          --太极简介\
+          太极=content:match(\"【太极】(.-)【太极】\")\
+          --太极下载链接\
+          太极下载链接=content:match(\"【太极下载链接】(.-)【太极下载链接】\")\
+          --微X简介\
+          微X=content:match(\"【微X】(.-)【微X】\")\
+          --微X下载链接\
+          微X下载链接=content:match(\"【微X下载链接】(.-)【微X下载链接】\")\
+          --QX简介\
+          QX=content:match(\"【QX】(.-)【QX】\")\
+          --QX下载链接\
+          QX下载链接=content:match(\"【QX下载链接】(.-)【QX下载链接】\")\
+          --XAutoDaily简介\
+          XA=content:match(\"【XA】(.-)【XA】\")\
+          --XA下载链接\
+          XA下载链接=content:match(\"【XA下载链接】(.-)【XA下载链接】\")\
+          --WireGuard简介\
+          WG=content:match(\"【WG】(.-)【WG】\")\
+          --WireGuard下载链接\
+          WG下载链接=content:match(\"【WG下载链接】(.-)【WG下载链接】\")\
+          --暮光免流简介\
+          暮光=content:match(\"【暮光】(.-)【暮光】\")\
+          --暮光下载链接\
+          暮光下载链接=content:match(\"【暮光下载链接】(.-)【暮光下载链接】\")\
+          --哔哩哔哩AS简介\
+          BL=content:match(\"【BL】(.-)【BL】\")\
+          --哔哩哔哩AS下载链接\
+          BL下载链接=content:match(\"【BL下载链接】(.-)【BL下载链接】\")\
+          --IDM简介\
+          IDM=content:match(\"【IDM】(.-)【IDM】\")\
+          --IDM下载链接\
+          IDM下载链接=content:match(\"【IDM下载链接】(.-)【IDM下载链接】\")\
+\
+\
+          hanwuji=--作者：寒武纪\
+          {\
+            LinearLayout,--线性布局\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='wrap',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='30%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='90%w';--宽度\
+              layout_height='110%w';--高度\
+              CardBackgroundColor='#00000000';--颜色\
+              radius='8dp';--圆角\
+\
+              {\
+                LinearLayout,--线性布局\
+                layout_marginTop='10dp';--顶距\
+                orientation='vertical',--方向\
+                layout_width='fill',--宽度\
+                layout_height='fill',--高度\
+                background='#00FFFFFF',--背景颜色或图片路径\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='10dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='30%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='30%w';--圆角\
+                  id=\"touxiang\";\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='P3.jpg';--图片路径\
+                  };\
+                };\
+\
+                {\
+                  LinearLayout,--线性布局\
+                  layout_marginTop='-15%w';--顶距\
+                  orientation='vertical',--方向\
+                  layout_width='fill',--宽度\
+                  layout_height='fill',--高度\
+                  background='#00FFFFFF',--背景颜色或图片路径\
+\
+                  {\
+                    CardView;--卡片控件\
+                    layout_gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    elevation='15dp';--阴影\
+                    layout_width='85%w';--宽度\
+                    layout_height='90%w';--高度\
+                    CardBackgroundColor='#ffffffff';--颜色\
+                    radius='8dp';--圆角\
+                    {\
+                      LinearLayout,--线性布局\
+                      orientation='vertical',--方向\
+                      layout_width='fill',--宽度\
+                      layout_height='30%w',--高度\
+                      background='gonggao.png',--背景颜色或图片路径\
+                    };\
+                    {\
+                      TextView;--文本控件\
+                      layout_marginTop='-45%w';--顶距\
+                      gravity='center';--重力\
+                      --左:left 右:right 中:center 顶:top 底:bottom\
+                      layout_width='fill';--宽度\
+                      layout_height='fill';--高度\
+                      textColor='#d4000000';--文字颜色\
+                      text='QX模块';\
+                      textSize='25dp';--文字大小\
+                    };\
+                    {\
+                      ScrollView,--纵向滑动\
+                      layout_width='wrap';--宽度\
+                      layout_height='wrap';--高度\
+                      VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+                      --布局写这\
+                      {\
+                        LinearLayout,--线性布局\
+                        orientation='vertical',--方向\
+                        {\
+                          TextView;--文本控件\
+                          layout_marginTop='30%w';--顶距\
+                          layout_marginLeft='10dp';--左距\
+                          --gravity='center';--重力\
+                          --左:left 右:right 中:center 顶:top 底:bottom\
+                          layout_width='fill';--宽度\
+                          layout_height='fill';--高度\
+                          textColor='#aa000000';--文字颜色\
+                          text=QX;\
+                          textSize='16dp';--文字大小\
+                        };\
+                      };\
+                    };\
+                  };\
+                };\
+              };\
+            };\
+\
+            {\
+              LinearLayout,--线性布局\
+              layout_marginTop='4dp';--顶距\
+              layout_margin='20dp';--边距\
+              orientation='horizontal',--方向\
+              layout_width='fill',--宽度\
+              layout_height='fill',--高度\
+              background='#00FFFFFF',--背景颜色或图片路径\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='Q.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"jqq\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='取消';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"qx\";\
+\
+                  };\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='xz.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"zdd\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='立即下载';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"xz\";\
+                  };\
+                };\
+              };\
+            };\
+          };\
+\
+          dialog= AlertDialog.Builder(this)\
+          import \"android.text.SpannableString\"\
+          import \"android.text.style.ForegroundColorSpan\"\
+          import \"android.text.Spannable\"\
+          dialog1=dialog.show()\
+          dialog1.getWindow().setContentView(loadlayout(hanwuji));\
+          --  doalog1.setCancelable(false)\
+          dialog1.setCanceledOnTouchOutside(false)\
+          dialog1.setCancelable(false)--\
+          import \"android.graphics.drawable.ColorDrawable\"\
+          dialog1.getWindow().setBackgroundDrawable(ColorDrawable(0x00000000));\
+\
+          --设置边框圆角函数\
+          function 卡片(边框厚度,边框颜色,背景颜色,圆角度)\
+            import \"android.graphics.drawable.GradientDrawable\"\
+            drawable=GradientDrawable()\
+            drawable.setShape(GradientDrawable.RECTANGLE)\
+            drawable.setStroke(边框厚度,tonumber(边框颜色))--边框厚度和背景颜色\
+            drawable.setColor(tonumber(背景颜色))--背景颜色\
+            drawable.setCornerRadius(圆角度)--圆角\
+            return drawable\
+          end\
+\
+          --分别为:ID,边框厚度,边框颜色,背景颜色,圆角度\
+          jqq.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+          zdd.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+\
+          --头像旋转\
+          import \"android.view.animation.LinearInterpolator\"\
+          c = ObjectAnimator()\
+          c.setTarget(touxiang);\
+          c.setDuration(19000);\
+          c.setRepeatCount(ValueAnimator.INFINITE)\
+          c.setPropertyName(\"rotation\");\
+          c.setFloatValues({720,0});\
+          c.setRepeatMode(ValueAnimator.INFINITE)\
+          c.setInterpolator(LinearInterpolator() )\
+          c.start();\
+\
+          qx.onClick=function(v)\
+            dialog1.dismiss()\
+\
+          end\
+          xz.onClick=function(v)\
+            dialog1.dismiss()\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=QX下载链接;\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器下载！\")\
+            退出页面()\
+          end\
+          return true\
+        else\
+          退出程序()\
+          print(\"网络连接错误，请检查网络\")\
+        end\
+\
+      end)\
+    end\
+\
+    P4.onClick=function()--点击事件\
+      import \"android.text.Html\"\
+      --远程链接，这里用的是讯飞语记。\
+      url=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1624983285917859\"\
+      Http.get(url,nil,\"utf8\",nil,function(code,content,cookie,header)\
+        if code==200 then\
+          --过滤\
+          content=content:gsub(\"amp;\",\"\") or content;\
+          --状态\
+          开关=content:match(\"【状态】(.-)【状态】\")\
+          --太极简介\
+          太极=content:match(\"【太极】(.-)【太极】\")\
+          --太极下载链接\
+          太极下载链接=content:match(\"【太极下载链接】(.-)【太极下载链接】\")\
+          --微X简介\
+          微X=content:match(\"【微X】(.-)【微X】\")\
+          --微X下载链接\
+          微X下载链接=content:match(\"【微X下载链接】(.-)【微X下载链接】\")\
+          --QX简介\
+          QX=content:match(\"【QX】(.-)【QX】\")\
+          --QX下载链接\
+          QX下载链接=content:match(\"【QX下载链接】(.-)【QX下载链接】\")\
+          --XAutoDaily简介\
+          XA=content:match(\"【XA】(.-)【XA】\")\
+          --XA下载链接\
+          XA下载链接=content:match(\"【XA下载链接】(.-)【XA下载链接】\")\
+          --WireGuard简介\
+          WG=content:match(\"【WG】(.-)【WG】\")\
+          --WireGuard下载链接\
+          WG下载链接=content:match(\"【WG下载链接】(.-)【WG下载链接】\")\
+          --暮光免流简介\
+          暮光=content:match(\"【暮光】(.-)【暮光】\")\
+          --暮光下载链接\
+          暮光下载链接=content:match(\"【暮光下载链接】(.-)【暮光下载链接】\")\
+          --哔哩哔哩AS简介\
+          BL=content:match(\"【BL】(.-)【BL】\")\
+          --哔哩哔哩AS下载链接\
+          BL下载链接=content:match(\"【BL下载链接】(.-)【BL下载链接】\")\
+          --IDM简介\
+          IDM=content:match(\"【IDM】(.-)【IDM】\")\
+          --IDM下载链接\
+          IDM下载链接=content:match(\"【IDM下载链接】(.-)【IDM下载链接】\")\
+\
+\
+          hanwuji=--作者：寒武纪\
+          {\
+            LinearLayout,--线性布局\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='wrap',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='30%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='90%w';--宽度\
+              layout_height='110%w';--高度\
+              CardBackgroundColor='#00000000';--颜色\
+              radius='8dp';--圆角\
+\
+              {\
+                LinearLayout,--线性布局\
+                layout_marginTop='10dp';--顶距\
+                orientation='vertical',--方向\
+                layout_width='fill',--宽度\
+                layout_height='fill',--高度\
+                background='#00FFFFFF',--背景颜色或图片路径\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='10dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='30%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='30%w';--圆角\
+                  id=\"touxiang\";\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='P4.jpg';--图片路径\
+                  };\
+                };\
+\
+                {\
+                  LinearLayout,--线性布局\
+                  layout_marginTop='-15%w';--顶距\
+                  orientation='vertical',--方向\
+                  layout_width='fill',--宽度\
+                  layout_height='fill',--高度\
+                  background='#00FFFFFF',--背景颜色或图片路径\
+\
+                  {\
+                    CardView;--卡片控件\
+                    layout_gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    elevation='15dp';--阴影\
+                    layout_width='85%w';--宽度\
+                    layout_height='90%w';--高度\
+                    CardBackgroundColor='#ffffffff';--颜色\
+                    radius='8dp';--圆角\
+                    {\
+                      LinearLayout,--线性布局\
+                      orientation='vertical',--方向\
+                      layout_width='fill',--宽度\
+                      layout_height='30%w',--高度\
+                      background='gonggao.png',--背景颜色或图片路径\
+                    };\
+                    {\
+                      TextView;--文本控件\
+                      layout_marginTop='-45%w';--顶距\
+                      gravity='center';--重力\
+                      --左:left 右:right 中:center 顶:top 底:bottom\
+                      layout_width='fill';--宽度\
+                      layout_height='fill';--高度\
+                      textColor='#d4000000';--文字颜色\
+                      text='XAutoDaily';\
+                      textSize='25dp';--文字大小\
+                    };\
+                    {\
+                      ScrollView,--纵向滑动\
+                      layout_width='wrap';--宽度\
+                      layout_height='wrap';--高度\
+                      VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+                      --布局写这\
+                      {\
+                        LinearLayout,--线性布局\
+                        orientation='vertical',--方向\
+                        {\
+                          TextView;--文本控件\
+                          layout_marginTop='30%w';--顶距\
+                          layout_marginLeft='10dp';--左距\
+                          --gravity='center';--重力\
+                          --左:left 右:right 中:center 顶:top 底:bottom\
+                          layout_width='fill';--宽度\
+                          layout_height='fill';--高度\
+                          textColor='#aa000000';--文字颜色\
+                          text=XA;\
+                          textSize='16dp';--文字大小\
+                        };\
+                      };\
+                    };\
+                  };\
+                };\
+              };\
+            };\
+\
+            {\
+              LinearLayout,--线性布局\
+              layout_marginTop='4dp';--顶距\
+              layout_margin='20dp';--边距\
+              orientation='horizontal',--方向\
+              layout_width='fill',--宽度\
+              layout_height='fill',--高度\
+              background='#00FFFFFF',--背景颜色或图片路径\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='Q.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"jqq\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='取消';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"qx\";\
+\
+                  };\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='xz.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"zdd\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='立即下载';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"xz\";\
+                  };\
+                };\
+              };\
+            };\
+          };\
+\
+          dialog= AlertDialog.Builder(this)\
+          import \"android.text.SpannableString\"\
+          import \"android.text.style.ForegroundColorSpan\"\
+          import \"android.text.Spannable\"\
+          dialog1=dialog.show()\
+          dialog1.getWindow().setContentView(loadlayout(hanwuji));\
+          --  doalog1.setCancelable(false)\
+          dialog1.setCanceledOnTouchOutside(false)\
+          dialog1.setCancelable(false)--\
+          import \"android.graphics.drawable.ColorDrawable\"\
+          dialog1.getWindow().setBackgroundDrawable(ColorDrawable(0x00000000));\
+\
+          --设置边框圆角函数\
+          function 卡片(边框厚度,边框颜色,背景颜色,圆角度)\
+            import \"android.graphics.drawable.GradientDrawable\"\
+            drawable=GradientDrawable()\
+            drawable.setShape(GradientDrawable.RECTANGLE)\
+            drawable.setStroke(边框厚度,tonumber(边框颜色))--边框厚度和背景颜色\
+            drawable.setColor(tonumber(背景颜色))--背景颜色\
+            drawable.setCornerRadius(圆角度)--圆角\
+            return drawable\
+          end\
+\
+          --分别为:ID,边框厚度,边框颜色,背景颜色,圆角度\
+          jqq.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+          zdd.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+\
+          --头像旋转\
+          import \"android.view.animation.LinearInterpolator\"\
+          c = ObjectAnimator()\
+          c.setTarget(touxiang);\
+          c.setDuration(19000);\
+          c.setRepeatCount(ValueAnimator.INFINITE)\
+          c.setPropertyName(\"rotation\");\
+          c.setFloatValues({720,0});\
+          c.setRepeatMode(ValueAnimator.INFINITE)\
+          c.setInterpolator(LinearInterpolator() )\
+          c.start();\
+\
+          qx.onClick=function(v)\
+            dialog1.dismiss()\
+\
+          end\
+          xz.onClick=function(v)\
+            dialog1.dismiss()\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=XA下载链接;\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器下载！\")\
+            退出页面()\
+          end\
+          return true\
+        else\
+          退出程序()\
+          print(\"网络连接错误，请检查网络\")\
+        end\
+\
+      end)\
+    end\
+\
+    P5.onClick=function()--点击事件\
+      import \"android.text.Html\"\
+      --远程链接，这里用的是讯飞语记。\
+      url=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1624983285917859\"\
+      Http.get(url,nil,\"utf8\",nil,function(code,content,cookie,header)\
+        if code==200 then\
+          --过滤\
+          content=content:gsub(\"amp;\",\"\") or content;\
+          --状态\
+          开关=content:match(\"【状态】(.-)【状态】\")\
+          --太极简介\
+          太极=content:match(\"【太极】(.-)【太极】\")\
+          --太极下载链接\
+          太极下载链接=content:match(\"【太极下载链接】(.-)【太极下载链接】\")\
+          --微X简介\
+          微X=content:match(\"【微X】(.-)【微X】\")\
+          --微X下载链接\
+          微X下载链接=content:match(\"【微X下载链接】(.-)【微X下载链接】\")\
+          --QX简介\
+          QX=content:match(\"【QX】(.-)【QX】\")\
+          --QX下载链接\
+          QX下载链接=content:match(\"【QX下载链接】(.-)【QX下载链接】\")\
+          --XAutoDaily简介\
+          XA=content:match(\"【XA】(.-)【XA】\")\
+          --XA下载链接\
+          XA下载链接=content:match(\"【XA下载链接】(.-)【XA下载链接】\")\
+          --WireGuard简介\
+          WG=content:match(\"【WG】(.-)【WG】\")\
+          --WireGuard下载链接\
+          WG下载链接=content:match(\"【WG下载链接】(.-)【WG下载链接】\")\
+          --暮光免流简介\
+          暮光=content:match(\"【暮光】(.-)【暮光】\")\
+          --暮光下载链接\
+          暮光下载链接=content:match(\"【暮光下载链接】(.-)【暮光下载链接】\")\
+          --哔哩哔哩AS简介\
+          BL=content:match(\"【BL】(.-)【BL】\")\
+          --哔哩哔哩AS下载链接\
+          BL下载链接=content:match(\"【BL下载链接】(.-)【BL下载链接】\")\
+          --IDM简介\
+          IDM=content:match(\"【IDM】(.-)【IDM】\")\
+          --IDM下载链接\
+          IDM下载链接=content:match(\"【IDM下载链接】(.-)【IDM下载链接】\")\
+\
+\
+          hanwuji=--作者：寒武纪\
+          {\
+            LinearLayout,--线性布局\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='wrap',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='30%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='90%w';--宽度\
+              layout_height='110%w';--高度\
+              CardBackgroundColor='#00000000';--颜色\
+              radius='8dp';--圆角\
+\
+              {\
+                LinearLayout,--线性布局\
+                layout_marginTop='10dp';--顶距\
+                orientation='vertical',--方向\
+                layout_width='fill',--宽度\
+                layout_height='fill',--高度\
+                background='#00FFFFFF',--背景颜色或图片路径\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='10dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='30%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='30%w';--圆角\
+                  id=\"touxiang\";\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='P5.jpg';--图片路径\
+                  };\
+                };\
+\
+                {\
+                  LinearLayout,--线性布局\
+                  layout_marginTop='-15%w';--顶距\
+                  orientation='vertical',--方向\
+                  layout_width='fill',--宽度\
+                  layout_height='fill',--高度\
+                  background='#00FFFFFF',--背景颜色或图片路径\
+\
+                  {\
+                    CardView;--卡片控件\
+                    layout_gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    elevation='15dp';--阴影\
+                    layout_width='85%w';--宽度\
+                    layout_height='90%w';--高度\
+                    CardBackgroundColor='#ffffffff';--颜色\
+                    radius='8dp';--圆角\
+                    {\
+                      LinearLayout,--线性布局\
+                      orientation='vertical',--方向\
+                      layout_width='fill',--宽度\
+                      layout_height='30%w',--高度\
+                      background='gonggao.png',--背景颜色或图片路径\
+                    };\
+                    {\
+                      TextView;--文本控件\
+                      layout_marginTop='-45%w';--顶距\
+                      gravity='center';--重力\
+                      --左:left 右:right 中:center 顶:top 底:bottom\
+                      layout_width='fill';--宽度\
+                      layout_height='fill';--高度\
+                      textColor='#d4000000';--文字颜色\
+                      text='WireGuard';\
+                      textSize='25dp';--文字大小\
+                    };\
+                    {\
+                      ScrollView,--纵向滑动\
+                      layout_width='wrap';--宽度\
+                      layout_height='wrap';--高度\
+                      VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+                      --布局写这\
+                      {\
+                        LinearLayout,--线性布局\
+                        orientation='vertical',--方向\
+                        {\
+                          TextView;--文本控件\
+                          layout_marginTop='30%w';--顶距\
+                          layout_marginLeft='10dp';--左距\
+                          --gravity='center';--重力\
+                          --左:left 右:right 中:center 顶:top 底:bottom\
+                          layout_width='fill';--宽度\
+                          layout_height='fill';--高度\
+                          textColor='#aa000000';--文字颜色\
+                          text=WG;\
+                          textSize='16dp';--文字大小\
+                        };\
+                      };\
+                    };\
+                  };\
+                };\
+              };\
+            };\
+\
+            {\
+              LinearLayout,--线性布局\
+              layout_marginTop='4dp';--顶距\
+              layout_margin='20dp';--边距\
+              orientation='horizontal',--方向\
+              layout_width='fill',--宽度\
+              layout_height='fill',--高度\
+              background='#00FFFFFF',--背景颜色或图片路径\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='Q.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"jqq\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='取消';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"qx\";\
+\
+                  };\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='xz.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"zdd\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='立即下载';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"xz\";\
+                  };\
+                };\
+              };\
+            };\
+          };\
+\
+          dialog= AlertDialog.Builder(this)\
+          import \"android.text.SpannableString\"\
+          import \"android.text.style.ForegroundColorSpan\"\
+          import \"android.text.Spannable\"\
+          dialog1=dialog.show()\
+          dialog1.getWindow().setContentView(loadlayout(hanwuji));\
+          --  doalog1.setCancelable(false)\
+          dialog1.setCanceledOnTouchOutside(false)\
+          dialog1.setCancelable(false)--\
+          import \"android.graphics.drawable.ColorDrawable\"\
+          dialog1.getWindow().setBackgroundDrawable(ColorDrawable(0x00000000));\
+\
+          --设置边框圆角函数\
+          function 卡片(边框厚度,边框颜色,背景颜色,圆角度)\
+            import \"android.graphics.drawable.GradientDrawable\"\
+            drawable=GradientDrawable()\
+            drawable.setShape(GradientDrawable.RECTANGLE)\
+            drawable.setStroke(边框厚度,tonumber(边框颜色))--边框厚度和背景颜色\
+            drawable.setColor(tonumber(背景颜色))--背景颜色\
+            drawable.setCornerRadius(圆角度)--圆角\
+            return drawable\
+          end\
+\
+          --分别为:ID,边框厚度,边框颜色,背景颜色,圆角度\
+          jqq.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+          zdd.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+\
+          --头像旋转\
+          import \"android.view.animation.LinearInterpolator\"\
+          c = ObjectAnimator()\
+          c.setTarget(touxiang);\
+          c.setDuration(19000);\
+          c.setRepeatCount(ValueAnimator.INFINITE)\
+          c.setPropertyName(\"rotation\");\
+          c.setFloatValues({720,0});\
+          c.setRepeatMode(ValueAnimator.INFINITE)\
+          c.setInterpolator(LinearInterpolator() )\
+          c.start();\
+\
+          qx.onClick=function(v)\
+            dialog1.dismiss()\
+\
+          end\
+          xz.onClick=function(v)\
+            dialog1.dismiss()\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=WG下载链接;\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器下载！\")\
+            退出页面()\
+          end\
+          return true\
+        else\
+          退出程序()\
+          print(\"网络连接错误，请检查网络\")\
+        end\
+\
+      end)\
+    end\
+\
+    P6.onClick=function()--点击事件\
+      import \"android.text.Html\"\
+      --远程链接，这里用的是讯飞语记。\
+      url=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1624983285917859\"\
+      Http.get(url,nil,\"utf8\",nil,function(code,content,cookie,header)\
+        if code==200 then\
+          --过滤\
+          content=content:gsub(\"amp;\",\"\") or content;\
+          --状态\
+          开关=content:match(\"【状态】(.-)【状态】\")\
+          --太极简介\
+          太极=content:match(\"【太极】(.-)【太极】\")\
+          --太极下载链接\
+          太极下载链接=content:match(\"【太极下载链接】(.-)【太极下载链接】\")\
+          --微X简介\
+          微X=content:match(\"【微X】(.-)【微X】\")\
+          --微X下载链接\
+          微X下载链接=content:match(\"【微X下载链接】(.-)【微X下载链接】\")\
+          --QX简介\
+          QX=content:match(\"【QX】(.-)【QX】\")\
+          --QX下载链接\
+          QX下载链接=content:match(\"【QX下载链接】(.-)【QX下载链接】\")\
+          --XAutoDaily简介\
+          XA=content:match(\"【XA】(.-)【XA】\")\
+          --XA下载链接\
+          XA下载链接=content:match(\"【XA下载链接】(.-)【XA下载链接】\")\
+          --WireGuard简介\
+          WG=content:match(\"【WG】(.-)【WG】\")\
+          --WireGuard下载链接\
+          WG下载链接=content:match(\"【WG下载链接】(.-)【WG下载链接】\")\
+          --暮光免流简介\
+          暮光=content:match(\"【暮光】(.-)【暮光】\")\
+          --暮光下载链接\
+          暮光下载链接=content:match(\"【暮光下载链接】(.-)【暮光下载链接】\")\
+          --哔哩哔哩AS简介\
+          BL=content:match(\"【BL】(.-)【BL】\")\
+          --哔哩哔哩AS下载链接\
+          BL下载链接=content:match(\"【BL下载链接】(.-)【BL下载链接】\")\
+          --IDM简介\
+          IDM=content:match(\"【IDM】(.-)【IDM】\")\
+          --IDM下载链接\
+          IDM下载链接=content:match(\"【IDM下载链接】(.-)【IDM下载链接】\")\
+\
+\
+          hanwuji=--作者：寒武纪\
+          {\
+            LinearLayout,--线性布局\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='wrap',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='30%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='90%w';--宽度\
+              layout_height='110%w';--高度\
+              CardBackgroundColor='#00000000';--颜色\
+              radius='8dp';--圆角\
+\
+              {\
+                LinearLayout,--线性布局\
+                layout_marginTop='10dp';--顶距\
+                orientation='vertical',--方向\
+                layout_width='fill',--宽度\
+                layout_height='fill',--高度\
+                background='#00FFFFFF',--背景颜色或图片路径\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='10dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='30%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='30%w';--圆角\
+                  id=\"touxiang\";\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='P6.jpg';--图片路径\
+                  };\
+                };\
+\
+                {\
+                  LinearLayout,--线性布局\
+                  layout_marginTop='-15%w';--顶距\
+                  orientation='vertical',--方向\
+                  layout_width='fill',--宽度\
+                  layout_height='fill',--高度\
+                  background='#00FFFFFF',--背景颜色或图片路径\
+\
+                  {\
+                    CardView;--卡片控件\
+                    layout_gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    elevation='15dp';--阴影\
+                    layout_width='85%w';--宽度\
+                    layout_height='90%w';--高度\
+                    CardBackgroundColor='#ffffffff';--颜色\
+                    radius='8dp';--圆角\
+                    {\
+                      LinearLayout,--线性布局\
+                      orientation='vertical',--方向\
+                      layout_width='fill',--宽度\
+                      layout_height='30%w',--高度\
+                      background='gonggao.png',--背景颜色或图片路径\
+                    };\
+                    {\
+                      TextView;--文本控件\
+                      layout_marginTop='-45%w';--顶距\
+                      gravity='center';--重力\
+                      --左:left 右:right 中:center 顶:top 底:bottom\
+                      layout_width='fill';--宽度\
+                      layout_height='fill';--高度\
+                      textColor='#d4000000';--文字颜色\
+                      text='暮光免流';\
+                      textSize='25dp';--文字大小\
+                    };\
+                    {\
+                      ScrollView,--纵向滑动\
+                      layout_width='wrap';--宽度\
+                      layout_height='wrap';--高度\
+                      VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+                      --布局写这\
+                      {\
+                        LinearLayout,--线性布局\
+                        orientation='vertical',--方向\
+                        {\
+                          TextView;--文本控件\
+                          layout_marginTop='30%w';--顶距\
+                          layout_marginLeft='10dp';--左距\
+                          --gravity='center';--重力\
+                          --左:left 右:right 中:center 顶:top 底:bottom\
+                          layout_width='fill';--宽度\
+                          layout_height='fill';--高度\
+                          textColor='#aa000000';--文字颜色\
+                          text=暮光;\
+                          textSize='16dp';--文字大小\
+                        };\
+                      };\
+                    };\
+                  };\
+                };\
+              };\
+            };\
+\
+            {\
+              LinearLayout,--线性布局\
+              layout_marginTop='4dp';--顶距\
+              layout_margin='20dp';--边距\
+              orientation='horizontal',--方向\
+              layout_width='fill',--宽度\
+              layout_height='fill',--高度\
+              background='#00FFFFFF',--背景颜色或图片路径\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='Q.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"jqq\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='取消';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"qx\";\
+\
+                  };\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='xz.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"zdd\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='立即下载';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"xz\";\
+                  };\
+                };\
+              };\
+            };\
+          };\
+\
+          dialog= AlertDialog.Builder(this)\
+          import \"android.text.SpannableString\"\
+          import \"android.text.style.ForegroundColorSpan\"\
+          import \"android.text.Spannable\"\
+          dialog1=dialog.show()\
+          dialog1.getWindow().setContentView(loadlayout(hanwuji));\
+          --  doalog1.setCancelable(false)\
+          dialog1.setCanceledOnTouchOutside(false)\
+          dialog1.setCancelable(false)--\
+          import \"android.graphics.drawable.ColorDrawable\"\
+          dialog1.getWindow().setBackgroundDrawable(ColorDrawable(0x00000000));\
+\
+          --设置边框圆角函数\
+          function 卡片(边框厚度,边框颜色,背景颜色,圆角度)\
+            import \"android.graphics.drawable.GradientDrawable\"\
+            drawable=GradientDrawable()\
+            drawable.setShape(GradientDrawable.RECTANGLE)\
+            drawable.setStroke(边框厚度,tonumber(边框颜色))--边框厚度和背景颜色\
+            drawable.setColor(tonumber(背景颜色))--背景颜色\
+            drawable.setCornerRadius(圆角度)--圆角\
+            return drawable\
+          end\
+\
+          --分别为:ID,边框厚度,边框颜色,背景颜色,圆角度\
+          jqq.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+          zdd.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+\
+          --头像旋转\
+          import \"android.view.animation.LinearInterpolator\"\
+          c = ObjectAnimator()\
+          c.setTarget(touxiang);\
+          c.setDuration(19000);\
+          c.setRepeatCount(ValueAnimator.INFINITE)\
+          c.setPropertyName(\"rotation\");\
+          c.setFloatValues({720,0});\
+          c.setRepeatMode(ValueAnimator.INFINITE)\
+          c.setInterpolator(LinearInterpolator() )\
+          c.start();\
+\
+          qx.onClick=function(v)\
+            dialog1.dismiss()\
+\
+          end\
+          xz.onClick=function(v)\
+            dialog1.dismiss()\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=暮光下载链接;\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器下载！\")\
+            退出页面()\
+          end\
+          return true\
+        else\
+          退出程序()\
+          print(\"网络连接错误，请检查网络\")\
+        end\
+\
+      end)\
+    end\
+\
+    P7.onClick=function()--点击事件\
+      import \"android.text.Html\"\
+      --远程链接，这里用的是讯飞语记。\
+      url=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1624983285917859\"\
+      Http.get(url,nil,\"utf8\",nil,function(code,content,cookie,header)\
+        if code==200 then\
+          --过滤\
+          content=content:gsub(\"amp;\",\"\") or content;\
+          --状态\
+          开关=content:match(\"【状态】(.-)【状态】\")\
+          --太极简介\
+          太极=content:match(\"【太极】(.-)【太极】\")\
+          --太极下载链接\
+          太极下载链接=content:match(\"【太极下载链接】(.-)【太极下载链接】\")\
+          --微X简介\
+          微X=content:match(\"【微X】(.-)【微X】\")\
+          --微X下载链接\
+          微X下载链接=content:match(\"【微X下载链接】(.-)【微X下载链接】\")\
+          --QX简介\
+          QX=content:match(\"【QX】(.-)【QX】\")\
+          --QX下载链接\
+          QX下载链接=content:match(\"【QX下载链接】(.-)【QX下载链接】\")\
+          --XAutoDaily简介\
+          XA=content:match(\"【XA】(.-)【XA】\")\
+          --XA下载链接\
+          XA下载链接=content:match(\"【XA下载链接】(.-)【XA下载链接】\")\
+          --WireGuard简介\
+          WG=content:match(\"【WG】(.-)【WG】\")\
+          --WireGuard下载链接\
+          WG下载链接=content:match(\"【WG下载链接】(.-)【WG下载链接】\")\
+          --暮光免流简介\
+          暮光=content:match(\"【暮光】(.-)【暮光】\")\
+          --暮光下载链接\
+          暮光下载链接=content:match(\"【暮光下载链接】(.-)【暮光下载链接】\")\
+          --哔哩哔哩AS简介\
+          BL=content:match(\"【BL】(.-)【BL】\")\
+          --哔哩哔哩AS下载链接\
+          BL下载链接=content:match(\"【BL下载链接】(.-)【BL下载链接】\")\
+          --IDM简介\
+          IDM=content:match(\"【IDM】(.-)【IDM】\")\
+          --IDM下载链接\
+          IDM下载链接=content:match(\"【IDM下载链接】(.-)【IDM下载链接】\")\
+\
+\
+          hanwuji=--作者：寒武纪\
+          {\
+            LinearLayout,--线性布局\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='wrap',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='30%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='90%w';--宽度\
+              layout_height='110%w';--高度\
+              CardBackgroundColor='#00000000';--颜色\
+              radius='8dp';--圆角\
+\
+              {\
+                LinearLayout,--线性布局\
+                layout_marginTop='10dp';--顶距\
+                orientation='vertical',--方向\
+                layout_width='fill',--宽度\
+                layout_height='fill',--高度\
+                background='#00FFFFFF',--背景颜色或图片路径\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='10dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='30%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='30%w';--圆角\
+                  id=\"touxiang\";\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='P7.jpg';--图片路径\
+                  };\
+                };\
+\
+                {\
+                  LinearLayout,--线性布局\
+                  layout_marginTop='-15%w';--顶距\
+                  orientation='vertical',--方向\
+                  layout_width='fill',--宽度\
+                  layout_height='fill',--高度\
+                  background='#00FFFFFF',--背景颜色或图片路径\
+\
+                  {\
+                    CardView;--卡片控件\
+                    layout_gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    elevation='15dp';--阴影\
+                    layout_width='85%w';--宽度\
+                    layout_height='90%w';--高度\
+                    CardBackgroundColor='#ffffffff';--颜色\
+                    radius='8dp';--圆角\
+                    {\
+                      LinearLayout,--线性布局\
+                      orientation='vertical',--方向\
+                      layout_width='fill',--宽度\
+                      layout_height='30%w',--高度\
+                      background='gonggao.png',--背景颜色或图片路径\
+                    };\
+                    {\
+                      TextView;--文本控件\
+                      layout_marginTop='-45%w';--顶距\
+                      gravity='center';--重力\
+                      --左:left 右:right 中:center 顶:top 底:bottom\
+                      layout_width='fill';--宽度\
+                      layout_height='fill';--高度\
+                      textColor='#d4000000';--文字颜色\
+                      text='BiLiBiLi AS';\
+                      textSize='25dp';--文字大小\
+                    };\
+                    {\
+                      ScrollView,--纵向滑动\
+                      layout_width='wrap';--宽度\
+                      layout_height='wrap';--高度\
+                      VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+                      --布局写这\
+                      {\
+                        LinearLayout,--线性布局\
+                        orientation='vertical',--方向\
+                        {\
+                          TextView;--文本控件\
+                          layout_marginTop='30%w';--顶距\
+                          layout_marginLeft='10dp';--左距\
+                          --gravity='center';--重力\
+                          --左:left 右:right 中:center 顶:top 底:bottom\
+                          layout_width='fill';--宽度\
+                          layout_height='fill';--高度\
+                          textColor='#aa000000';--文字颜色\
+                          text=BL;\
+                          textSize='16dp';--文字大小\
+                        };\
+                      };\
+                    };\
+                  };\
+                };\
+              };\
+            };\
+\
+            {\
+              LinearLayout,--线性布局\
+              layout_marginTop='4dp';--顶距\
+              layout_margin='20dp';--边距\
+              orientation='horizontal',--方向\
+              layout_width='fill',--宽度\
+              layout_height='fill',--高度\
+              background='#00FFFFFF',--背景颜色或图片路径\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='Q.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"jqq\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='取消';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"qx\";\
+\
+                  };\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='xz.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"zdd\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='立即下载';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"xz\";\
+                  };\
+                };\
+              };\
+            };\
+          };\
+\
+          dialog= AlertDialog.Builder(this)\
+          import \"android.text.SpannableString\"\
+          import \"android.text.style.ForegroundColorSpan\"\
+          import \"android.text.Spannable\"\
+          dialog1=dialog.show()\
+          dialog1.getWindow().setContentView(loadlayout(hanwuji));\
+          --  doalog1.setCancelable(false)\
+          dialog1.setCanceledOnTouchOutside(false)\
+          dialog1.setCancelable(false)--\
+          import \"android.graphics.drawable.ColorDrawable\"\
+          dialog1.getWindow().setBackgroundDrawable(ColorDrawable(0x00000000));\
+\
+          --设置边框圆角函数\
+          function 卡片(边框厚度,边框颜色,背景颜色,圆角度)\
+            import \"android.graphics.drawable.GradientDrawable\"\
+            drawable=GradientDrawable()\
+            drawable.setShape(GradientDrawable.RECTANGLE)\
+            drawable.setStroke(边框厚度,tonumber(边框颜色))--边框厚度和背景颜色\
+            drawable.setColor(tonumber(背景颜色))--背景颜色\
+            drawable.setCornerRadius(圆角度)--圆角\
+            return drawable\
+          end\
+\
+          --分别为:ID,边框厚度,边框颜色,背景颜色,圆角度\
+          jqq.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+          zdd.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+\
+          --头像旋转\
+          import \"android.view.animation.LinearInterpolator\"\
+          c = ObjectAnimator()\
+          c.setTarget(touxiang);\
+          c.setDuration(19000);\
+          c.setRepeatCount(ValueAnimator.INFINITE)\
+          c.setPropertyName(\"rotation\");\
+          c.setFloatValues({720,0});\
+          c.setRepeatMode(ValueAnimator.INFINITE)\
+          c.setInterpolator(LinearInterpolator() )\
+          c.start();\
+\
+          qx.onClick=function(v)\
+            dialog1.dismiss()\
+\
+          end\
+          xz.onClick=function(v)\
+            dialog1.dismiss()\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=BL下载链接;\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器下载！\")\
+            退出页面()\
+          end\
+          return true\
+        else\
+          退出程序()\
+          print(\"网络连接错误，请检查网络\")\
+        end\
+\
+      end)\
+    end\
+\
+    P8.onClick=function()--点击事件\
+      import \"android.text.Html\"\
+      --远程链接，这里用的是讯飞语记。\
+      url=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1624983285917859\"\
+      Http.get(url,nil,\"utf8\",nil,function(code,content,cookie,header)\
+        if code==200 then\
+          --过滤\
+          content=content:gsub(\"amp;\",\"\") or content;\
+          --状态\
+          开关=content:match(\"【状态】(.-)【状态】\")\
+          --太极简介\
+          太极=content:match(\"【太极】(.-)【太极】\")\
+          --太极下载链接\
+          太极下载链接=content:match(\"【太极下载链接】(.-)【太极下载链接】\")\
+          --微X简介\
+          微X=content:match(\"【微X】(.-)【微X】\")\
+          --微X下载链接\
+          微X下载链接=content:match(\"【微X下载链接】(.-)【微X下载链接】\")\
+          --QX简介\
+          QX=content:match(\"【QX】(.-)【QX】\")\
+          --QX下载链接\
+          QX下载链接=content:match(\"【QX下载链接】(.-)【QX下载链接】\")\
+          --XAutoDaily简介\
+          XA=content:match(\"【XA】(.-)【XA】\")\
+          --XA下载链接\
+          XA下载链接=content:match(\"【XA下载链接】(.-)【XA下载链接】\")\
+          --WireGuard简介\
+          WG=content:match(\"【WG】(.-)【WG】\")\
+          --WireGuard下载链接\
+          WG下载链接=content:match(\"【WG下载链接】(.-)【WG下载链接】\")\
+          --暮光免流简介\
+          暮光=content:match(\"【暮光】(.-)【暮光】\")\
+          --暮光下载链接\
+          暮光下载链接=content:match(\"【暮光下载链接】(.-)【暮光下载链接】\")\
+          --哔哩哔哩AS简介\
+          BL=content:match(\"【BL】(.-)【BL】\")\
+          --哔哩哔哩AS下载链接\
+          BL下载链接=content:match(\"【BL下载链接】(.-)【BL下载链接】\")\
+          --IDM简介\
+          IDM=content:match(\"【IDM】(.-)【IDM】\")\
+          --IDM下载链接\
+          IDM下载链接=content:match(\"【IDM下载链接】(.-)【IDM下载链接】\")\
+\
+\
+          hanwuji=--作者：寒武纪\
+          {\
+            LinearLayout,--线性布局\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='wrap',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='30%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='90%w';--宽度\
+              layout_height='110%w';--高度\
+              CardBackgroundColor='#00000000';--颜色\
+              radius='8dp';--圆角\
+\
+              {\
+                LinearLayout,--线性布局\
+                layout_marginTop='10dp';--顶距\
+                orientation='vertical',--方向\
+                layout_width='fill',--宽度\
+                layout_height='fill',--高度\
+                background='#00FFFFFF',--背景颜色或图片路径\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='10dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='30%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='30%w';--圆角\
+                  id=\"touxiang\";\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='P8.jpg';--图片路径\
+                  };\
+                };\
+\
+                {\
+                  LinearLayout,--线性布局\
+                  layout_marginTop='-15%w';--顶距\
+                  orientation='vertical',--方向\
+                  layout_width='fill',--宽度\
+                  layout_height='fill',--高度\
+                  background='#00FFFFFF',--背景颜色或图片路径\
+\
+                  {\
+                    CardView;--卡片控件\
+                    layout_gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    elevation='15dp';--阴影\
+                    layout_width='85%w';--宽度\
+                    layout_height='90%w';--高度\
+                    CardBackgroundColor='#ffffffff';--颜色\
+                    radius='8dp';--圆角\
+                    {\
+                      LinearLayout,--线性布局\
+                      orientation='vertical',--方向\
+                      layout_width='fill',--宽度\
+                      layout_height='30%w',--高度\
+                      background='gonggao.png',--背景颜色或图片路径\
+                    };\
+                    {\
+                      TextView;--文本控件\
+                      layout_marginTop='-45%w';--顶距\
+                      gravity='center';--重力\
+                      --左:left 右:right 中:center 顶:top 底:bottom\
+                      layout_width='fill';--宽度\
+                      layout_height='fill';--高度\
+                      textColor='#d4000000';--文字颜色\
+                      text='IDM';\
+                      textSize='25dp';--文字大小\
+                    };\
+                    {\
+                      ScrollView,--纵向滑动\
+                      layout_width='wrap';--宽度\
+                      layout_height='wrap';--高度\
+                      VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+                      --布局写这\
+                      {\
+                        LinearLayout,--线性布局\
+                        orientation='vertical',--方向\
+                        {\
+                          TextView;--文本控件\
+                          layout_marginTop='30%w';--顶距\
+                          layout_marginLeft='10dp';--左距\
+                          --gravity='center';--重力\
+                          --左:left 右:right 中:center 顶:top 底:bottom\
+                          layout_width='fill';--宽度\
+                          layout_height='fill';--高度\
+                          textColor='#aa000000';--文字颜色\
+                          text=IDM;\
+                          textSize='16dp';--文字大小\
+                        };\
+                      };\
+                    };\
+                  };\
+                };\
+              };\
+            };\
+\
+            {\
+              LinearLayout,--线性布局\
+              layout_marginTop='4dp';--顶距\
+              layout_margin='20dp';--边距\
+              orientation='horizontal',--方向\
+              layout_width='fill',--宽度\
+              layout_height='fill',--高度\
+              background='#00FFFFFF',--背景颜色或图片路径\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='Q.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"jqq\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='取消';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"qx\";\
+\
+                  };\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_marginLeft='5dp';--左距\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='';--阴影\
+                layout_width='40%w';--宽度\
+                layout_height='27%w';--高度\
+                CardBackgroundColor='#00000000';--颜色\
+                radius='';--圆角\
+\
+                {\
+                  CardView;--卡片控件\
+                  layout_marginTop='-5.5%w';--顶距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='5dp';--阴影\
+                  layout_width='16%w';--宽度\
+                  layout_height='16%w';--高度\
+                  CardBackgroundColor='#ff1e8ae8';--颜色\
+                  radius='20%w';--圆角\
+\
+                  {\
+                    CircleImageView;--圆形图片\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    src='xz.jpg';--图片路径\
+                  };\
+                };\
+                {\
+                  CardView;--卡片控件\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='8dp';--阴影\
+                  layout_width='30%w';--宽度\
+                  layout_height='10%w';--高度\
+                  CardBackgroundColor='#ffffffff';--颜色\
+                  radius='5dp';--圆角\
+                  id=\"zdd\";\
+                  {\
+                    TextView;--文本控件\
+                    gravity='center';--重力\
+                    --左:left 右:right 中:center 顶:top 底:bottom\
+                    layout_width='fill';--宽度\
+                    layout_height='fill';--高度\
+                    textColor='#d1000000';--文字颜色\
+                    text='立即下载';--显示文字\
+                    textSize='18dp';--文字大小\
+                    id=\"xz\";\
+                  };\
+                };\
+              };\
+            };\
+          };\
+\
+          dialog= AlertDialog.Builder(this)\
+          import \"android.text.SpannableString\"\
+          import \"android.text.style.ForegroundColorSpan\"\
+          import \"android.text.Spannable\"\
+          dialog1=dialog.show()\
+          dialog1.getWindow().setContentView(loadlayout(hanwuji));\
+          --  doalog1.setCancelable(false)\
+          dialog1.setCanceledOnTouchOutside(false)\
+          dialog1.setCancelable(false)--\
+          import \"android.graphics.drawable.ColorDrawable\"\
+          dialog1.getWindow().setBackgroundDrawable(ColorDrawable(0x00000000));\
+\
+          --设置边框圆角函数\
+          function 卡片(边框厚度,边框颜色,背景颜色,圆角度)\
+            import \"android.graphics.drawable.GradientDrawable\"\
+            drawable=GradientDrawable()\
+            drawable.setShape(GradientDrawable.RECTANGLE)\
+            drawable.setStroke(边框厚度,tonumber(边框颜色))--边框厚度和背景颜色\
+            drawable.setColor(tonumber(背景颜色))--背景颜色\
+            drawable.setCornerRadius(圆角度)--圆角\
+            return drawable\
+          end\
+\
+          --分别为:ID,边框厚度,边框颜色,背景颜色,圆角度\
+          jqq.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+          zdd.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+\
+          --头像旋转\
+          import \"android.view.animation.LinearInterpolator\"\
+          c = ObjectAnimator()\
+          c.setTarget(touxiang);\
+          c.setDuration(19000);\
+          c.setRepeatCount(ValueAnimator.INFINITE)\
+          c.setPropertyName(\"rotation\");\
+          c.setFloatValues({720,0});\
+          c.setRepeatMode(ValueAnimator.INFINITE)\
+          c.setInterpolator(LinearInterpolator() )\
+          c.start();\
+\
+          qx.onClick=function(v)\
+            dialog1.dismiss()\
+\
+          end\
+          xz.onClick=function(v)\
+            dialog1.dismiss()\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=IDM下载链接;\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器下载！\")\
+            退出页面()\
+          end\
+          return true\
+        else\
+          退出程序()\
+          print(\"网络连接错误，请检查网络\")\
+        end\
+\
+      end)\
+    end\
+    import \"android.view.animation.TranslateAnimation\"\
+    import \"android.view.animation.Animation\"\
+    import \"android.view.animation.RotateAnimation\"\
+    --设置动画的属性\
+    旋转动画=RotateAnimation(360, 0,\
+    Animation.RELATIVE_TO_SELF, 0.5,\
+    Animation.RELATIVE_TO_SELF, 0.5)\
+    旋转动画.setDuration(1200)--设置动画时间\
+    旋转动画.setFillAfter(true)--设置动画结束后停留位置\
+    旋转动画.setRepeatCount(0)--设置无限循环\
+    --绑定动画\
+    p1.startAnimation(旋转动画)\
+    p5.startAnimation(旋转动画)\
+    旋转动画=RotateAnimation(360, 0,\
+    Animation.RELATIVE_TO_SELF, 0.5,\
+    Animation.RELATIVE_TO_SELF, 0.5)\
+    旋转动画.setDuration(1400)--设置动画时间\
+    旋转动画.setFillAfter(true)--设置动画结束后停留位置\
+    旋转动画.setRepeatCount(0)--设置无限循环\
+    p2.startAnimation(旋转动画)\
+    p6.startAnimation(旋转动画)\
+    旋转动画=RotateAnimation(360, 0,\
+    Animation.RELATIVE_TO_SELF, 0.5,\
+    Animation.RELATIVE_TO_SELF, 0.5)\
+    旋转动画.setDuration(1600)--设置动画时间\
+    旋转动画.setFillAfter(true)--设置动画结束后停留位置\
+    旋转动画.setRepeatCount(0)--设置无限循环\
+    p3.startAnimation(旋转动画)\
+    p7.startAnimation(旋转动画)\
+    旋转动画=RotateAnimation(360, 0,\
+    Animation.RELATIVE_TO_SELF, 0.5,\
+    Animation.RELATIVE_TO_SELF, 0.5)\
+    旋转动画.setDuration(1800)--设置动画时间\
+    旋转动画.setFillAfter(true)--设置动画结束后停留位置\
+    旋转动画.setRepeatCount(0)--设置无限循环\
+    p4.startAnimation(旋转动画)\
+    p8.startAnimation(旋转动画)\
+    平移动画=TranslateAnimation(-600, 0, 0, 0)\
+    平移动画.setDuration(1100)--设置动画时间\
+    平移动画.setFillAfter(true)--设置动画后停留位置\
+    平移动画.setRepeatCount(0)--设置无限循环\
+    --绑定动画\
+    txt1.startAnimation(平移动画)\
+    txt2.startAnimation(平移动画)\
+\
+    function 三色渐变(控件,左色,中色,右色,圆角)\
+      import \"android.graphics.drawable.GradientDrawable\"\
+      drawable = GradientDrawable(GradientDrawable.Orientation.TR_BL,{左色,中色,右色});\
+      drawable.setCornerRadii({圆角,圆角,圆角,圆角,圆角,圆角,圆角,圆角});\
+      控件.setBackgroundDrawable(drawable)\
+    end\
+    --调用方法\
+    三色渐变(B,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+\
+\
+  else\
+    弹出消息(\"错误，网络链接失败！\")--链接失败事件\
+  end--判断网络链接结束\
+end)--网页截取结束\
+\
+\
+\
+\
+\
+\
+\
+" ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  } ;

@@ -1,0 +1,167 @@
+{
+  ["bottomBar"]	= {
+      [1]	= {
+          ["text"]	= "主页" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.agefans.cc/" ;
+          ["icon"]	= "drawable/home.png" ;
+          } ;
+      [2]	= {
+          ["text"]	= "目录" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.agefans.cc/catalog/all-all-all-all-all-time-1" ;
+          ["icon"]	= "drawable/calendar_text.png" ;
+          } ;
+      [3]	= {
+          ["text"]	= "每日推荐" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.agefans.cc/recommend" ;
+          ["icon"]	= "drawable/heart_outline.png" ;
+          } ;
+      [4]	= {
+          ["text"]	= "最近更新" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.agefans.cc/update" ;
+          ["icon"]	= "drawable/tumblr_reblog.png" ;
+          } ;
+      [5]	= {
+          ["text"]	= "排行榜" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.agefans.cc/rank" ;
+          ["icon"]	= "drawable/format_list_numbers.png" ;
+          } ;
+      [6]	= {
+          ["text"]	= "登陆" ;
+          ["statusBarColor"]	= "" ;
+          ["url"]	= "https://www.agefans.cc/accounts/login/" ;
+          ["icon"]	= "drawable/account.png" ;
+          } ;
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏高度"]	= "56dp" ;
+      ["顶栏标题"]	= "AGE动漫" ;
+      ["底栏高度"]	= "48dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["底栏图标大小"]	= "24dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      } ;
+  ["events"]	= {
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+新标题=..." ;
+      ["程序启动"]	= "webView.getSettings().setJavaScriptEnabled(false)\
+\
+" ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  ["sidebar"]	= {
+      ["启用顶部图片"]	= false ;
+      ["items"]	= {
+          } ;
+      ["启用"]	= false ;
+      } ;
+  ["toolbar"]	= {
+      ["menus"]	= {
+          [2]	= {
+              ["onClick"]	= "import \"android.content.Intent\"\
+        import \"android.net.Uri\"--导入两个包\
+        local viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse('https://www.agefans.cc'))\
+        activity.startActivity(viewIntent)--浏览器打开\
+        \
+        print(\"已为您在浏览器打开！\")" ;
+              ["name"]	= "浏览器打开" ;
+              } ;
+          [1]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["name"]	= "BACK" ;
+              } ;
+          } ;
+      ["搜索URL"]	= "" ;
+      ["启用搜索功能"]	= false ;
+      ["输入栏模式"]	= false ;
+      ["搜索功能"]	= false ;
+      ["搜索框提示"]	= "请输入你想要看的番剧！" ;
+      ["icon_btns"]	= {
+          [1]	= {
+              ["onClick"]	= "刷新网页()\
+print(\"刷新\")" ;
+              ["icon"]	= "replay" ;
+              } ;
+          } ;
+      } ;
+  ["colors"]	= {
+      ["底栏图标触摸波纹"]	= "#24000000" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["底栏图标"]	= "#ff1732ff" ;
+      ["底栏图标选中"]	= "#ffff0017" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["悬浮按钮图标"]	= "#FFFFFF" ;
+      ["底栏"]	= "#ffffffff" ;
+      ["顶栏部件"]	= "#ff003dff" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["顶栏部件触摸"]	= "#ffff0000" ;
+      ["进度条"]	= "#ffff0000" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["顶栏"]	= "#ff2e3148" ;
+      } ;
+  ["web_control"]	= {
+      [1]	= {
+          ["url"]	= "www.agefans.cc" ;
+          ["remove_element"]	= "" ;
+          ["js"]	= "//23:54-29\
+var JsHDued=function(v){try {new Function(v)();} catch(e) {setTimeout(function (){JsHDued(v);},100);};};\
+JsHDued(`document.getElementsByClassName(\"nav_button \")[0].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"nav_button \")[1].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"nav_button \")[2].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"nav_button \")[3].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"nav_button \")[4].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementById(\"new_tip1\").setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByTagName(\"img\")[0].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementById(\"top\").setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementById(\"footer_container\").setAttribute(\"style\",\"display:none\");`);" ;
+          } ;
+      } ;
+  ["web"]	= {
+      ["浏览器用户标识"]	= "默认" ;
+      ["启用长按菜单"]	= true ;
+      ["支持打开外部应用"]	= true ;
+      ["网页沉浸"]	= true ;
+      ["默认广告标记标签"]	= "" ;
+      ["惰性加载"]	= true ;
+      ["启用进度条"]	= true ;
+      } ;
+  ["global_js"]	= "\
+\
+var element=document.getElementsByTagName(\"img\");\
+var ad = \"https://p0.pstatp.com/origin/1386b0000fc487ec8b2ec\";\
+for(var i = 0;i < element.length;i++){\
+  if(element[i].src==ad){\
+    element[i].remove();\
+    break;\
+  }else{\
+    continue;\
+  }\
+}\
+\
+" ;
+  ["switch"]	= {
+      ["显示状态栏"]	= true ;
+      ["启用启动图"]	= false ;
+      ["横屏"]	= false ;
+      ["支持滑动页面"]	= true ;
+      } ;
+  } ;

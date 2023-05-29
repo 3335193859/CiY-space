@@ -1,0 +1,200 @@
+{
+  ["web"]	= {
+      ["支持打开外部应用"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["启用长按菜单"]	= true ;
+      ["启动网页"]	= "" ;
+      ["启用进度条"]	= true ;
+      ["网页沉浸"]	= false ;
+      } ;
+  ["switch"]	= {
+      ["横屏"]	= false ;
+      ["显示状态栏"]	= false ;
+      ["启用启动图"]	= false ;
+      } ;
+  ["events"]	= {
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["程序启动"]	= "--请复制到fa里面测试，否则会报错\
+--下边这个链接位置就是填写讯飞语机的那个链接。\
+Http.get(\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1621933772302851\",nil,nil,nil,function(code,content)\
+  if code==200 then\
+    链接=content:match(\"【地址】(.-)【地址】\")\
+\
+    require\"import\"\
+    import \"android.app.*\"\
+    import \"android.os.*\"\
+    import \"android.widget.*\"\
+    import \"android.view.*\"\
+    import 'android.media.MediaPlayer'\
+    import 'android.media.MediaPlayer'\
+\
+    vui=\
+    {\
+      LinearLayout;\
+      orientation='vertical';\
+      layout_width='fill';\
+      layout_height='fill';\
+      gravity='top|center';\
+      background=\"#FFFFFFFF\";\
+      --视频\
+      {\
+        LinearLayout;\
+        orientation='vertical';\
+        layout_width='fill';\
+        layout_height='fill';\
+        gravity='top|center';\
+        background=\"#FFFFFFFF\";\
+        id=\"dd\";\
+        {\
+          VideoView;\
+          id=\"vi\";--视频控件\
+          layout_width=\"fill\";\
+          layout_height='fill';\
+          background=\"0\";--不要妄图加背景颜色代码覆盖掉黑色了，没用😂\
+        };\
+      };\
+\
+\
+\
+      --LOGO\
+      {\
+        LinearLayout;\
+        orientation='vertical';\
+        layout_width='fill';\
+        layout_height='fill';\
+        gravity='center';\
+        layout_marginTop=\"-20%h\";\
+        background=\"#FFFFFFFF\";\
+        {\
+          ImageView;--这个位置图片你自己修改一下，因为我是用的我的软件名字作为图片的。\
+          src=\"IMG_20210526_013549.png\";\
+          layout_width=\"fill\";\
+          layout_height=\"fill\";\
+          background=\"#FFFFFFFF\";\
+          id=\"gg\";\
+          elevation=\"0\";\
+        };\
+\
+\
+      };\
+\
+\
+      --倒计时\
+      {\
+        TextView;--倒计时区块\
+        layout_width=\"90dp\";\
+        layout_height=\"5%h\";\
+        gravity=\"center\",\
+        layout_marginTop=\"-95%h\";\
+        layout_gravity=\"right|center\";\
+        layout_marginRight=\"30dp\";\
+        textColor=\"#FFFFFFFF\";\
+        background=\"#33000000\";\
+        text=\"感谢观看♥\";\
+        textSize=\"15sp\",\
+        id=\"tg\";\
+        onClick=function()\
+          if tg.text=='关闭视频' then\
+            退出页面()\
+           else\
+\
+          end\
+        end\
+      };\
+    };\
+\
+    activity.setContentView(loadlayout(vui))\
+    task(2000,function()\
+      tg.setText(\"关闭视频\")\
+      task(1000,function()\
+        tg.setText(\"关闭视频\")\
+        task(1000,function()\
+          tg.setText(\"关闭视频\")\
+          task(2000,function()\
+            tg.setText(\"关闭视频\")\
+            task(2000,function()\
+              tg.setText(\"关闭视频\")\
+              task(1000,function()\
+                tg.setText(\"关闭视频\")\
+                task(1000,function()\
+                  tg.setText(\"关闭视频\")\
+                  task(2000,function()\
+                    tg.setText(\"关闭视频\")\
+                    task(1000,function()\
+                      tg.setText(\"关闭视频\")\
+                      task(1000,function()\
+                        tg.setText(\"关闭视频\")\
+                        task(1000,function()\
+                          tg.setText(\"关闭视频\")\
+                          task(1000,function()\
+                            tg.setText(\"关闭视频\")\
+                            task(1000,function()\
+                              tg.setText(\"关闭视频\")\
+                              task(1000,function()\
+                                tg.setText(\"关闭视频\")\
+                                task(1000,function()\
+                                  tg.setText(\"关闭视频\")\
+                                end)\
+                              end)\
+                            end)\
+                          end)\
+                        end)\
+                      end)\
+                    end)\
+                  end)\
+                end)\
+              end)\
+            end)\
+          end)\
+        end)\
+      end)\
+    end)\
+\
+\
+    import \"android.net.Uri\"\
+    url=Uri.parse(链接)--视频链接，这个不要管他因为这个是固定的一直显示同一个视频。\
+\
+    vi.setVideoURI(url)\
+\
+    vi.start()\
+    --监听播放完成的事件\
+    import 'android.media.MediaPlayer$OnCompletionListener'\
+    vi.setOnCompletionListener(MediaPlayer.OnCompletionListener{\
+      onCompletion=function()\
+        activity.finish()--关闭页面\
+      end\
+    });\
+\
+\
+\
+\
+   else\
+  end\
+end)\
+\
+--漏洞填补\
+import 'android.webkit.WebView'\
+local hh={}\
+webView.addJavascriptInterface(hh,'JsInterface')\
+\
+" ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象,新标题=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  ["web_control"]	= {
+      } ;
+  ["colors"]	= {
+      ["状态栏"]	= "#ffffffff" ;
+      ["进度条"]	= "#00000000" ;
+      ["导航栏"]	= "#ff33a7aa" ;
+      } ;
+  } ;

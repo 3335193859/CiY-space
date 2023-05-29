@@ -1,0 +1,98 @@
+{
+  ["switch"]	= {
+      ["横屏"]	= false ;
+      ["显示状态栏"]	= true ;
+      ["支持滑动页面"]	= false ;
+      ["启用启动图"]	= false ;
+      } ;
+  ["web"]	= {
+      ["启动网页"]	= "https://trace.moe/" ;
+      ["customUa"]	= "Android" ;
+      ["网页沉浸"]	= false ;
+      ["启用长按菜单"]	= true ;
+      ["支持打开外部应用"]	= true ;
+      ["浏览器用户标识"]	= "PC" ;
+      ["启用进度条"]	= true ;
+      } ;
+  ["fltBtn"]	= {
+      ["点击事件"]	= "加载Js([[(function () {    'use strict';    var userLang = document.documentElement.lang;        if (userLang.substr(0, 2) != \"zh\") {        var script = document.createElement('script');        script.src = '//translate.google.cn/translate_a/element.js?cb=googleTranslateElementInit';        document.getElementsByTagName('head')[0].appendChild(script);        var google_translate_element = document.createElement('div');        google_translate_element.id = 'google_translate_element';        google_translate_element.style = 'position:fixed; bottom:10px; right:10px; cursor:pointer;z-index:10;';        document.documentElement.appendChild(google_translate_element);        script = document.createElement('script');        script.innerHTML = \"function googleTranslateElementInit() {\" +            \"new google.translate.TranslateElement({\" +            \"layout: google.translate.TranslateElement.InlineLayout.SIMPLE,\" +            \"multilanguagePage: true,\" +            \"pageLanguage: 'auto',\" +            \"includedLanguages: 'zh-CN,zh-TW,en'\" +            \"}, 'google_translate_element');}\";        document.getElementsByTagName('head')[0].appendChild(script);    }})();]])--放在按钮事件里" ;
+      ["图标"]	= "" ;
+      ["显示"]	= false ;
+      } ;
+  ["sidebar"]	= {
+      ["启用顶部图片"]	= false ;
+      ["启用"]	= false ;
+      ["items"]	= {
+          } ;
+      } ;
+  ["toolbar"]	= {
+      ["搜索框提示"]	= "" ;
+      ["icon_btns"]	= {
+          } ;
+      ["输入栏模式"]	= false ;
+      ["搜索URL"]	= "" ;
+      ["启用搜索功能"]	= false ;
+      ["menus"]	= {
+          [2]	= {
+              ["onClick"]	= "import \"android.content.Intent\"\
+        import \"android.net.Uri\"--导入两个包\
+        local viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse('https://trace.moe'))\
+        activity.startActivity(viewIntent)--浏览器打开\
+\
+print(\"已为您跳转到浏览器！\")" ;
+              ["name"]	= "在浏览器打开" ;
+              } ;
+          [1]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["name"]	= "退出" ;
+              } ;
+          } ;
+      } ;
+  ["events"]	= {
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["程序启动"]	= "" ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["顶栏标题"]	= "以图搜番" ;
+      ["顶栏高度"]	= "56dp" ;
+      } ;
+  ["web_control"]	= {
+      [1]	= {
+          ["js"]	= "//21:06-37\
+document.getElementsByClassName(\"footer_container__1vXye\")[0].setAttribute(\"style\",\"display:none\");" ;
+          ["remove_element"]	= "" ;
+          ["url"]	= "https://trace.moe/" ;
+          } ;
+      } ;
+  ["colors"]	= {
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["顶栏部件"]	= "#fff717ff" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["导航栏"]	= "#caff74f0" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["进度条"]	= "#a0ff17f0" ;
+      ["顶栏"]	= "#ffffffff" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      } ;
+  } ;

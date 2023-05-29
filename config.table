@@ -1,0 +1,1812 @@
+{
+  ["colors"]	= {
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["顶栏"]	= "#ff2c2e43" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["进度条"]	= "#00000000" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      } ;
+  ["sidebar"]	= {
+      ["启用顶部图片"]	= false ;
+      ["启用"]	= false ;
+      ["items"]	= {
+          } ;
+      } ;
+  ["events"]	= {
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["程序启动"]	= "--庄谷克洛斯垃圾工程，大佬勿喷\
+--我也是小白，代码自己看着改\
+\
+\
+\
+import \"android.text.Html\"\
+--启动页链接，这里用的是讯飞语记。\
+Http.get(\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1624943311671937\",nil,\"utf8\",nil,function(code,content,cookie,header)\
+  if code==200 then--判断网络链接状态\
+    content=content:gsub(\"amp;\",\"\") or content;\
+    --状态\
+    开关=content:match(\"【状态】(.-)【状态】\")\
+    --公告内容\
+\
+    if 开关==\"开\" then\
+      进入子页面(\"启动页\")\
+      print(远端内容)\
+    end\
+  else\
+    弹出消息(\"错误，网络链接失败！\")--链接失败事件\
+  end--判断网络链接结束\
+end)--网页截取结束\
+\
+--[[\
+\
+远程格式\
+\
+{更新:\
+【版本:1.1.1:END】\
+【大小:7.08:END】\
+【更新日志:\
+【更新日志V1.1.1】\
+美化更新弹窗测试\
+①\
+②\
+③\
+④\
+:END】\
+【下载地址】蓝奏云地址【下载地址】\
+【强制更新:TRUE:END】\
+【版本号更新:TRUE:END】\
+:END}\
+\
+]]\
+\
+--程序启动时会执行的事件\
+urla=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1622119871420484\"\
+canoffline=false\
+packinfo=this.getPackageManager().getPackageInfo(this.getPackageName(),((32552732/2/2-8183)/10000-6-231)/9)\
+appinfo=this.getPackageManager().getApplicationInfo(this.getPackageName(),0)\
+applabel=this.getPackageManager().getApplicationLabel(appinfo)\
+appsign=tostring(packinfo.signatures[0].toCharsString())\
+piracy=\"您使用的 \"..applabel..\" 非官方版本，可能已被篡改，为了您设备安全，杜绝木马病毒，请勿运行此版本，如需使用，请下载官方版本\"\
+import \"android.content.Context\"\
+Http.get(urla,nil,\"UTF-8\",nil,function(code,content)\
+  if(code==200 and content)then\
+    content=content:gsub(\"amp;\",\"\") or content;\
+    update=content:match(\"%{更新:(.-):END%}\")\
+    if(update)then\
+      newest=update:match(\"%【版本:(.-):END%】\")\
+      qyysize=update:match(\"%【大小:(.-):END%】\")\
+      if(update:match(\"%【强制更新:(.-):END%】\")==\"TRUE\")then\
+        force=true\
+      else\
+        force=false\
+      end\
+      if(update:match(\"%【版本号更新:(.-):END%】\")==\"TRUE\" )then\
+        usevername=true\
+      else\
+        usevername=false\
+      end\
+      if(usevername)then\
+        version=tostring(packinfo.versionName)\
+      else\
+        version=tostring(packinfo.versionCode)\
+      end\
+      chglog=update:match(\"%【更新日志:(.-):END%】\")\
+      蓝奏云下载链接=content:match(\"【下载地址】(.-)【下载地址】\")\
+      if not((usevername and version==newest) or (not usevername and version>=newest))then\
+        junyang={\
+          LinearLayout;\
+          layout_width=\"fill\",\
+          layout_height=\"170dp\",\
+          orientation=\"vertical\";\
+          Focusable=true,\
+          FocusableInTouchMode=true,\
+          --[[{\
+            Button;\
+            textColor=\"#FFFFFFFF\";\
+            backgroundColor=\"#FF3C8BDA\";\
+            id=\"tuichu\";\
+            layout_width=\"fill\";\
+            layout_height=\"5dp\";\
+          };]]--\
+          {\
+            LinearLayout,\
+            gravity=\"center\";\
+            layout_width=\"fill\",\
+            layout_height=\"150dp\",\
+            layout_gravity=\"center\";\
+            background='gx.png';--布局背景颜色(或者图片路径)\
+            {\
+              TextView;\
+              textSize=\"23sp\";\
+\
+              textColor=\"#FFffffff\";\
+              text=\"发现新版本\"..newest,\
+              gravity=\"center\";\
+              textStyle=\"bold\",\
+            };\
+          },\
+\
+          {\
+            LinearLayout,\
+            orientation=\"horizontal\",\
+            gravity=\"center\";\
+            layout_width=\"fill\",\
+            layout_height=\"wrap\",\
+            layout_marginBottom=\"5dp\";\
+\
+            {\
+              LinearLayout,\
+              orientation=\"horizontal\",\
+              gravity=\"center|left\";\
+              layout_width=\"40%w\",\
+              layout_height=\"5%h\",\
+\
+              {\
+                TextView;\
+                textSize=\"13sp\";\
+                layout_marginLeft=\"5%w\";\
+                textColor=\"#FFF37374\";\
+                text=\"当前版本: \",\
+              };\
+              {\
+                TextView;\
+                text=version,\
+                textSize=\"13sp\";\
+                textColor=\"0xFFF37374\";\
+                id=\"text1\";\
+              };\
+            },\
+\
+            {\
+              LinearLayout,\
+              orientation=\"horizontal\",\
+              gravity=\"center|right\";\
+              layout_width=\"40%w\",\
+              layout_height=\"5%h\",\
+              {\
+                TextView;\
+                textSize=\"13sp\";\
+                textColor=\"#FFF37374\";\
+                text=\"新版大小 : \",\
+              };\
+              {\
+                TextView;\
+                text=qyysize..\"MB\",\
+                layout_marginRight=\"5%w\";\
+                textSize=\"13sp\";\
+                lines=\"1\",\
+                textColor=\"0xFFF37374\";\
+                id=\"text2\";\
+              };\
+            },\
+          },\
+\
+          {\
+            LinearLayout,\
+            gravity=\"left\";\
+            layout_width=\"80%w\",\
+            layout_height=\"wrap\",\
+            layout_marginTop=\"5dp\";\
+            {\
+              ScrollView,\
+              VerticalScrollBarEnabled=false;\
+              layout_width=\"fill\";\
+              layout_height=\"fill\";\
+\
+              {\
+                LinearLayout,\
+                orientation=\"vertical\",\
+                layout_width=\"fill\";\
+                layout_height=\"fill\";\
+                id=\"dc\";\
+\
+                {\
+                  TextView;\
+                  textSize=\"13sp\";\
+                  layout_margin=\"10dp\";\
+                  textColor=\"#FF808080\";\
+                  text=chglog,\
+\
+                  textStyle=\"bold\",\
+\
+                };\
+              },\
+            },\
+          },\
+\
+          --[[{\
+            TextView;\
+            text=\"\";\
+            textSize=\"15\";\
+            textColor=\"#FF000000\";\
+            layout_width=\"fill\";\
+            layout_height=\"1dp\";\
+            backgroundColor=\"#FFF3F3F3\";\
+          };]]\
+          {\
+            LinearLayout;\
+            gravity=\"center\";\
+            layout_gravity=\"center\";\
+            orientation=\"horizontal\";\
+            layout_width=\"fill\";\
+            layout_height=\"60dp\";\
+            {\
+              TextView;\
+              gravity=\"center\";\
+              layout_width=\"30%w\";\
+              layout_height=\"5%h\";\
+              textColor=\"#ffffffff\";\
+              layout_marginTop='-1%h';--布局顶距\
+              text=\"取消\";\
+              id=\"jq\";\
+              style=\"?android:attr/buttonBarButtonStyle\";\
+              --textSize=\"15\";\
+            };\
+            {\
+              TextView;\
+              text=\"\";\
+              textSize=\"15\";\
+              textColor=\"#FFffffff\";\
+              layout_width=\"30dp\";\
+              layout_height=\"-1\";\
+              --backgroundColor=\"#FFF3F3F3\";\
+            };\
+\
+            {\
+              TextView;\
+              gravity=\"center\";\
+              layout_width=\"30%w\";\
+              layout_height=\"5%h\";\
+              textColor=\"#ffffffff\";\
+              layout_marginTop='-1%h';--布局顶距\
+              text=\"立即更新\";\
+              id=\"sj1\";\
+              style=\"?android:attr/buttonBarButtonStyle\";\
+              --textSize=\"15\";\
+            };\
+          };\
+\
+        }\
+\
+        update_dialog= LuaDialog(this)\
+        import \"android.text.SpannableString\"\
+        import \"android.text.style.ForegroundColorSpan\"\
+        import \"android.text.Spannable\"\
+        update_dialog.show()\
+        update_dialog.getWindow().setContentView(loadlayout(junyang));\
+        update_dialog.setCanceledOnTouchOutside(false)\
+        update_dialog.setCancelable(false)--设置为false点击返回键无法关闭更新对话框。\
+        import \"android.graphics.drawable.ColorDrawable\"\
+\
+        function CircleButton(view,radiu,InsideColor,半圆,left_jb,right_jb)\
+          import \"android.graphics.drawable.GradientDrawable\"\
+          drawable = GradientDrawable(GradientDrawable.Orientation.TR_BL,{\
+            left_jb,--左色\
+            right_jb,--右色\
+          });\
+          drawable.setShape(GradientDrawable.RECTANGLE)\
+          drawable.setColor(InsideColor)\
+          drawable.setCornerRadii({半圆,radiu,半圆,radiu,radiu,radiu,radiu,radiu});\
+          view.setBackgroundDrawable(drawable)\
+        end\
+        CircleButton(sj1,360,0xFFF37374,360)\
+        CircleButton(jq,360,0xFFF37374,360)\
+\
+\
+        jq.onClick=function(v)\
+          if force==true then\
+            update_dialog.dismiss() --关闭更新弹窗\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=蓝奏云下载链接\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器更新！\")\
+            退出页面()\
+          else \
+            update_dialog.dismiss()\
+            print(\"更新最新版本体验更佳哦~\")\
+          end\
+        end\
+        sj1.onClick=function(v)\
+          update_dialog.dismiss() --关闭更新弹窗\
+          import \"android.content.Intent\"\
+          import \"android.net.Uri\"\
+          url=蓝奏云下载链接\
+          viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+          activity.startActivity(viewIntent)\
+          print(\"已为你跳转到浏览器更新！\")\
+          退出页面()\
+        end\
+\
+      else\
+        --dialog2.dismiss()\
+        --提示(\"已是最新版\")\
+        return true\
+      end\
+    else\
+      return true\
+    end\
+  else\
+    if(code==-1)then\
+      --dialog2.dismiss()\
+      弹出消息(\"无法连接网络，请检查您的网络设置\")\
+    else\
+      -- dialog2.dismiss()\
+      弹出消息(\"网络请求失败\"..\" \"..code)\
+    end\
+    -- return (canoffline or 退出页面())\
+  end\
+\
+  --end\
+end)\
+\
+\
+--远程更新代码结束\
+\
+\
+\
+\
+import \"android.text.Html\"\
+--公告链接，这里用的是讯飞语记。\
+公告url=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1621910690622769\"\
+Http.get(公告url,nil,\"utf8\",nil,function(code,content,cookie,header)\
+  if code==200 then\
+    --过滤\
+    content=content:gsub(\"amp;\",\"\") or content;\
+    --状态\
+    开关=content:match(\"【状态】(.-)【状态】\")\
+    --公告内容\
+    公告=content:match(\"【公告】(.-)【公告】\")\
+\
+    if 开关==\"开\" then\
+\
+      hanwuji=--作者：寒武纪\
+      {\
+        LinearLayout,--线性布局\
+        orientation='vertical',--方向\
+        layout_width='fill',--宽度\
+        layout_height='wrap',--高度\
+        background='#00FFFFFF',--背景颜色或图片路径\
+\
+        {\
+          CardView;--卡片控件\
+          layout_marginTop='30%w';--顶距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='';--阴影\
+          layout_width='90%w';--宽度\
+          layout_height='110%w';--高度\
+          CardBackgroundColor='#00000000';--颜色\
+          radius='8dp';--圆角\
+\
+          {\
+            LinearLayout,--线性布局\
+            layout_marginTop='10dp';--顶距\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='fill',--高度\
+            background='#00FFFFFF',--背景颜色或图片路径\
+\
+            {\
+              CardView;--卡片控件\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='10dp';--阴影\
+              layout_width='30%w';--宽度\
+              layout_height='30%w';--高度\
+              CardBackgroundColor='#ffffffff';--颜色\
+              radius='30%w';--圆角\
+              id=\"touxiang\";\
+              {\
+                CircleImageView;--圆形图片\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                src='IMG_20210525_164847.jpg';--图片路径\
+              };\
+            };\
+\
+            {\
+              LinearLayout,--线性布局\
+              layout_marginTop='-15%w';--顶距\
+              orientation='vertical',--方向\
+              layout_width='fill',--宽度\
+              layout_height='fill',--高度\
+              background='#00FFFFFF',--背景颜色或图片路径\
+\
+              {\
+                CardView;--卡片控件\
+                layout_gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='15dp';--阴影\
+                layout_width='85%w';--宽度\
+                layout_height='90%w';--高度\
+                CardBackgroundColor='#ffffffff';--颜色\
+                radius='8dp';--圆角\
+                {\
+                  LinearLayout,--线性布局\
+                  orientation='vertical',--方向\
+                  layout_width='fill',--宽度\
+                  layout_height='30%w',--高度\
+                  background='gonggao.png',--背景颜色或图片路径\
+                };\
+                {\
+                  TextView;--文本控件\
+                  layout_marginTop='-45%w';--顶距\
+                  gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  layout_width='fill';--宽度\
+                  layout_height='fill';--高度\
+                  textColor='#d4000000';--文字颜色\
+                  text='公告';--显示文字\
+                  textSize='25dp';--文字大小\
+                };\
+                {\
+                  ScrollView,--纵向滑动\
+                  layout_width='wrap';--宽度\
+                  layout_height='wrap';--高度\
+                  VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+                  --布局写这\
+                  {\
+                    LinearLayout,--线性布局\
+                    orientation='vertical',--方向\
+                    {\
+                      TextView;--文本控件\
+                      layout_marginTop='30%w';--顶距\
+                      layout_marginLeft='10dp';--左距\
+                      --gravity='center';--重力\
+                      --左:left 右:right 中:center 顶:top 底:bottom\
+                      layout_width='fill';--宽度\
+                      layout_height='fill';--高度\
+                      textColor='#aa000000';--文字颜色\
+                      text=公告;--显示文字\
+                      textSize='16dp';--文字大小\
+                    };\
+                  };\
+                };\
+              };\
+            };\
+          };\
+        };\
+\
+        {\
+          LinearLayout,--线性布局\
+          layout_marginTop='4dp';--顶距\
+          layout_margin='20dp';--边距\
+          orientation='horizontal',--方向\
+          layout_width='fill',--宽度\
+          layout_height='fill',--高度\
+          background='#00FFFFFF',--背景颜色或图片路径\
+          {\
+            CardView;--卡片控件\
+            layout_marginLeft='5dp';--左距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='';--阴影\
+            layout_width='40%w';--宽度\
+            layout_height='27%w';--高度\
+            CardBackgroundColor='#00000000';--颜色\
+            radius='';--圆角\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='-5.5%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='5dp';--阴影\
+              layout_width='16%w';--宽度\
+              layout_height='16%w';--高度\
+              CardBackgroundColor='#ff1e8ae8';--颜色\
+              radius='20%w';--圆角\
+\
+              {\
+                CircleImageView;--圆形图片\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                src='QQ.png';--图片路径\
+              };\
+            };\
+            {\
+              CardView;--卡片控件\
+              layout_gravity='center|bottom';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='8dp';--阴影\
+              layout_width='30%w';--宽度\
+              layout_height='10%w';--高度\
+              CardBackgroundColor='#ffffffff';--颜色\
+              radius='5dp';--圆角\
+              id=\"jqq\";\
+              {\
+                TextView;--文本控件\
+                gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                textColor='#d1000000';--文字颜色\
+                text='QQ加群';--显示文字\
+                textSize='18dp';--文字大小\
+                id=\"jq\";\
+\
+              };\
+            };\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_marginLeft='5dp';--左距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='';--阴影\
+            layout_width='40%w';--宽度\
+            layout_height='27%w';--高度\
+            CardBackgroundColor='#00000000';--颜色\
+            radius='';--圆角\
+\
+            {\
+              CardView;--卡片控件\
+              layout_marginTop='-5.5%w';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='5dp';--阴影\
+              layout_width='16%w';--宽度\
+              layout_height='16%w';--高度\
+              CardBackgroundColor='#ff1e8ae8';--颜色\
+              radius='20%w';--圆角\
+\
+              {\
+                CircleImageView;--圆形图片\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                src='DJi.png';--图片路径\
+              };\
+            };\
+            {\
+              CardView;--卡片控件\
+              layout_gravity='center|bottom';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='8dp';--阴影\
+              layout_width='30%w';--宽度\
+              layout_height='10%w';--高度\
+              CardBackgroundColor='#ffffffff';--颜色\
+              radius='5dp';--圆角\
+              id=\"zdd\";\
+              {\
+                TextView;--文本控件\
+                gravity='center';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                textColor='#d1000000';--文字颜色\
+                text='知道啦';--显示文字\
+                textSize='18dp';--文字大小\
+                id=\"zd\";\
+              };\
+            };\
+          };\
+        };\
+      };\
+\
+      dialog= AlertDialog.Builder(this)\
+      import \"android.text.SpannableString\"\
+      import \"android.text.style.ForegroundColorSpan\"\
+      import \"android.text.Spannable\"\
+      dialog1=dialog.show()\
+      dialog1.getWindow().setContentView(loadlayout(hanwuji));\
+      --  doalog1.setCancelable(false)\
+      dialog1.setCanceledOnTouchOutside(false)\
+      dialog1.setCancelable(false)--\
+      import \"android.graphics.drawable.ColorDrawable\"\
+      dialog1.getWindow().setBackgroundDrawable(ColorDrawable(0x00000000));\
+\
+      --设置边框圆角函数\
+      function 卡片(边框厚度,边框颜色,背景颜色,圆角度)\
+        import \"android.graphics.drawable.GradientDrawable\"\
+        drawable=GradientDrawable()\
+        drawable.setShape(GradientDrawable.RECTANGLE)\
+        drawable.setStroke(边框厚度,tonumber(边框颜色))--边框厚度和背景颜色\
+        drawable.setColor(tonumber(背景颜色))--背景颜色\
+        drawable.setCornerRadius(圆角度)--圆角\
+        return drawable\
+      end\
+\
+      --分别为:ID,边框厚度,边框颜色,背景颜色,圆角度\
+      jqq.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+      zdd.BackgroundDrawable=卡片(5,0xff0091e8,0xFFEBECEE,16);\
+\
+      --头像旋转\
+      import \"android.view.animation.LinearInterpolator\"\
+      c = ObjectAnimator()\
+      c.setTarget(touxiang);\
+      c.setDuration(19000);\
+      c.setRepeatCount(ValueAnimator.INFINITE)\
+      c.setPropertyName(\"rotation\");\
+      c.setFloatValues({720,0});\
+      c.setRepeatMode(ValueAnimator.INFINITE)\
+      c.setInterpolator(LinearInterpolator() )\
+      c.start();\
+\
+      jq.onClick=function(v)\
+        dialog1.dismiss()\
+        import \"android.net.Uri\"\
+        import \"android.content.Intent\"\
+        --加群\
+        url=\"mqqapi://card/show_pslcard?src_type=internal&version=1&uin=902800414&card_type=group&source=qrcode\"\
+        activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))\
+      end\
+      zd.onClick=function(v)\
+        dialog1.dismiss()\
+        --提示\"更新才能获得更好的体验呢！\"\
+      end\
+    elseif 开关==\"关\" then\
+      return true\
+    end\
+  else\
+    退出程序()\
+    print(\"网络连接错误，请检查网络\")\
+  end\
+end)\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+YL=\
+{\
+  LinearLayout,--线性布局\
+  orientation=\"vertical\",--布局方向\
+  layout_width=\"fill\",--布局宽度\
+  layout_height=\"fill\",--布局高度\
+  background=\"zhongyesanjiu.png\",--布局背景\
+  --fa交流群：560493244电视直播源群：646778709\
+  {\
+    ScrollView,--纵向滑动控件\
+    layout_width=\"fill\",--布局宽度\
+    layout_height=\"fill\",--布局高度\
+    overScrollMode=View.OVER_SCROLL_NEVER,--隐藏圆弧阴影\
+    verticalScrollBarEnabled=false,--隐藏纵向滑条\
+    {\
+      LinearLayout;\
+      orientation=\"vertical\";\
+      layout_width=\"fill\";\
+      layout_height=\"fill\";\
+      layout_marginTop=\"35dp\",--布局顶距\
+\
+      {\
+        CardView;\
+        radius=\"20dp\";--圆角\
+        layout_margin=\"10dp\";--边距\
+        layout_width=\"fill\";--宽度\
+        layout_height=\"200dp\";--高度\
+        id=\"a\",--控件ID\
+        {\
+          ImageView,--图片框控件\
+          layout_width=\"fill\",--布局宽度\
+          layout_height=\"fill\",--布局高度\
+          src=\"IMG_20210525_164743.jpg\",--视图路径\
+          --colorFilter=\"\",--图片颜色\
+          scaleType=\"fitXY\",--图片显示类型：centerCrop\
+        },\
+        {\
+          LinearLayout,--线性布局\
+          layout_margin='10dp';--边距\
+          --layout_marginBottom='10dp';--底距\
+          orientation='horizontal',--方向\
+          layout_width='fill',--宽度\
+          layout_height='100dp',--高度\
+          --background='#ff1e8ae8',--背景颜色或图片路径\
+          id=\"gg\";\
+\
+          {\
+            LinearLayout,--线性布局\
+            layout_marginTop='5dp';--顶距\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            layout_height='fill',--高度\
+            {\
+              LinearLayout,--线性布局\
+              layout_margin='12dp';--边距\
+              orientation='vertical',--方向\
+              layout_width='fill',--宽度\
+              {\
+                TextView;--文本控件\
+                textColor='#ff59c2ff';--文字颜色\
+                text='次元空间';--显示文字\
+                textSize='20dp';--文字大小\
+                id=\"falua\";\
+              };\
+              {\
+                TextView;--文本控件\
+                --layout_marginLeft='10dp';--左距\
+                textColor='#ff59c2ff';--文字颜色\
+                --text='只要你回头，我会一直在你身后！';--显示文字\
+                textSize='12dp';--文字大小\
+                id=\"年\";\
+              };\
+              {\
+                TextView;--文本控件\
+                --layout_marginLeft='10dp';--左距\
+                textColor='#ff59c2ff';--文字颜色\
+                --text='宁可得罪小人，也千万不要得罪女人！';--显示文字\
+                textSize='12dp';--文字大小\
+                id=\"时分秒\";\
+              };\
+            };\
+          };\
+        };\
+      }; ------------文字\
+      {\
+        TextView;\
+        textSize=\"18sp\",--文本大小\
+        layout_margin=\"8dp\",--布局边距\
+        text=\"欢迎使用次元空间！\";\
+        textColor=\"#ffff8ae8\",--文本颜色\
+        typeface=Typeface.DEFAULT_BOLD,--文本显示类型\
+      };\
+      ----------界面2开始\
+      {\
+        LinearLayout;\
+        orientation=\"horizontal\";\
+        layout_width=\"fill\";\
+        layout_marginTop=\"-5dp\";\
+        layout_height=\"480dp\";--调节\
+\
+        --------------第一竖列\
+        {\
+          LinearLayout;\
+          orientation=\"vertical\";\
+          layout_width=\"50%w\";\
+          layout_height=\"fill\"; -----------界面2_1\
+          {\
+            CardView;\
+            layout_width=\"fill\";\
+            layout_margin=\"10dp\";\
+            layout_height=\"100dp\";\
+            id=\"L1\";\
+            radius=\"30\";\
+            {\
+              LinearLayout;\
+              orientation=\"vertical\";\
+              layout_width=\"fill\";\
+              background=\"#fab1ce\";\
+              id=\"l1\";\
+              layout_height=\"fill\";\
+              {\
+                -- ImageView;\
+                CircleImageView,--圆形图片控件\
+                layout_width=\"50dp\";\
+                layout_margin=\"5dp\";\
+                layout_height=\"50dp\";\
+                src=\"icon.png\";\
+              };\
+              {\
+                TextView;\
+                textColor=\"#ffffff\";\
+                layout_marginLeft=\"40dp\";\
+                textSize=\"16sp\";\
+                text=\"二次元区\";\
+              };\
+            };\
+          };\
+          {\
+            CardView;\
+            layout_width=\"fill\";\
+            layout_margin=\"10dp\";\
+            layout_height=\"100dp\";\
+            id=\"L2\";\
+            radius=\"30\";\
+            {\
+              LinearLayout;\
+              orientation=\"vertical\";\
+              layout_width=\"fill\";\
+              background=\"#fab1ce\";\
+              id=\"l2\";\
+              layout_height=\"fill\";\
+              {\
+                --  ImageView;\
+                CircleImageView,--圆形图片控件\
+                src=\"icon.png\";\
+                layout_width=\"50dp\";\
+                layout_margin=\"5dp\";\
+                layout_height=\"50dp\";\
+              };\
+              {\
+                TextView;\
+                textColor=\"#ffffff\";\
+                layout_marginLeft=\"40dp\";\
+                textSize=\"16sp\";\
+                text=\"影视专区\";\
+              };\
+              --金玉满堂QQ1162930708   QQ群294862696\
+            };\
+          };\
+\
+          ----------界面2_2\
+          {\
+            CardView;\
+            layout_width=\"fill\";\
+            layout_margin=\"10dp\";\
+            layout_height=\"100dp\";\
+            id=\"L3\";\
+            radius=\"30\";\
+            {\
+              LinearLayout;\
+              orientation=\"vertical\";\
+              layout_width=\"fill\";\
+              background=\"#ff0f6193\";\
+              id=\"l3\",--控件ID\
+              layout_height=\"fill\";\
+              {\
+                --  ImageView;\
+                CircleImageView,--圆形图片控件\
+                src=\"icon.png\";\
+                layout_width=\"50dp\";\
+                layout_margin=\"5dp\";\
+                layout_height=\"50dp\";\
+              };\
+              {\
+                TextView;\
+                textColor=\"#ffffff\";\
+                layout_marginLeft=\"40dp\";\
+                textSize=\"16sp\";\
+                text=\"软件园\";\
+              };\
+\
+            };\
+          };\
+\
+          -----------界面2_3\
+          {\
+            CardView;\
+            layout_width=\"fill\";\
+            layout_margin=\"10dp\";\
+            layout_height=\"100dp\";\
+            id=\"L4\";\
+            radius=\"30\";\
+            {\
+              LinearLayout;\
+              orientation=\"vertical\";\
+              layout_width=\"fill\";\
+              background=\"#ff0f6193\";\
+              id=\"l4\",--控件ID\
+              layout_height=\"fill\";\
+              {\
+                --  ImageView;\
+                CircleImageView,--圆形图片控件\
+                src=\"icon.png\";\
+                layout_width=\"50dp\";\
+                layout_margin=\"5dp\";\
+                layout_height=\"50dp\";\
+              };\
+              {\
+                TextView;\
+                textColor=\"#ffffff\";\
+                layout_marginLeft=\"40dp\";\
+                textSize=\"16sp\";\
+                text=\"常见问题\";\
+              };\
+\
+            };\
+          };\
+\
+        };\
+\
+        ----------结束\
+      ----------第二竖列\
+        {\
+          LinearLayout;\
+          orientation=\"vertical\";\
+          layout_width=\"fill\";\
+          layout_height=\"fill\";\
+          ---------界面2_2列_1_\
+          {\
+            CardView;\
+            layout_width=\"fill\";\
+            layout_margin=\"10dp\";\
+            layout_height=\"100dp\";\
+            id=\"R1\";\
+            radius=\"30\";\
+            {\
+              LinearLayout;\
+              orientation=\"vertical\";\
+              layout_width=\"fill\";\
+              background=\"#fab1ce\";\
+              id=\"r1\";\
+              layout_height=\"fill\";\
+              {\
+                --  ImageView;\
+                CircleImageView,--圆形图片控件\
+                src=\"icon.png\";\
+                layout_width=\"50dp\";\
+                layout_margin=\"5dp\";\
+                layout_height=\"50dp\";\
+              };\
+              {\
+                TextView;\
+                textColor=\"#ffffff\";\
+                layout_marginLeft=\"40dp\";\
+                textSize=\"16sp\";\
+                text=\"cosplay\";\
+              };\
+            };\
+          };\
+\
+          ----+-++界面2_2列_2\
+          {\
+            CardView;\
+            layout_width=\"fill\";\
+            layout_margin=\"10dp\";\
+            layout_height=\"100dp\";\
+            id=\"R2\";\
+            radius=\"30\";\
+            {--金玉满堂QQ1162930708   QQ群294862696\
+              LinearLayout;\
+              orientation=\"vertical\";\
+              layout_width=\"fill\";\
+              background=\"#fab1ce\";\
+              id=\"r2\";\
+              layout_height=\"fill\";\
+              {\
+                --  ImageView;\
+                CircleImageView,--圆形图片控件\
+                src=\"icon.png\";\
+                layout_width=\"50dp\";\
+                layout_margin=\"5dp\";\
+                layout_height=\"50dp\";\
+              };\
+              {\
+                TextView;\
+                textColor=\"#ffffff\";\
+                layout_marginLeft=\"40dp\";\
+                textSize=\"16sp\";\
+                text=\"在线工具\";\
+              };\
+\
+            };\
+          };\
+\
+          --------界面2_2列_3\
+          {\
+            CardView;\
+            layout_width=\"fill\";\
+            layout_margin=\"10dp\";\
+            layout_height=\"100dp\";\
+            id=\"R3\";\
+            radius=\"30\";\
+            {\
+              LinearLayout;\
+              orientation=\"vertical\";\
+              layout_width=\"fill\";\
+              background=\"#ff218ff0\";\
+              id=\"r3\",--控件ID\
+              layout_height=\"fill\";\
+              {\
+                -- ImageView;\
+                CircleImageView,--圆形图片控件\
+                src=\"icon.png\";\
+                layout_width=\"50dp\";\
+                layout_margin=\"5dp\";\
+                layout_height=\"50dp\";\
+              };\
+              {\
+                TextView;\
+                textColor=\"#ffffff\";\
+                layout_marginLeft=\"40dp\";\
+                textSize=\"16sp\";\
+                text=\"免费api\";\
+              };\
+            };\
+          };\
+          {--作者QQ1162930708fa交流群：560493244电视直播源群：646778709\
+            CardView;\
+            layout_width=\"fill\";\
+            layout_margin=\"10dp\";\
+            layout_height=\"100dp\";\
+            id=\"R4\";\
+            radius=\"30\";\
+            {\
+              LinearLayout;\
+              orientation=\"vertical\";\
+              layout_width=\"fill\";\
+              background=\"#ff0a6c70\";--卡片背景\
+              id=\"r4\",--控件ID\
+              layout_height=\"fill\";\
+\
+              {\
+                CircleImageView,--圆形图片控件\
+                --  ImageView;\
+                src=\"icon.png\";\
+                layout_width=\"50dp\";\
+                layout_margin=\"5dp\";\
+                layout_height=\"50dp\";\
+              };\
+              {--金玉满堂QQ1162930708   QQ群294862696\
+                TextView;\
+                textColor=\"#ffffff\";\
+                layout_marginLeft=\"40dp\";\
+                textSize=\"16sp\";\
+                text=\"关于次元空间\";\
+              };\
+\
+            };\
+          };\
+          -------------界面2_2列_3结束\
+        };\
+        ----------------第二列结束\
+      };\
+      {\
+        LinearLayout,--线性布局\
+        orientation='vertical',--方向\
+        layout_width='fill',--宽度\
+        layout_height='wrap',--高度\
+        background='#00FFFFFF',--背景颜色或图片路径\
+        {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5dp';--阴影\
+          layout_width='fill';--宽度\
+          layout_height='18%w';--高度\
+          CardBackgroundColor='#ffffffff';--颜色\
+          id=\"音乐\";\
+          radius='20dp';--圆角\
+          {\
+            TextView;--文本控件\
+            gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            textColor='#eb000000';--文字颜色\
+            text='MUSIC';--显示文字\
+            textSize='14dp';--文字大小\
+            id=\"music\";\
+            textIsSelectable=false--长按复制\
+          };\
+\
+        };\
+\
+      };\
+    },--线性布局结束\
+\
+  };\
+  -------------第二布局结束\
+};\
+----------第一布\
+\
+--webView.addView(loadlayout(YL))\
+activity.setContentView(loadlayout(YL))--全屏框架\
+function 三色渐变(控件,左色,中色,右色,圆角)\
+  import \"android.graphics.drawable.GradientDrawable\"\
+  drawable = GradientDrawable(GradientDrawable.Orientation.TR_BL,{左色,中色,右色});\
+  drawable.setCornerRadii({圆角,圆角,圆角,圆角,圆角,圆角,圆角,圆角});\
+  控件.setBackgroundDrawable(drawable)\
+end\
+--调用方法\
+三色渐变(l1,0xda00bbff,0xbf6f1eff,0x76ff25c7,0)\
+三色渐变(l2,0xda00bbff,0xbf6f1eff,0x76ff25c7,0)\
+三色渐变(l3,0xda00bbff,0xbf6f1eff,0x76ff25c7,0)\
+三色渐变(l4,0xda00bbff,0xbf6f1eff,0x76ff25c7,0)\
+三色渐变(r1,0xda00bbff,0xbf6f1eff,0x76ff25c7,0)\
+三色渐变(r2,0xda00bbff,0xbf6f1eff,0x76ff25c7,0)\
+三色渐变(r3,0xda00bbff,0xbf6f1eff,0x76ff25c7,0)\
+三色渐变(r4,0xda00bbff,0xbf6f1eff,0x76ff25c7,0)\
+三色渐变(music,0xda00bbff,0xbf6f1eff,0x76ff25c7,0)\
+\
+--设置动画的属性\
+import \"android.view.animation.TranslateAnimation\"\
+平移动画=TranslateAnimation(0, 0, 600, 0)\
+平移动画.setDuration(800)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+L1.startAnimation(平移动画)\
+R1.startAnimation(平移动画)\
+平移动画=TranslateAnimation(0, 0, 600, 0)\
+平移动画.setDuration(1000)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+L2.startAnimation(平移动画)\
+R2.startAnimation(平移动画)\
+平移动画=TranslateAnimation(0, 0, 600, 0)\
+平移动画.setDuration(1200)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+L3.startAnimation(平移动画)\
+R3.startAnimation(平移动画)\
+平移动画=TranslateAnimation(0, 0, 600, 0)\
+平移动画.setDuration(1400)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+L4.startAnimation(平移动画)\
+R4.startAnimation(平移动画)\
+平移动画=TranslateAnimation(0, 0, 600, 0)\
+平移动画.setDuration(1600)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+音乐.startAnimation(平移动画)\
+平移动画=TranslateAnimation(-600, 1, 1, 0)\
+平移动画.setDuration(800)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+--绑定动画\
+a.startAnimation(平移动画)\
+\
+\
+l1.onClick=function()\
+  --点击事件写这里\
+  进入子页面(\"二次元区\")\
+end\
+r1.onClick=function()\
+  --点击事件写这里\
+  进入子页面(\"cosplay\")\
+end\
+l3.onClick=function()\
+  --点击事件写这里\
+  进入子页面(\"软件园\")\
+end\
+r2.onClick=function()\
+  --点击事件写这里\
+  进入子页面(\"在线工具\")\
+end\
+l4.onClick=function()\
+  --点击事件写这里\
+  进入子页面(\"常见问题\")\
+end\
+r3.onClick=function()\
+  --点击事件写这里\
+  进入子页面(\"免费api\")\
+end\
+r4.onClick=function()\
+  --点击事件写这里\
+  进入子页面(\"关于次元空间\")\
+end\
+l2.onClick=function()\
+  --点击事件写这里\
+  进入子页面(\"影视专区\")\
+end\
+music.onClick=function()\
+  --程序启动时会执行的事件\
+  import \"android.graphics.*\" \
+  import \"android.graphics.drawable.*\" \
+  import \"android.graphics.Color\" \
+  import \"android.view.animation.LayoutAnimationController\" \
+  import \"android.view.animation.Animation\" \
+  import \"android.view.animation.AlphaAnimation\" \
+  import \"android.widget.RatingBar\" \
+  import \"android.widget.NumberPicker\" \
+  import \"android.view.animation.TranslateAnimation\" \
+  import \"android.view.animation.AnimationSet\" \
+\
+  if not dialogshown then \
+\
+    yuxuan={ \
+      LinearLayout, \
+      layout_width=\"fill\", \
+      layout_height=\"fill\", \
+      gravity=\"bottom\", \
+      { \
+        LinearLayout, \
+        layout_width=\"fill\", \
+        layout_height=\"wrap_content\", \
+        gravity=\"bottom\", \
+        layout_gravity=\"bottom\", \
+        id=\"yuxuanpop\", \
+        Background=GradientDrawable() \
+        .setShape(GradientDrawable.RECTANGLE) \
+        .setColor(0xffd44439) \
+        .setCornerRadii({25,25,25,25,0,0,0,0}), \
+        { \
+          LinearLayout; \
+          layout_height=\"fill\"; \
+          layout_width=\"fill\"; \
+          orientation=\"vertical\"; \
+          Gravity=\"center\", \
+\
+          { \
+            LinearLayout; \
+\
+            layout_height=\"35dp\"; \
+            layout_width=\"fill\"; \
+            orientation=\"horizontal\"; \
+            { \
+              TextView; \
+              layout_width=\"36%w\"; \
+              layout_height=\"35dp\"; \
+\
+              Gravity=\"left|center\", \
+              textColor=\"#ffffff\"; \
+              text=\"音乐🎶\"; \
+              paddingLeft='16dp';\
+              id=\"bdyx\"; \
+              \
+            }; \
+\
+            { \
+              TextView; \
+              layout_width=\"wrap\"; \
+              layout_height=\"35dp\"; \
+\
+              Gravity=\"left|center\", \
+              textColor=\"#ffffff\"; \
+              text=\"音量控制\"; \
+              paddingLeft='16dp';\
+              id=\"bdyx\"; \
+              onClick=function()\
+\
+                --QQ：1974249197增加\
+                --   onClick=function()\
+                sound={\
+                  LinearLayout,\
+                  orientation=\"vertical\",\
+                  layout_height=\"fill\",\
+                  layout_width=\"fill\",\
+                  {\
+                    LinearLayout,\
+                    orientation=\"horizontal\",--横排列\
+                    layout_height=\"fill\",\
+                    layout_width=\"fill\",\
+                    layout_gravity=\"center\",\
+                    {TextView,\
+                      layout_height=\"wrap_content\",\
+                      text=\"音量:\",\
+                      id=\"seekText\",\
+                      layout_width=\"wrap_content\"},\
+                    {SeekBar,\
+                      layout_height=\"wrap_content\",\
+                      layout_width=\"wrap_content\",\
+                      id=\"mainProgressBar1\",\
+                      id=\"seekbar\",\
+                      layout_weight=\"1.0\"\
+                    },\
+                  },\
+                  {\
+                    LinearLayout,\
+                    orientation=\"horizontal\",--横排列\
+                    layout_height=\"fill\",\
+                    layout_width=\"fill\",\
+                    layout_gravity=\"center\",\
+\
+                  },\
+                };\
+                AlertDialog.Builder(this)\
+                .setView(loadlayout(sound))\
+\
+                ----2[[\
+                .setMessage(\"音量控制\")\
+\
+\
+                .show()\
+                import \"android.graphics.Paint\"\
+\
+                --导入AudioManager类\
+                import \"android.media.AudioManager\"\
+                --注意是改变媒体音量\
+                --得到音频管理对象\
+                mAudioManager = activity.getSystemService(Context.AUDIO_SERVICE);\
+                --获取当前音乐音量\
+                mVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);\
+\
+                --设置为seekbar音量的最大阶数\
+                seekbar.setMax(mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));\
+\
+                --设置seekbar为当前音量进度\
+                seekbar.setProgress(mVolume);\
+                --绑定监听\
+                seekbar.setOnSeekBarChangeListener{\
+                  onProgressChanged=function(a,i)\
+                    --拖动seekbar时改变音量\
+                    mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, i, 1);--设置1显示音量调节窗口0为隐藏\
+                    px=math.floor(i/mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)*100)\
+                    seekText.Text=\"音量：\"..px..\"%\"\
+                  end}\
+                包名=this.get--功能\
+                --   end\
+\
+\
+\
+              end\
+            }; \
+\
+            { \
+              TextView; \
+              layout_width=\"40%w\"; \
+              layout_height=\"35dp\"; \
+\
+              Gravity=\"center\", \
+              textColor=\"#ffffff\"; \
+              text=\"关闭窗口  X\"; \
+              id=\"shut\"; \
+            }; \
+          }; \
+          { \
+\
+            LuaWebView; \
+            id=\"searchweb\", \
+            layout_width=\"fill\"; \
+            layout_height=\"150%w\"; \
+          }, \
+\
+        }, \
+      }, \
+    } \
+\
+\
+    pop=PopupWindow(activity) \
+\
+    pop.setContentView(loadlayout(yuxuan)) \
+\
+    pop.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE) \
+\
+    pop.setWidth(activity.width) \
+\
+    pop.setHeight(activity.height/1.5) \
+\
+    pop.setOutsideTouchable(false) \
+\
+    pop.setBackgroundDrawable(ColorDrawable(0)) \
+\
+    pop.setFocusable(true) \
+\
+    pop.setTouchable(true) \
+\
+\
+\
+    pop=AlertDialog.Builder(this) \
+    .setCancelable(false) \
+    .setView(loadlayout(yuxuan)) \
+    pop=pop.show() \
+    pop.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM) \
+    pop.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE) \
+    pwin=pop.getWindow() \
+    pwin.setBackgroundDrawable(ColorDrawable(0)) \
+    pa=pwin.getAttributes() \
+    pa.width=activity.width \
+    pa.gravity=Gravity.BOTTOM \
+    pwin.setAttributes(pa) \
+    pwin.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN) \
+    pop.setOnKeyListener{ \
+      onKey=function(d,k) \
+        if k==KeyEvent.KEYCODE_BACK then \
+          if searchweb.canGoBack() then \
+            searchweb.goBack() \
+          else \
+            yuxuandh4=TranslateAnimation(0,0,0,activity.height) \
+            yuxuandh4.setDuration(750) \
+            if not slidingdown then \
+              yuxuanpop.startAnimation(yuxuandh4); \
+              import \"android.view.animation.Animation$AnimationListener\" \
+              yuxuandh4.setAnimationListener(AnimationListener{ \
+                onAnimationEnd=function() \
+                  pop.dismiss() \
+                  dialogshown=false \
+                  slidingdown=false \
+                end}) \
+            end \
+            slidingdown=true \
+          end \
+        end \
+        return true \
+      end \
+    } \
+\
+\
+\
+    yuxuandh3=TranslateAnimation(0,0,activity.height,0) \
+\
+    yuxuandh3.setDuration(750) \
+\
+    yuxuanpop.startAnimation(yuxuandh3); \
+\
+\
+    import \"android.view.animation.Animation$AnimationListener\" \
+    yuxuandh3.setAnimationListener(AnimationListener{ \
+      onAnimationEnd=function() \
+\
+      end}) \
+\
+    function 波纹(id,颜色) \
+      import \"android.content.res.ColorStateList\" \
+      local attrsArray = {android.R.attr.selectableItemBackgroundBorderless} \
+      local typedArray =activity.obtainStyledAttributes(attrsArray) \
+      ripple=typedArray.getResourceId(0,0) \
+      Pretend=activity.Resources.getDrawable(ripple) \
+      Pretend.setColor(ColorStateList(int[0].class{int{}},int{颜色})) \
+      id.setBackground(Pretend.setColor(ColorStateList(int[0].class{int{}},int{颜色}))) \
+    end \
+    波纹(bdyx,0xFF55BCAB) \
+    波纹(shut,0xFF55BCAB) \
+\
+\
+    searchweb.loadUrl('http://musicnet.cc/')\
+\
+    shut.onClick=function() \
+      yuxuandh4=TranslateAnimation(0,0,0,activity.height) \
+      yuxuandh4.setDuration(750) \
+      if not slidingdown then \
+        yuxuanpop.startAnimation(yuxuandh4); \
+        import \"android.view.animation.Animation$AnimationListener\" \
+        yuxuandh4.setAnimationListener(AnimationListener{ \
+          onAnimationEnd=function() \
+            pop.dismiss() \
+            dialogshown=false \
+            slidingdown=false \
+          end}) \
+      end \
+    end \
+  end \
+\
+  searchweb.setWebViewClient{ \
+    shouldOverrideUrlLoading=function(view,url) \
+\
+\
+      bdyx.setText(searchweb.getTitle()) \
+    end} \
+  dialogshown=true\
+\
+end\
+\
+\
+\
+\
+\
+\
+--退出\
+参数=0\
+function onKeyDown(code,event)\
+  if string.find(tostring(event),\"KEYCODE_BACK\") ~= nil then\
+    if 参数+2 > tonumber(os.time()) then\
+      退出程序()\
+    else\
+      to={\
+        CardView;\
+        CardBackgroundColor=\"#ff2bc8ff\";\
+        elevation=\"8dp\";\
+        layout_width=\"95%w\";\
+        layout_height=\"42dp\";\
+        radius=\"70\";\
+        id=\"to\";\
+        {\
+          TextView;\
+          textSize=\"20sp\";\
+          TextColor=\"#ffff00ff\";\
+          layout_width=\"95%w\";\
+          layout_height=\"42dp\";\
+          gravity=\"center\";\
+          text=\"出错\";\
+          id=\"texttc\";\
+        };\
+      }\
+      local to=Toast.makeText(activity,\"内容\",Toast.LENGTH_SHORT).setView(loadlayout(to))\
+      --LENGTH_SHORT     2s\
+      --LENGTH_LONG      3.5s\
+      to.setGravity(Gravity.BOTTOM,0,60)\
+      --Gravity.BOTTOM   底部\
+      --Gravity.CENTER   中部\
+      --Gravity.TOP      顶部\
+      texttc.Text=tostring(\"再按一次退出程序！\")\
+      to.show()\
+      参数=tonumber(os.time())\
+    end\
+    return true\
+  end\
+end\
+\
+\
+function 月份()\
+  年份()\
+end\
+\
+function 年份()\
+  年.setText(os.date(\"%Y年-%m月-%d日-星期%w\"))--获取当前系统时间\
+end\
+\
+function 刷新()\
+  require \"import\"\
+  while true do--执行循环命令\
+    Thread.sleep(100)--延迟执行\
+    call(\"月份\")\
+  end\
+end\
+\
+thread(刷新)--运行线程,循环刷新时间\
+\
+\
+\
+\
+\
+\
+--本地系统时间\
+function 时间()\
+  时间秒()\
+end\
+\
+function 时间秒()\
+  时分秒.setText(os.date(\"%H时:%M分:%S秒\"))--获取当前系统时间\
+end\
+\
+function 刷新()\
+  require \"import\"\
+  while true do--执行循环命令\
+    Thread.sleep(100)--延迟执行\
+    call(\"时间\")\
+  end\
+end\
+\
+thread(刷新)--运行线程,循环刷新时间\
+--[[\
+设置下划线(时分秒,1)\
+\
+\
+]]\
+\
+\
+--用户统计部分\
+--导入bmob包\
+import\"bmob\"\
+--下面填写id和key！！用之前换成自己的，也可以先用我的进行测试\
+bb=bmob(\"30c056d460eb22263e01e7d04dde3aae\",\"f04929c96d3ab84598005f4395ec97e3\")\
+--做一些使用统计\
+\
+\
+\
+--软件信息\
+local packinfo=this.getPackageManager().getPackageInfo(this.getPackageName(),64)\
+local oldVersion=tostring(packinfo.versionName)\
+local appinfo=this.getPackageManager().getApplicationInfo(this.getPackageName(),0)\
+local name=this.getPackageManager().getApplicationLabel(appinfo)\
+\
+\
+--打开应用次数统计\
+local tongji=activity.getSharedData(\"sp统计\")\
+local n=nil\
+--tongji=nil\
+if tongji==nil or tongji==\"\" then --如果没获取到本地使用次数记录\
+  activity.setSharedData(\"sp统计\",1)\
+  n=1\
+  --在云端创造用户记录\
+  local d={}\
+  d.Qtitle=\"新用户\"--用户名\
+  d.Qcontent=name..\"用户\"--用户类型注释\
+  d.MobilType=tostring(Build.MODEL..\"，Android\"..Build.VERSION.RELEASE)--登记手机型号和系统版本\
+  --上面是记录用户机型和系统版本\
+  d.UseTime=tostring(n)--软件使用次数\
+  bb:insert(\"FeedBack\",d,function(code,json)--上传以上信息\
+    objectid=json.objectId--获取到这条记录信息的唯一标识\
+    if objectid then\
+      activity.setSharedData(\"spobid\",objectid)--把唯一标识记录在本地以便日后查询\
+    else\
+      activity.setSharedData(\"sp统计\",\"\")\
+    end\
+  end)\
+else--如果获取到了使用次数\
+  n= tongji+1--使用次数加一\
+  activity.setSharedData(\"sp统计\",n)--把次数记录到本地\
+  objectid=activity.getSharedData(\"spobid\")--获取本地信息唯一标识\
+  local d={}--创建一个上传表\
+  d.UseTime=oldVersion..\"版本，使用\"..tostring(n)..\"次，最后于\"..tostring(os.date(\"%Y-%m-%d %H:%M:%S\"))--信息表内登记使用次数和最后时间\
+  --上一行把新的使用次数信息插入表里面\
+  bb:update(\"FeedBack\",objectid,d,function(code)end)\
+  --上一行根据唯一标识，把刚做的信息表数据更新到这个用户的云端信息表里\
+end\
+\
+--反馈问题的对话框布局\
+layout={\
+  LinearLayout;\
+  orientation=\"vertical\";\
+  Focusable=true,\
+  FocusableInTouchMode=true,\
+  {\
+    EditText;\
+    hint=\"输入问题概括\";\
+    layout_marginTop=\"50\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    id=\"qt\";\
+  };\
+  {\
+    EditText;\
+    hint=\"输入详细问题\";\
+    layout_marginTop=\"50\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    id=\"qc\";\
+  };\
+}\
+\
+--获取本地公告序号\
+local pushindex=activity.getSharedData(\"sppushindex\")\
+--没获取到公告序号就初始化一个等于1\
+if pushindex==(nil or \"\") then\
+  pushindex=\"1\"\
+  activity.setSharedData(\"sppushindex\",\"1\")\
+end\
+--作者烟雨，qq3400353039\
+\
+local d={}--创建信息查询表\
+d.where={}\
+d.where.AppName=\"sp公告\"--定位于云端表头叫“appName”的列,切内容为“公告”\
+bb:query(\"update\",d,function(code,ss)--在云端叫“update”的表里面查询那个叫“公告”的一行\
+  if code~=-1 and code>=200 and code<400 then--查询成功\
+    ss=ss.results[1]--取返回的第一个数据表（实际可能返回多个，比如我又很多行的appName都叫公告）\
+    --烟雨QQ3400353039\
+    --print(dump(ss))--可以用这个代码打印ss的内容，来看一下他的数据结果\
+    phoneId=ss.Version--获取云端记录的（后面可以用作特异识别）烟雨qq3400353039\
+    index=ss.updatedAt--获取公告序号（我用的是这一行数据更新的时间，也就是我修改一下公告，更新时间就会变一下）\
+    title=ss.Isforce--获取公告标题\
+    content=ss.Content--获取公告内容\
+    url=ss.DownloadUrl--获取公告附带的链接\
+    --判断重复\
+    if index~=pushindex then--如果云端公告序号与本地不同\
+      activity.setSharedData(\"sppushindex\",index)--使本地序号与云端相同\
+      --定向推送\
+      if string.find(phoneId,\"include\") then--收到“包含哪些id”的清单\
+        if string.find(phoneId,activity.getSharedData(\"spobid\")) then--如果有本机id\
+          --推送到本机\
+          弹出消息(\"收到定向推送消息：\\n\"..content)--yanyukej.cn制作者烟雨QQ3400353039\
+        end\
+      elseif string.find(phoneId,\"expect\") then--收到“除了哪些id”的清单\
+        if not string.find(phoneId,activity.getSharedData(\"spobid\")) then--如果没有本机id\
+          --推送到本机\
+          弹出消息(\"收到定向推送消息\"..content)\
+        end\
+      else--没有得到定向推送指示\
+        --广播推送\
+        dlg=对话框()\
+        .设置标题(title)\
+        .设置消息(content)\
+        .设置积极按钮(\"确定\",function()\
+          显示消息(\"点击了确定\")\
+        end)\
+        if url~=\"www.baidu.com\" then\
+          dlg.设置消极按钮(\"浏览链接\",function()\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)));\
+          end)\
+        end\
+        dlg.设置中立按钮(\"反馈\",function()--烟雨科技yanyukej.cn\
+          dialog=AlertDialog.Builder(this)\
+          .setTitle(\"问题反馈\")\
+          .setView(loadlayout(layout))\
+          .setPositiveButton(\"确定\",function()\
+            if qt.Text==\"\" and qc.Text==\"\"then\
+              print(\"？？？\")\
+            else\
+              local d={}\
+              d.Qtitle=\"sp反馈：\"..qt.Text\
+              d.Qcontent=qc.Text\
+              d.MobilType=tostring(Build.MODEL..\"，Android\"..Build.VERSION.RELEASE)--登记手机型号和系统版本\
+              d.UseTime=tostring(n)\
+              bb:insert(\"FeedBack\",d,function(code) 弹出消息(\"反馈成功\")end)\
+            end\
+          end)\
+          .setNegativeButton(\"取消\",nil)\
+          .show()\
+        end)\
+        .显示()\
+        --广播推送\
+\
+      end\
+      --定向推送\
+\
+      -- 烟雨qq3400353039\
+\
+    else\
+      --弹出消息(\"该公告已展示\")\
+    end\
+\
+\
+  else\
+    --弹出消息(\"服务器连接异常 code:\"..code)\
+  end\
+end)\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+" ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      } ;
+  ["toolbar"]	= {
+      ["menus"]	= {
+          [1]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["name"]	= "退出" ;
+              } ;
+          } ;
+      ["启用搜索功能"]	= false ;
+      ["输入栏模式"]	= true ;
+      ["搜索框提示"]	= "" ;
+      ["icon_btns"]	= {
+          } ;
+      ["搜索URL"]	= "" ;
+      } ;
+  ["web"]	= {
+      ["启用长按菜单"]	= false ;
+      ["启用进度条"]	= false ;
+      ["启动网页"]	= "" ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["支持打开外部应用"]	= false ;
+      ["网页沉浸"]	= false ;
+      } ;
+  ["global_js"]	= "" ;
+  ["switch"]	= {
+      ["显示状态栏"]	= true ;
+      ["启用启动图"]	= false ;
+      ["支持滑动页面"]	= false ;
+      ["横屏"]	= false ;
+      } ;
+  ["fltBtn"]	= {
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["图标"]	= "" ;
+      ["显示"]	= false ;
+      } ;
+  ["web_control"]	= {
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["顶栏标题"]	= "Title" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["顶栏高度"]	= "56dp" ;
+      } ;
+  } ;

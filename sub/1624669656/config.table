@@ -1,0 +1,212 @@
+{
+  ["web_control"]	= {
+      [1]	= {
+          ["remove_element"]	= "container jumbotron,site-header,footer hidden-print" ;
+          ["url"]	= "jiuli.xiaoapi.cn" ;
+          ["js"]	= "" ;
+          } ;
+      [2]	= {
+          ["remove_element"]	= "animated swing,animated bounceInRight,@ID(footer),@ID(boox_ce),font" ;
+          ["url"]	= "xiaoapi.cn" ;
+          ["js"]	= "//14:01-51\
+var JsHDued=function(v){try {new Function(v)();} catch(e) {setTimeout(function (){JsHDued(v);},100);};};\
+JsHDued(`document.getElementsByTagName(\"marquee\")[0].setAttribute(\"style\",\"display:none\");`);\
+\
+//14:03-52\
+var JsHDued=function(v){try {new Function(v)();} catch(e) {setTimeout(function (){JsHDued(v);},100);};};\
+JsHDued(`document.getElementsByTagName(\"img\")[22].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementById(\"right_me\").setAttribute(\"style\",\"display:none\");`);" ;
+          } ;
+      [3]	= {
+          ["remove_element"]	= "mdui-icon material-icons,mdui-typo-title,mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent" ;
+          ["url"]	= "lkaa.top" ;
+          ["js"]	= "" ;
+          } ;
+      [4]	= {
+          ["remove_element"]	= "site-header,box-text," ;
+          ["url"]	= "api.tianyi2006.xyz" ;
+          ["js"]	= "" ;
+          } ;
+      [5]	= {
+          ["remove_element"]	= "@ID(nr),site-header,gate ch,col-sm-12" ;
+          ["url"]	= "hehe.yixuedh.com" ;
+          ["js"]	= "" ;
+          } ;
+      [6]	= {
+          ["remove_element"]	= "searchBox,@ID(music)" ;
+          ["url"]	= "il6.cc" ;
+          ["js"]	= "" ;
+          } ;
+      [7]	= {
+          ["remove_element"]	= "" ;
+          ["url"]	= "23.224.230.35:88/jyapi" ;
+          ["js"]	= "//14:30-00\
+var JsHDued=function(v){try {new Function(v)();} catch(e) {setTimeout(function (){JsHDued(v);},100);};};\
+JsHDued(`document.getElementsByClassName(\"container\")[0].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByTagName(\"font\")[3].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"footer ch\")[0].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByTagName(\"nav\")[0].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"switch-player\")[1].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"switch-player\")[0].setAttribute(\"style\",\"display:none\");`);\
+" ;
+          } ;
+      [8]	= {
+          ["remove_element"]	= "@ID(header),@ID(logo),post-meta" ;
+          ["url"]	= "api.tangdouz.com" ;
+          ["js"]	= "//14:39-57\
+document.getElementsByTagName(\"h3\")[0].setAttribute(\"style\",\"display:none\");\
+document.getElementById(\"footer\").setAttribute(\"style\",\"display:none\");\
+document.getElementsByClassName(\"post-meta\")[0].setAttribute(\"style\",\"display:none\");" ;
+          } ;
+      [9]	= {
+          ["remove_element"]	= "" ;
+          ["url"]	= "www.xy1314.xyz" ;
+          ["js"]	= "" ;
+          } ;
+      } ;
+  ["global_js"]	= "\
+/**\
+ * 禁用动态添加脚本，防止广告加载\
+ *\
+ * @param valid bool? true(valid)|false(invalid)|other(off)\
+ * @param rule array 配置允许(valid)|不允许(invalid)的脚本规则：支持regex、string、function\
+ */\
+(function(valid, rule) {\
+    if(typeof Element === 'undefined') console.log('IE8以下浏览器无效');\
+    var origin = new RegExp('^' + location.origin),Ele = Element;\
+    each(['appendChild', 'insertBefore', 'insertAfter'], proxy);\
+\
+    function proxy(prop) {\
+        var proxy_obj = Ele.prototype[prop];\
+        Ele.prototype[prop] = function(elem) {\
+            if (!elem.children.length) {\
+                var tag = elem.tagName.toLowerCase();\
+                if (tag == 'script' && isBanScript(elem)) {\
+                    console.log('禁用脚本：' + elem.src);\
+                    var substitute = document.createElement('script');\
+                    substitute.innerHTML = '// 禁用脚本：' + elem.src;\
+                    elem = substitute;\
+                }\
+            }\
+            return proxy_obj.apply(this, arguments);\
+        };\
+    }\
+\
+    function isBanScript(script) {\
+        if (origin.test(script.src)) return false;\
+        return valid === each(rule, match);\
+\
+        function match(val) {\
+            var type = typeof val;\
+            if (type === 'string') {\
+                if (script.src == val) return true;\
+            } else if (type === 'function') {\
+                if (val(script)) return true;\
+            } else {\
+                if (val.test(script.src)) return true;\
+            }\
+            return false;\
+        }\
+    }\
+\
+    function each(arr, fn) {\
+        if (arr) {\
+            for (var i = 0, n = arr.length; i < n; i++) {\
+                if (fn.call(arr[i], arr[i], i) === true) return false;\
+            }\
+        }\
+        return true;\
+    }\
+})(true, []);\
+//表示有效的脚本规则列表\
+\
+\
+" ;
+  ["sidebar"]	= {
+      ["启用顶部图片"]	= false ;
+      ["items"]	= {
+          } ;
+      ["启用"]	= false ;
+      } ;
+  ["switch"]	= {
+      ["启用启动图"]	= false ;
+      ["支持滑动页面"]	= false ;
+      ["横屏"]	= false ;
+      ["显示状态栏"]	= true ;
+      } ;
+  ["events"]	= {
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      ["程序启动"]	= "--程序启动时会执行的事件" ;
+      ["网页加载完毕"]	= "" ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=...\
+if (链接==\"http://23.224.230.35:88/jyapi\") then\
+  加载Js([[//14:30-00\
+var JsHDued=function(v){try {new Function(v)();} catch(e) {setTimeout(function (){JsHDued(v);},100);};};\
+JsHDued(`document.getElementsByClassName(\"container\")[0].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByTagName(\"font\")[3].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"footer ch\")[0].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByTagName(\"nav\")[0].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"switch-player\")[1].setAttribute(\"style\",\"display:none\");`);\
+JsHDued(`document.getElementsByClassName(\"switch-player\")[0].setAttribute(\"style\",\"display:none\");`);\
+]])\
+end\
+" ;
+      } ;
+  ["web"]	= {
+      ["浏览器用户标识"]	= "默认" ;
+      ["支持打开外部应用"]	= true ;
+      ["启用长按菜单"]	= true ;
+      ["启用进度条"]	= true ;
+      ["启动网页"]	= "" ;
+      ["网页沉浸"]	= true ;
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["顶栏高度"]	= "56dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["顶栏标题"]	= "Title" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      } ;
+  ["toolbar"]	= {
+      ["启用搜索功能"]	= false ;
+      ["搜索URL"]	= "" ;
+      ["menus"]	= {
+          [1]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["name"]	= "退出" ;
+              } ;
+          } ;
+      ["搜索框提示"]	= "" ;
+      ["icon_btns"]	= {
+          } ;
+      ["输入栏模式"]	= false ;
+      } ;
+  ["colors"]	= {
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["顶栏"]	= "#ffffa2f3" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["进度条"]	= "#ff17ff5f" ;
+      } ;
+  ["fltBtn"]	= {
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["显示"]	= false ;
+      ["图标"]	= "" ;
+      } ;
+  } ;

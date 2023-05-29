@@ -1,0 +1,173 @@
+{
+  ["web"]	= {
+      ["网页沉浸"]	= true ;
+      ["默认广告标记标签"]	= "" ;
+      ["惰性加载"]	= true ;
+      ["启用进度条"]	= true ;
+      ["支持打开外部应用"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["启用长按菜单"]	= true ;
+      } ;
+  ["web_control"]	= {
+      [1]	= {
+          ["url"]	= "m.yhdmp.live" ;
+          ["remove_element"]	= "head,footer,sort" ;
+          ["js"]	= "" ;
+          } ;
+      } ;
+  ["global_js"]	= "\
+/**\
+ * 禁用动态添加脚本，防止广告加载\
+ *\
+ * @param valid bool? true(valid)|false(invalid)|other(off)\
+ * @param rule array 配置允许(valid)|不允许(invalid)的脚本规则：支持regex、string、function\
+ */\
+(function(valid, rule) {\
+    if(typeof Element === 'undefined') console.log('IE8以下浏览器无效');\
+    var origin = new RegExp('^' + location.origin),Ele = Element;\
+    each(['appendChild', 'insertBefore', 'insertAfter'], proxy);\
+\
+    function proxy(prop) {\
+        var proxy_obj = Ele.prototype[prop];\
+        Ele.prototype[prop] = function(elem) {\
+            if (!elem.children.length) {\
+                var tag = elem.tagName.toLowerCase();\
+                if (tag == 'script' && isBanScript(elem)) {\
+                    console.log('禁用脚本：' + elem.src);\
+                    var substitute = document.createElement('script');\
+                    substitute.innerHTML = '// 禁用脚本：' + elem.src;\
+                    elem = substitute;\
+                }\
+            }\
+            return proxy_obj.apply(this, arguments);\
+        };\
+    }\
+\
+    function isBanScript(script) {\
+        if (origin.test(script.src)) return false;\
+        return valid === each(rule, match);\
+\
+        function match(val) {\
+            var type = typeof val;\
+            if (type === 'string') {\
+                if (script.src == val) return true;\
+            } else if (type === 'function') {\
+                if (val(script)) return true;\
+            } else {\
+                if (val.test(script.src)) return true;\
+            }\
+            return false;\
+        }\
+    }\
+\
+    function each(arr, fn) {\
+        if (arr) {\
+            for (var i = 0, n = arr.length; i < n; i++) {\
+                if (fn.call(arr[i], arr[i], i) === true) return false;\
+            }\
+        }\
+        return true;\
+    }\
+})(true, []);\
+//表示有效的脚本规则列表\
+\
+\
+" ;
+  ["bottomBar"]	= {
+      [1]	= {
+          ["url"]	= "https://m.yhdmp.live" ;
+          ["statusBarColor"]	= "" ;
+          ["text"]	= "首页" ;
+          ["icon"]	= "drawable/home.png" ;
+          } ;
+      [2]	= {
+          ["url"]	= "https://m.yhdmp.live/list/" ;
+          ["statusBarColor"]	= "" ;
+          ["text"]	= "分类" ;
+          ["icon"]	= "drawable/view_list.png" ;
+          } ;
+      [3]	= {
+          ["url"]	= "https://m.yhdmp.live/recommend/" ;
+          ["statusBarColor"]	= "" ;
+          ["text"]	= "每日推荐" ;
+          ["icon"]	= "drawable/beats.png" ;
+          } ;
+      [4]	= {
+          ["url"]	= "https://m.yhdmp.live/playlog/" ;
+          ["statusBarColor"]	= "" ;
+          ["text"]	= "历史记录" ;
+          ["icon"]	= "drawable/ic_image_area.png" ;
+          } ;
+      } ;
+  ["events"]	= {
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+新标题=..." ;
+      ["程序启动"]	= "--程序启动时会执行的事件" ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  ["sidebar"]	= {
+      ["启用顶部图片"]	= false ;
+      ["items"]	= {
+          } ;
+      ["启用"]	= true ;
+      } ;
+  ["switch"]	= {
+      ["支持滑动页面"]	= true ;
+      ["横屏"]	= false ;
+      ["启用启动图"]	= false ;
+      ["显示状态栏"]	= true ;
+      } ;
+  ["colors"]	= {
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["顶栏"]	= "#ffff2e73" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["底栏"]	= "#ffffffff" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["进度条"]	= "#ffffffff" ;
+      ["底栏图标触摸波纹"]	= "#24000000" ;
+      ["悬浮按钮图标"]	= "#FFFFFF" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["底栏图标选中"]	= "#ffff2e45" ;
+      ["底栏图标"]	= "#ff46d2ff" ;
+      ["导航栏"]	= "#ff3ca1dd" ;
+      ["顶栏部件触摸"]	= "#ff46ff60" ;
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏高度"]	= "56dp" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["底栏图标大小"]	= "24dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["顶栏标题"]	= "樱花动漫" ;
+      ["底栏高度"]	= "48dp" ;
+      } ;
+  ["toolbar"]	= {
+      ["启用搜索功能"]	= true ;
+      ["输入栏模式"]	= true ;
+      ["icon_btns"]	= {
+          } ;
+      ["搜索URL"]	= "https://m.yhdmp.live/s_all?ex=1&kw=%s" ;
+      ["搜索框提示"]	= "" ;
+      ["menus"]	= {
+          [1]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["name"]	= "退出" ;
+              } ;
+          } ;
+      ["搜索功能"]	= false ;
+      } ;
+  } ;

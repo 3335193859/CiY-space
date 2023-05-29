@@ -1,0 +1,1436 @@
+{
+  ["view_attribute"]	= {
+      ["顶栏标题"]	= "Title" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["顶栏高度"]	= "56dp" ;
+      } ;
+  ["switch"]	= {
+      ["显示状态栏"]	= true ;
+      ["启用启动图"]	= false ;
+      ["横屏"]	= false ;
+      ["支持滑动页面"]	= true ;
+      } ;
+  ["web"]	= {
+      ["浏览器用户标识"]	= "默认" ;
+      ["启用进度条"]	= true ;
+      ["启动网页"]	= "" ;
+      ["支持打开外部应用"]	= true ;
+      ["网页沉浸"]	= false ;
+      ["启用长按菜单"]	= true ;
+      } ;
+  ["colors"]	= {
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["进度条"]	= "#00000000" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["顶栏"]	= "#ff2c2e43" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      } ;
+  ["toolbar"]	= {
+      ["搜索框提示"]	= "" ;
+      ["menus"]	= {
+          [1]	= {
+              ["name"]	= "退出" ;
+              ["onClick"]	= "退出页面()" ;
+              } ;
+          } ;
+      ["启用搜索功能"]	= false ;
+      ["输入栏模式"]	= true ;
+      ["搜索URL"]	= "" ;
+      ["icon_btns"]	= {
+          } ;
+      } ;
+  ["fltBtn"]	= {
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["显示"]	= true ;
+      ["图标"]	= "" ;
+      } ;
+  ["events"]	= {
+      ["程序启动"]	= "--程序启动时会执行的事件\
+\
+\
+require \"import\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+\
+--设置状态栏颜色\
+activity.getWindow().setStatusBarColor(0x00000000);\
+activity.setTheme(android.R.style.Theme_DeviceDefault_Light)\
+--设置顶部虚拟按键沉浸透明\
+activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)\
+--隐藏标题栏\
+--activity.ActionBar.hide()\
+\
+\
+--作者：寒武纪\
+--QQ加群：884322804\
+\
+\
+\
+程序版本=tostring(this.getPackageManager().getPackageInfo(this.getPackageName(),((782268899/2/2-8183)/10000-6-231)/9).versionName)\
+\
+全屏框架=--作者：寒武纪\
+--创建布局在这里\
+{\
+  ScrollView,--纵向滑动\
+  layout_width='fill';--宽度\
+  layout_height='fill';--高度\
+  VerticalScrollBarEnabled=false;--隐藏纵向滑条\
+  id='B';--布局写这\
+\
+  {\
+    LinearLayout,--线性布局\
+    orientation='vertical',--方向\
+    layout_width='fill',--宽度\
+    layout_height='fill',--高度\
+    background='#00FFFFFF',--背景颜色或图片路径\
+\
+    --paddingTop=状态栏高度()\
+\
+\
+    {\
+      LinearLayout,--线性布局\
+      gravity='center|bottom';--重力\
+      orientation='vertical',--方向\
+      layout_width='fill',--宽度\
+      layout_height='60%w',--高度\
+      background='tupian/wsid.jpg',--背景颜色或图片路径\
+      id=\"TX\";\
+\
+\
+\
+\
+\
+      {\
+        LinearLayout,--线性布局\
+        layout_margin='10dp';--边距\
+        --layout_marginBottom='10dp';--底距\
+        orientation='horizontal',--方向\
+        layout_width='fill',--宽度\
+        layout_height='100dp',--高度\
+        --background='#ff1e8ae8',--背景颜色或图片路径\
+        id=\"gg\";\
+        {\
+          CardView;--卡片控件\
+          layout_marginLeft='20dp';--左距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='5';--阴影\
+          layout_width='65dp';--宽度\
+          layout_height='65dp';--高度\
+          CardBackgroundColor='#ffffffff';--颜色\
+          radius='35dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='tupian/xiaomi.jpg';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+            id=\"tx\";\
+          };\
+        };\
+        {\
+          LinearLayout,--线性布局\
+          layout_marginTop='5dp';--顶距\
+          orientation='vertical',--方向\
+          layout_width='fill',--宽度\
+          layout_height='fill',--高度\
+          {\
+            LinearLayout,--线性布局\
+            layout_margin='12dp';--边距\
+            orientation='vertical',--方向\
+            layout_width='fill',--宽度\
+            {\
+              TextView;--文本控件\
+              textColor='#ffffffff';--文字颜色\
+              text='次元空间';--显示文字\
+              textSize='20dp';--文字大小\
+              id=\"falua\";\
+            };\
+            {\
+              TextView;--文本控件\
+              --layout_marginLeft='10dp';--左距\
+              textColor='#ffffffff';--文字颜色\
+              --text='只要你回头，我会一直在你身后！';--显示文字\
+              textSize='12dp';--文字大小\
+              id=\"年\";\
+            };\
+            {\
+              TextView;--文本控件\
+              --layout_marginLeft='10dp';--左距\
+              textColor='#ffffffff';--文字颜色\
+              --text='宁可得罪小人，也千万不要得罪女人！';--显示文字\
+              textSize='12dp';--文字大小\
+              id=\"时分秒\";\
+            };\
+          };\
+        };\
+      };\
+    };\
+\
+    {\
+      LinearLayout,--线性布局\
+      layout_marginTop='25dp';--顶距\
+      orientation='vertical',--方向\
+      layout_width='fill',--宽度\
+      layout_height='fill',--高度\
+      background='#00FFfFFF',--背景颜色或图片路径\
+      id=\"GY1\";\
+\
+      {\
+        LinearLayout,--线性布局\
+        --layout_marginTop='30dp';--顶距\
+        orientation='horizontal',--方向\
+        layout_width='fill',--宽度\
+        layout_height='40dp',--高度\
+        background='#ffffffff',--背景颜色或图片路径\
+        id=\"hanwuji\";\
+\
+        {\
+          CardView;--卡片控件\
+          layout_margin='10dp';--边距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='';--阴影\
+          layout_width='30dp';--宽度\
+          layout_height='30dp';--高度\
+          CardBackgroundColor='#ffffffff';--颜色\
+          radius='5dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='tupian/contacts_1.png';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+          };\
+        };\
+        {\
+          TextView;--文本控件\
+          gravity='center';--重力\
+          textColor='#98000000';--文字颜色\
+          text='作者：';--显示文字\
+          --textSize='16dp';--文字大小\
+          id=\"寒武纪\";\
+        };\
+\
+        {\
+          TextView;--文本控件\
+          gravity='left|center';--重力\
+          layout_width='fill';--宽度\
+          layout_height='fill';--高度\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          textColor='#98000000';--文字颜色\
+          text='Makoto Arai';--显示文字\
+          --textSize='14dp';--文字大小\
+\
+\
+        };\
+      };\
+\
+\
+\
+      {\
+        LinearLayout,--线性布局\
+        layout_marginTop='1dp';--顶距\
+        orientation='horizontal',--方向\
+        layout_width='fill',--宽度\
+        layout_height='40dp',--高度\
+        background='#ffffffff',--背景颜色或图片路径\
+        id=\"gg\";\
+\
+        {\
+          CardView;--卡片控件\
+          layout_margin='10dp';--边距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='';--阴影\
+          layout_width='30dp';--宽度\
+          layout_height='30dp';--高度\
+          CardBackgroundColor='#ffffffff';--颜色\
+          id=\"SDK\";\
+          radius='5dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='tupian/adm_1.png';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+          };\
+        };\
+        {\
+          TextView;--文本控件\
+          gravity='center';--重力\
+          textColor='#98000000';--文字颜色\
+          text='当前版本：';--显示文字\
+          --textSize='16dp';--文字大小\
+          id=\"更新\";\
+        };\
+        {\
+          TextView;--文本控件\
+          gravity='left|center';--重力\
+          layout_width='fill';--宽度\
+          layout_height='fill';--高度\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          textColor='#98000000';--文字颜色\
+          text=程序版本;--显示文字\
+          --textSize='14dp';--文字大小\
+        };\
+      };\
+      {\
+        LinearLayout,--线性布局\
+        layout_marginTop='1dp';--顶距\
+        orientation='horizontal',--方向\
+        layout_width='fill',--宽度\
+        layout_height='40dp',--高度\
+        background='#ffffffff',--背景颜色或图片路径\
+        id=\"jiac\";\
+\
+\
+        {\
+          CardView;--卡片控件\
+          layout_margin='10dp';--边距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='';--阴影\
+          layout_width='30dp';--宽度\
+          layout_height='30dp';--高度\
+          CardBackgroundColor='#ffffffff';--颜色\
+          id=\"GFQ\";\
+          radius='5dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='tupian/qq_1.png';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+          };\
+        };\
+        {\
+          TextView;--文本控件\
+          gravity='center';--重力\
+          textColor='#98000000';--文字颜色\
+          text='官方群：';--显示文字\
+          --textSize='16dp';--文字大小\
+          id=\"qq\";\
+        };\
+        {\
+          TextView;--文本控件\
+          gravity='left|center';--重力\
+          layout_width='fill';--宽度\
+          layout_height='fill';--高度\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          textColor='#98000000';--文字颜色\
+          text='902800414';--显示文字\
+          --textSize='14dp';--文字大小\
+        };\
+      };\
+      {\
+        LinearLayout,--线性布局\
+        layout_marginTop='1dp';--顶距\
+        orientation='horizontal',--方向\
+        layout_width='fill',--宽度\
+        layout_height='40dp',--高度\
+        background='#ffffffff',--背景颜色或图片路径\
+        id=\"lun\";\
+        {\
+          CardView;--卡片控件\
+          layout_margin='10dp';--边距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='';--阴影\
+          layout_width='30dp';--宽度\
+          layout_height='30dp';--高度\
+          CardBackgroundColor='#ffffffff';--颜色\
+          id=\"LT\";\
+          radius='5dp';--圆角\
+          {\
+            ImageView;--图片控件\
+            src='tupian/browser_1.png';--图片路径\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            scaleType='fitXY';--图片显示类型\
+          };\
+        };\
+        {\
+          TextView;--文本控件\
+          gravity='center';--重力\
+          textColor='#98000000';--文字颜色\
+          text='论坛：';--显示文字\
+          --textSize='16dp';--文字大小\
+          id=\"论坛\";\
+        };\
+        {\
+          TextView;--文本控件\
+          gravity='left|center';--重力\
+          layout_width='fill';--宽度\
+          layout_height='fill';--高度\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          textColor='#98000000';--文字颜色\
+          text='次元空间（建设中）';--显示文字\
+          --textSize='14dp';--文字大小\
+\
+        };\
+      };\
+\
+\
+      {\
+        LinearLayout,--线性布局\
+        layout_marginTop='25dp';--顶距\
+        orientation='vertical',--方向\
+        layout_width='fill',--宽度\
+        layout_height='fill',--高度\
+        background='#00FFFFFF',--背景颜色或图片路径\
+        id=\"GY2\";\
+\
+        {\
+          LinearLayout,--线性布局\
+          layout_marginTop='1dp';--顶距\
+          orientation='horizontal',--方向\
+          layout_width='fill',--宽度\
+          layout_height='40dp',--高度\
+          background='#ffffffff',--背景颜色或图片路径\
+          id=\"GY①\";\
+          {\
+            CardView;--卡片控件\
+            layout_margin='10dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='';--阴影\
+            layout_width='30dp';--宽度\
+            layout_height='30dp';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='5dp';--圆角\
+            {\
+              ImageView;--图片控件\
+              src='tupian/joke_essay_1.png';--图片路径\
+              layout_width='fill';--宽度\
+              layout_height='fill';--高度\
+              scaleType='fitXY';--图片显示类型\
+            };\
+          };\
+          {\
+            TextView;--文本控件\
+            gravity='center';--重力\
+            textColor='#98000000';--文字颜色\
+            text='功能来源：';--显示文字\
+            --textSize='16dp';--文字大小\
+            id=\"寒歌\";\
+          };\
+          {\
+            TextView;--文本控件\
+            gravity='left|center';--重力\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            textColor='#98000000';--文字颜色\
+            text='国内外优质网站';--显示文字\
+            --textSize='14dp';--文字大小\
+\
+          };\
+        };\
+\
+        {\
+          LinearLayout,--线性布局\
+          layout_marginTop='1dp';--顶距\
+          orientation='horizontal',--方向\
+          layout_width='fill',--宽度\
+          layout_height='40dp',--高度\
+          background='#ffffffff',--背景颜色或图片路径\
+          id=\"GY②\";\
+          {\
+            CardView;--卡片控件\
+            layout_margin='10dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='';--阴影\
+            layout_width='30dp';--宽度\
+            layout_height='30dp';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='5dp';--圆角\
+            {\
+              ImageView;--图片控件\
+              src='tupian/joke_essay_1.png';--图片路径\
+              layout_width='fill';--宽度\
+              layout_height='fill';--高度\
+              scaleType='fitXY';--图片显示类型\
+            };\
+          };\
+          {\
+            TextView;--文本控件\
+            gravity='center';--重力\
+            textColor='#98000000';--文字颜色\
+            text='开发编译器：';--显示文字\
+            --textSize='16dp';--文字大小\
+            id=\"小何\";\
+          };\
+          {\
+            TextView;--文本控件\
+            gravity='left|center';--重力\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            textColor='#98000000';--文字颜色\
+            text='基于Fusion APP1.0开发';--显示文字\
+            --textSize='14dp';--文字大小\
+\
+          };\
+        };\
+\
+        {\
+          LinearLayout,--线性布局\
+          layout_marginTop='1dp';--顶距\
+          orientation='horizontal',--方向\
+          layout_width='fill',--宽度\
+          layout_height='40dp',--高度\
+          background='#ffffffff',--背景颜色或图片路径\
+          id=\"GY③\";\
+          {\
+            CardView;--卡片控件\
+            layout_margin='10dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='';--阴影\
+            layout_width='30dp';--宽度\
+            layout_height='30dp';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='5dp';--圆角\
+            {\
+              ImageView;--图片控件\
+              src='tupian/joke_essay_1.png';--图片路径\
+              layout_width='fill';--宽度\
+              layout_height='fill';--高度\
+              scaleType='fitXY';--图片显示类型\
+            };\
+          };\
+          {\
+            TextView;--文本控件\
+            gravity='center';--重力\
+            textColor='#98000000';--文字颜色\
+            text='特别呜谢：';--显示文字\
+            --textSize='16dp';--文字大小\
+            id=\"星空\";\
+          };\
+          {\
+            TextView;--文本控件\
+            gravity='left|center';--重力\
+            layout_width='fill';--宽度\
+            layout_height='fill';--高度\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            textColor='#98000000';--文字颜色\
+            text='@寒武纪';--显示文字\
+            --textSize='14dp';--文字大小\
+\
+          };\
+        };\
+\
+        {\
+          LinearLayout,--线性布局\
+          layout_marginTop='25dp';--顶距\
+          orientation='vertical',--方向\
+          layout_width='fill',--宽度\
+          layout_height='fill',--高度\
+          background='#00FFFFFF',--背景颜色或图片路径\
+          id=\"GY3\";\
+          {\
+            LinearLayout,--线性布局\
+            layout_marginTop='1dp';--顶距\
+            orientation='horizontal',--方向\
+            layout_width='fill',--宽度\
+            layout_height='40dp',--高度\
+            background='#ffffffff',--背景颜色或图片路径\
+            id=\"GY④\";\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--边距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='30dp';--宽度\
+              layout_height='30dp';--高度\
+              CardBackgroundColor='#ffffffff';--颜色\
+              radius='5dp';--圆角\
+              {\
+                ImageView;--图片控件\
+                src='tupian/zcool_1.png';--图片路径\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                scaleType='fitXY';--图片显示类型\
+              };\
+            };\
+            {\
+              TextView;--文本控件\
+              gravity='center';--重力\
+              textColor='#98000000';--文字颜色\
+              text='源码提供：';--显示文字\
+              --textSize='16dp';--文字大小\
+              id=\"音六\";\
+            };\
+            {\
+              TextView;--文本控件\
+              gravity='left|center';--重力\
+              layout_width='fill';--宽度\
+              layout_height='fill';--高度\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              textColor='#98000000';--文字颜色\
+              text='Makoto Arai';--显示文字\
+              --textSize='14dp';--文字大小\
+\
+\
+            };\
+          };\
+\
+          {\
+            LinearLayout,--线性布局\
+            layout_marginTop='1dp';--顶距\
+            orientation='horizontal',--方向\
+            layout_width='fill',--宽度\
+            layout_height='40dp',--高度\
+            background='#ffffffff',--背景颜色或图片路径\
+            id=\"GY⑤\";\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--边距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='30dp';--宽度\
+              layout_height='30dp';--高度\
+              CardBackgroundColor='#ffffffff';--颜色\
+              radius='5dp';--圆角\
+              {\
+                ImageView;--图片控件\
+                src='tupian/zcool_1.png';--图片路径\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                scaleType='fitXY';--图片显示类型\
+              };\
+            };\
+            {\
+              TextView;--文本控件\
+              gravity='center';--重力\
+              textColor='#98000000';--文字颜色\
+              text='官方网站：';--显示文字\
+              --textSize='16dp';--文字大小\
+              id=\"杰西\";\
+            };\
+            {\
+              TextView;--文本控件\
+              gravity='left|center';--重力\
+              layout_width='fill';--宽度\
+              layout_height='fill';--高度\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              textColor='#98000000';--文字颜色\
+              text='攻城狮已经在开发了……';--显示文字\
+              --textSize='14dp';--文字大小\
+\
+            };\
+          };\
+\
+          {\
+            LinearLayout,--线性布局\
+            layout_marginTop='1dp';--顶距\
+            orientation='horizontal',--方向\
+            layout_width='fill',--宽度\
+            layout_height='40dp',--高度\
+            background='#ffffffff',--背景颜色或图片路径\
+            id=\"GY⑥\";\
+            {\
+              CardView;--卡片控件\
+              layout_margin='10dp';--边距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='';--阴影\
+              layout_width='30dp';--宽度\
+              layout_height='30dp';--高度\
+              CardBackgroundColor='#ffffffff';--颜色\
+              radius='5dp';--圆角\
+              {\
+                ImageView;--图片控件\
+                src='tupian/zcool_1.png';--图片路径\
+                layout_width='fill';--宽度\
+                layout_height='fill';--高度\
+                scaleType='fitXY';--图片显示类型\
+              };\
+            };\
+            {\
+              TextView;--文本控件\
+              gravity='center';--重力\
+              textColor='#98000000';--文字颜色\
+              text='更多：';--显示文字\
+              --textSize='16dp';--文字大小\
+              id=\"我爱java\";\
+            };\
+            {\
+              TextView;--文本控件\
+              gravity='left|center';--重力\
+              layout_width='fill';--宽度\
+              layout_height='fill';--高度\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              textColor='#98000000';--文字颜色\
+              text='请返回“科技之城”！';--显示文字\
+              --textSize='14dp';--文字大小\
+\
+\
+            };\
+          };\
+        };\
+      };\
+    };\
+  };\
+};\
+activity.setContentView(loadlayout(全屏框架))\
+\
+\
+\
+\
+import \"android.graphics.Paint\"\
+falua.getPaint().setFakeBoldText(true)\
+寒武纪.getPaint().setFakeBoldText(true)\
+更新.getPaint().setFakeBoldText(true)\
+qq.getPaint().setFakeBoldText(true)\
+论坛.getPaint().setFakeBoldText(true)\
+寒歌.getPaint().setFakeBoldText(true)\
+小何.getPaint().setFakeBoldText(true)\
+星空.getPaint().setFakeBoldText(true)\
+音六.getPaint().setFakeBoldText(true)\
+杰西.getPaint().setFakeBoldText(true)\
+我爱java.getPaint().setFakeBoldText(true)\
+\
+\
+\
+--水珠动画\
+function 水珠动画(view,time)\
+  import \"android.animation.ObjectAnimator\"\
+  ObjectAnimator().ofFloat(view,\"scaleX\",{1.2,.8,1.1,.9,1}).setDuration(time).start()\
+  ObjectAnimator().ofFloat(view,\"scaleY\",{1.2,.8,1.1,.9,1}).setDuration(time).start()\
+end\
+\
+\
+--调用方法\
+hanwuji.onClick=function()\
+\
+  --RippleHelper(hanwuji).RippleColor=0xFFFFFFFF--提示\
+  --Toast.makeText(activity, \"开发中\",Toast.LENGTH_SHORT).show()--提示\
+  function 查看QQ资料(账号)\
+    import \"android.content.Intent\"\
+    import \"android.net.Uri\"\
+    this.startActivity(Intent(Intent.ACTION_VIEW,Uri.parse(\"mqqapi://card/show_pslcard?uin=\"..账号)))\
+  end\
+  --调用方法\
+  查看QQ资料(3335193859)\
+\
+  水珠动画(hanwuji,300)\
+\
+end\
+\
+\
+--更新\
+--调用方法\
+gg.onClick=function()\
+  --程序启动时会执行的事件\
+  urla=\"http://www.iyuji.cn/iyuji/s/SkY0SVhKZ0hhNzNmQkprNkxUd2NiQT09/1622119871420484\"\
+  canoffline=false\
+  packinfo=this.getPackageManager().getPackageInfo(this.getPackageName(),((32552732/2/2-8183)/10000-6-231)/9)\
+  appinfo=this.getPackageManager().getApplicationInfo(this.getPackageName(),0)\
+  applabel=this.getPackageManager().getApplicationLabel(appinfo)\
+  appsign=tostring(packinfo.signatures[0].toCharsString())\
+  piracy=\"您使用的 \"..applabel..\" 非官方版本，可能已被篡改，为了您设备安全，杜绝木马病毒，请勿运行此版本，如需使用，请下载官方版本\"\
+  import \"android.content.Context\"\
+  Http.get(urla,nil,\"UTF-8\",nil,function(code,content)\
+    if(code==200 and content)then\
+      content=content:gsub(\"amp;\",\"\") or content;\
+      update=content:match(\"%{更新:(.-):END%}\")\
+      if(update)then\
+        newest=update:match(\"%【版本:(.-):END%】\")\
+        qyysize=update:match(\"%【大小:(.-):END%】\")\
+        if(update:match(\"%【强制更新:(.-):END%】\")==\"TRUE\")then\
+          force=true\
+        else\
+          force=false\
+        end\
+        if(update:match(\"%【版本号更新:(.-):END%】\")==\"TRUE\" )then\
+          usevername=true\
+        else\
+          usevername=false\
+        end\
+        if(usevername)then\
+          version=tostring(packinfo.versionName)\
+        else\
+          version=tostring(packinfo.versionCode)\
+        end\
+        chglog=update:match(\"%【更新日志:(.-):END%】\")\
+        蓝奏云下载链接=content:match(\"【下载地址】(.-)【下载地址】\")\
+        if not((usevername and version==newest) or (not usevername and version>=newest))then\
+          junyang={\
+            LinearLayout;\
+            layout_width=\"fill\",\
+            layout_height=\"170dp\",\
+            orientation=\"vertical\";\
+            Focusable=true,\
+            FocusableInTouchMode=true,\
+            --[[{\
+            Button;\
+            textColor=\"#FFFFFFFF\";\
+            backgroundColor=\"#FF3C8BDA\";\
+            id=\"tuichu\";\
+            layout_width=\"fill\";\
+            layout_height=\"5dp\";\
+          };]]--\
+            {\
+              LinearLayout,\
+              gravity=\"center\";\
+              layout_width=\"fill\",\
+              layout_height=\"150dp\",\
+              layout_gravity=\"center\";\
+              background='gx.png';--布局背景颜色(或者图片路径)\
+              {\
+                TextView;\
+                textSize=\"23sp\";\
+\
+                textColor=\"#FFffffff\";\
+                text=\"发现新版本\"..newest,\
+                gravity=\"center\";\
+                textStyle=\"bold\",\
+              };\
+            },\
+\
+            {\
+              LinearLayout,\
+              orientation=\"horizontal\",\
+              gravity=\"center\";\
+              layout_width=\"fill\",\
+              layout_height=\"wrap\",\
+              layout_marginBottom=\"5dp\";\
+\
+              {\
+                LinearLayout,\
+                orientation=\"horizontal\",\
+                gravity=\"center|left\";\
+                layout_width=\"40%w\",\
+                layout_height=\"5%h\",\
+\
+                {\
+                  TextView;\
+                  textSize=\"13sp\";\
+                  layout_marginLeft=\"5%w\";\
+                  textColor=\"#FFF37374\";\
+                  text=\"当前版本: \",\
+                };\
+                {\
+                  TextView;\
+                  text=version,\
+                  textSize=\"13sp\";\
+                  textColor=\"0xFFF37374\";\
+                  id=\"text1\";\
+                };\
+              },\
+\
+              {\
+                LinearLayout,\
+                orientation=\"horizontal\",\
+                gravity=\"center|right\";\
+                layout_width=\"40%w\",\
+                layout_height=\"5%h\",\
+                {\
+                  TextView;\
+                  textSize=\"13sp\";\
+                  textColor=\"#FFF37374\";\
+                  text=\"新版大小 : \",\
+                };\
+                {\
+                  TextView;\
+                  text=qyysize..\"mb\",\
+                  layout_marginRight=\"5%w\";\
+                  textSize=\"13sp\";\
+                  lines=\"1\",\
+                  textColor=\"0xFFF37374\";\
+                  id=\"text2\";\
+                };\
+              },\
+            },\
+\
+            {\
+              LinearLayout,\
+              gravity=\"left\";\
+              layout_width=\"80%w\",\
+              layout_height=\"wrap\",\
+              layout_marginTop=\"5dp\";\
+              {\
+                ScrollView,\
+                VerticalScrollBarEnabled=false;\
+                layout_width=\"fill\";\
+                layout_height=\"fill\";\
+\
+                {\
+                  LinearLayout,\
+                  orientation=\"vertical\",\
+                  layout_width=\"fill\";\
+                  layout_height=\"fill\";\
+                  id=\"dc\";\
+\
+                  {\
+                    TextView;\
+                    textSize=\"13sp\";\
+                    layout_margin=\"10dp\";\
+                    textColor=\"#FF808080\";\
+                    text=chglog,\
+\
+                    textStyle=\"bold\",\
+\
+                  };\
+                },\
+              },\
+            },\
+\
+            --[[{\
+            TextView;\
+            text=\"\";\
+            textSize=\"15\";\
+            textColor=\"#FF000000\";\
+            layout_width=\"fill\";\
+            layout_height=\"1dp\";\
+            backgroundColor=\"#FFF3F3F3\";\
+          };]]\
+            {\
+              LinearLayout;\
+              gravity=\"center\";\
+              layout_gravity=\"center\";\
+              orientation=\"horizontal\";\
+              layout_width=\"fill\";\
+              layout_height=\"51dp\";\
+              {\
+                TextView;\
+                gravity=\"center\";\
+                layout_width=\"30%w\";\
+                layout_height=\"6%h\";\
+                textColor=\"#ffffffff\";\
+                layout_marginTop='-1%h';--布局顶距\
+                text=\"取消\";\
+                id=\"jq\";\
+                style=\"?android:attr/buttonBarButtonStyle\";\
+                --textSize=\"15\";\
+              };\
+              {\
+                TextView;\
+                text=\"\";\
+                textSize=\"15\";\
+                textColor=\"#FFffffff\";\
+                layout_width=\"30dp\";\
+                layout_height=\"-1\";\
+                --backgroundColor=\"#FFF3F3F3\";\
+              };\
+\
+              {\
+                TextView;\
+                gravity=\"center\";\
+                layout_width=\"30%w\";\
+                layout_height=\"6%h\";\
+                textColor=\"#ffffffff\";\
+                layout_marginTop='-1%h';--布局顶距\
+                text=\"立即更新\";\
+                id=\"sj1\";\
+                style=\"?android:attr/buttonBarButtonStyle\";\
+                --textSize=\"15\";\
+              };\
+            };\
+\
+          }\
+\
+          update_dialog= LuaDialog(this)\
+          import \"android.text.SpannableString\"\
+          import \"android.text.style.ForegroundColorSpan\"\
+          import \"android.text.Spannable\"\
+          update_dialog.show()\
+          update_dialog.getWindow().setContentView(loadlayout(junyang));\
+          update_dialog.setCanceledOnTouchOutside(false)\
+          update_dialog.setCancelable(false)--设置为false点击返回键无法关闭更新对话框。\
+          import \"android.graphics.drawable.ColorDrawable\"\
+\
+          function CircleButton(view,radiu,InsideColor,半圆,left_jb,right_jb)\
+            import \"android.graphics.drawable.GradientDrawable\"\
+            drawable = GradientDrawable(GradientDrawable.Orientation.TR_BL,{\
+              left_jb,--左色\
+              right_jb,--右色\
+            });\
+            drawable.setShape(GradientDrawable.RECTANGLE)\
+            drawable.setColor(InsideColor)\
+            drawable.setCornerRadii({半圆,radiu,半圆,radiu,radiu,radiu,radiu,radiu});\
+            view.setBackgroundDrawable(drawable)\
+          end\
+          CircleButton(sj1,360,0xFFF37374,360)\
+          CircleButton(jq,360,0xFFF37374,360)\
+\
+\
+          jq.onClick=function(v)\
+            update_dialog.dismiss()\
+            print(\"更新最新版本体验更佳哦~\")\
+          end\
+          sj1.onClick=function(v)\
+            update_dialog.dismiss() --关闭更新弹窗\
+            import \"android.content.Intent\"\
+            import \"android.net.Uri\"\
+            url=蓝奏云下载链接\
+            viewIntent = Intent(\"android.intent.action.VIEW\",Uri.parse(url))\
+            activity.startActivity(viewIntent)\
+            print(\"已为你跳转到浏览器更新！\")\
+            退出页面()\
+          end\
+\
+        else\
+          --dialog2.dismiss()\
+          --提示(\"已是最新版\")\
+          return true\
+        end\
+      else\
+        return true\
+      end\
+    else\
+      if(code==-1)then\
+        --dialog2.dismiss()\
+        弹出消息(\"无法连接网络，请检查您的网络设置\")\
+      else\
+        -- dialog2.dismiss()\
+        弹出消息(\"网络请求失败\"..\" \"..code)\
+      end\
+      -- return (canoffline or 退出页面())\
+    end\
+\
+    --end\
+  end)\
+\
+\
+  --远程更新代码结束\
+  水珠动画(gg,300)\
+end\
+\
+\
+\
+--QQ加群\
+jiac.onClick=function()\
+\
+  function 加QQ群(群号)\
+    import \"android.content.Intent\"\
+    import \"android.net.Uri\"\
+    activity.startActivity(Intent(Intent.ACTION_VIEW,Uri.parse(\"mqqapi://card/show_pslcard?src_type=internal&version=1&uin=\"..群号..\"&card_type=group&source=qrcode\")))\
+  end\
+  --调用方法\
+  加QQ群(902800414)\
+\
+  -- RippleHelper(gg).RippleColor=0xFFFFFFFF--提示\
+  Toast.makeText(activity, \"加群\",Toast.LENGTH_SHORT).show()--提示--顶话题\
+\
+  水珠动画(jiac,300)\
+end\
+\
+\
+\
+\
+--论坛\
+lun.onClick=function()\
+\
+  --加群(884322804)\
+  --顶话题\
+  -- RippleHelper(lun).RippleColor=0xFFFFFFFF--提示--顶话题\
+  Toast.makeText(activity, \"开发中\",Toast.LENGTH_SHORT).show()--提示--顶话题\
+\
+  水珠动画(lun,300)\
+end\
+\
+\
+\
+page=0\
+tx.onClick=function()\
+  --注意，与应用启动时执行的事件那还有个代码\
+  --page变量和打开的page页仅做演示，可自行更改\
+  --其实这是很简单的一个东西\
+  page=page+1\
+  --记录点击\
+\
+  if(page==11)then\
+    --6为点击次数，可修改\
+    进入子页面(\"开发者模式\")\
+    --进入子页面\
+    --请复制到fa里面测试，否则会报错\
+    require \"import\"\
+    import \"android.graphics.drawable.ColorDrawable\"\
+    import \"android.transition.Visibility\"\
+    import \"android.opengl.Visibility\"\
+    import \"android.widget.*\"\
+    import \"android.view.*\"\
+    import \"android.view.animation.*\"\
+    local Roundeddialog={}\
+    local n={}\
+    n.we1='1'\
+    n.we2='1'\
+    n.we3='1'\
+    function n.fun1()\
+\
+    end\
+\
+    function n.fun2()\
+\
+    end\
+\
+    function n.fun3()\
+\
+    end\
+\
+    function n.退出()\
+      local Alpha=AlphaAnimation(1,0)\
+      Alpha.setDuration(150)\
+      task(150,function()\
+        back.setAlpha(0)\
+      end)\
+      task(150,function()\
+        pop.dismiss()\
+      end)\
+      task(1,function()\
+        back.startAnimation(Alpha)\
+      end)\
+    end\
+\
+    function 圆角对话框()\
+      return Roundeddialog\
+    end\
+\
+    function Roundeddialog.设置标题(text)\
+      n.title=text\
+      return Roundeddialog\
+    end\
+\
+    function Roundeddialog.设置消息(text)\
+      n.text=text\
+      return Roundeddialog\
+    end\
+\
+    function Roundeddialog.设置积极按钮(text,fun)\
+      n.button3=text\
+      if fun then\
+        n.fun3=fun\
+      end\
+      return Roundeddialog\
+    end\
+    function Roundeddialog.设置消极按钮(text,fun)\
+      n.button1=text\
+      if fun then\
+        n.fun1=fun\
+      end\
+      return Roundeddialog\
+    end\
+\
+    function Roundeddialog.设置中立按钮(text,fun)\
+      n.button2=text\
+      if fun then\
+        n.fun2=fun\
+      end\
+      return Roundeddialog\
+    end\
+\
+    n.radius='4dp'\
+\
+    function Roundeddialog.显示()\
+      local viewlayout={\
+        RelativeLayout,\
+        id='back',\
+        layout_height=-1,\
+        layout_width=-1,\
+        backgroundColor=\"#00000000\",\
+        onClick=function()\
+          n.退出()\
+        end,\
+        {\
+          CardView,\
+          id='card',\
+          Visibility=\"invisible\",\
+          layout_column='1',\
+          layout_height=-2,\
+          layout_width='85%w',\
+          layout_centerInParent=\"true\",\
+          CardElevation=\"24dp\",\
+          CardBackgroundColor=\"#ffffff\",\
+          Radius=n.radius,\
+          onClick=function()\
+            return true\
+          end,\
+          {\
+            RelativeLayout,\
+            layout_width=\"match_parent\",\
+            layout_height=\"wrap_content\",\
+            padding='10dp',\
+            {\
+              TextView,\
+              id='retitle',\
+              text=n.title,\
+              gravity='left',\
+              layout_margin=\"40\",\
+              layout_width='match_parent',\
+              textSize='18sp',\
+              textStyle='bold',\
+              layout_height=-2,\
+              textColor='#b3000000',\
+            },\
+            {\
+              TextView,\
+              id='retext',\
+              layout_below=\"retitle\",\
+              layout_width='match_parent',\
+              layout_height='wrap_content',\
+              text=n.text,\
+              layout_marginLeft='70',\
+              layout_marginRight='70',\
+              padding='10dp',\
+              textColor='#88000000',\
+            },\
+            {\
+              LinearLayout,\
+              layout_width=-1,\
+              layout_height=-2,\
+              layout_below='retext',\
+              layout_marginTop='30',\
+              layout_marginBottom='30',\
+              orientation=\"horizontal\",\
+              {\
+                TextView,\
+                layout_width='0dp',\
+                layout_height=-2,\
+                layout_weight=\"1.0\",\
+                gravity='center',\
+                textSize='15sp',\
+                textStyle='bold',\
+                textColor='#FF1888E8',\
+                text=n.button1,\
+                backgroundColor=\"#00000000\",\
+                onClick=function()\
+                  n.fun1()\
+                  n.退出()\
+                end,\
+              },\
+              {\
+                TextView,\
+                layout_width='0dp',\
+                layout_height=-2,\
+                layout_weight=\"1.0\",\
+                gravity='center',\
+                textStyle='bold',\
+                textSize='15sp',\
+                textColor='#FF1888E8',\
+                text=n.button2,\
+                backgroundColor=\"#00000000\",\
+                onClick=function()\
+                  n.fun2()\
+                  n.退出()\
+                end,\
+              },\
+              {\
+                TextView,\
+                layout_width='0dp',\
+                layout_height=-2,\
+                layout_weight=\"1.0\",\
+                gravity='center',\
+                textStyle='bold',\
+                textSize='15sp',\
+                textColor='#FF1888E8',\
+                text=n.button3,\
+                backgroundColor=\"#00000000\",\
+                onClick=function()\
+                  n.fun3()\
+                  n.退出()\
+                end,\
+              },\
+            },\
+          },\
+        },\
+      }\
+\
+\
+\
+\
+      we=activity.getWidth()\
+      he=activity.getHeight()\
+      task(1,function()\
+        pop=PopupWindow(loadlayout(viewlayout))\
+        pop.setFocusable(true)\
+        pop.setWidth(we)\
+        pop.setHeight(he)\
+        pop.setTouchable(true)\
+        pop.setOutsideTouchable(true)\
+        pop.setBackgroundDrawable(ColorDrawable(0x00000000))\
+        pop.showAtLocation(webView,Gravity.CENTER,0,0)\
+        card.setVisibility(View.VISIBLE)\
+        local Alpha=AlphaAnimation(0,1)\
+        Alpha.setDuration(200)\
+        task(1,function()\
+          back.setBackgroundDrawable(ColorDrawable(0x00000000))\
+          back.startAnimation(Alpha)\
+        end)\
+      end)\
+    end\
+\
+    圆角对话框()\
+    .设置标题(\"警告⚠️\")\
+    .设置消息(\"本入口为开发者获取次元空间源码专用通道，无关人员请离开！\")\
+    .设置积极按钮(\"我是开发者\",function()\
+      进入子页面(\"开发者模式\")\
+      print(\"欢迎加入次元空间开发！！\")\
+    end)\
+    .设置消极按钮(\"\")\
+    .显示()\
+    page=0\
+    --点击次数归零\
+    --此处可以添加其他操作\
+  end\
+\
+  --还可添加其它操作，如点击后需进行密码验证再进行操作\
+\
+end\
+\
+\
+\
+\
+\
+\
+\
+function 月份()\
+  年份()\
+end\
+\
+function 年份()\
+  年.setText(os.date(\"%Y年-%m月-%d日-星期%w\"))--获取当前系统时间\
+end\
+\
+function 刷新()\
+  require \"import\"\
+  while true do--执行循环命令\
+    Thread.sleep(100)--延迟执行\
+    call(\"月份\")\
+  end\
+end\
+\
+thread(刷新)--运行线程,循环刷新时间\
+\
+\
+\
+\
+\
+\
+--本地系统时间\
+function 时间()\
+  时间秒()\
+end\
+\
+function 时间秒()\
+  时分秒.setText(os.date(\"%H时:%M分:%S秒\"))--获取当前系统时间\
+end\
+\
+function 刷新()\
+  require \"import\"\
+  while true do--执行循环命令\
+    Thread.sleep(100)--延迟执行\
+    call(\"时间\")\
+  end\
+end\
+\
+thread(刷新)--运行线程,循环刷新时间\
+--[[\
+设置下划线(时分秒,1)\
+\
+\
+]]\
+\
+import \"android.view.animation.TranslateAnimation\"\
+平移动画=TranslateAnimation(0, 0, -600, 0)\
+平移动画.setDuration(600)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+TX.startAnimation(平移动画)\
+平移动画=TranslateAnimation(-600, 1, 1, 0)\
+平移动画.setDuration(800)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+--绑定动画\
+GY1.startAnimation(平移动画)\
+平移动画=TranslateAnimation(-600, 1, 1, 0)\
+平移动画.setDuration(1200)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+GY2.startAnimation(平移动画)\
+平移动画=TranslateAnimation(-600, 1, 1, 0)\
+平移动画.setDuration(1600)--设置动画时间\
+平移动画.setFillAfter(true)--设置动画后停留位置\
+平移动画.setRepeatCount(0)--设置无限循环\
+GY3.startAnimation(平移动画)\
+import \"android.view.animation.ScaleAnimation\"\
+import \"android.view.animation.Animation\"\
+缩放动画=ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,0.5,Animation.RELATIVE_TO_SELF,0.5)\
+缩放动画.setDuration(1200)--设置动画时间\
+缩放动画.setFillAfter(true)--设置动画后停留位置\
+缩放动画.setRepeatCount(0)--设置无限循环\
+GY①.startAnimation(缩放动画)\
+GY②.startAnimation(缩放动画)\
+GY③.startAnimation(缩放动画)\
+缩放动画=ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,0.5,Animation.RELATIVE_TO_SELF,0.5)\
+缩放动画.setDuration(1600)--设置动画时间\
+缩放动画.setFillAfter(true)--设置动画后停留位置\
+缩放动画.setRepeatCount(0)--设置无限循环\
+GY④.startAnimation(缩放动画)\
+GY⑤.startAnimation(缩放动画)\
+GY⑥.startAnimation(缩放动画)\
+缩放动画=ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,0.5,Animation.RELATIVE_TO_SELF,0.5)\
+缩放动画.setDuration(1000)--设置动画时间\
+缩放动画.setFillAfter(true)--设置动画后停留位置\
+缩放动画.setRepeatCount(0)--设置无限循环\
+tx.startAnimation(缩放动画)\
+\
+function 三色渐变(控件,左色,中色,右色,圆角)\
+  import \"android.graphics.drawable.GradientDrawable\"\
+  drawable = GradientDrawable(GradientDrawable.Orientation.TR_BL,{左色,中色,右色});\
+  drawable.setCornerRadii({圆角,圆角,圆角,圆角,圆角,圆角,圆角,圆角});\
+  控件.setBackgroundDrawable(drawable)\
+end\
+--调用方法\
+三色渐变(B,0xffff81e8,0x9e6500ff,0xee00c1ff,0)\
+\
+\
+\
+\
+\
+\
+\
+" ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      } ;
+  ["sidebar"]	= {
+      ["启用"]	= true ;
+      ["启用顶部图片"]	= false ;
+      ["items"]	= {
+          } ;
+      } ;
+  ["web_control"]	= {
+      } ;
+  } ;
